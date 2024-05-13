@@ -5,7 +5,7 @@ require("tokyonight").setup({
 	style="storm"
 })
 
-vim.cmd("colorscheme tokyonight-storm")
+vim.cmd("colorscheme onedark")
 
 vim.wo.number = true
 

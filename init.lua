@@ -12,3 +12,5 @@ vim.wo.number = true
 require("toggleterm").setup({
 	open_mapping = [[<c-t>]]
 })
+
+require("feline").setup()

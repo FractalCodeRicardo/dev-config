@@ -1,4 +1,5 @@
 {
+  "feline.nvim": { "branch": "0.5-compat", "commit": "528d6ec3a29c0d1ce6afcd145d02965f4207f61e" },
   "lazy.nvim": { "branch": "main", "commit": "af6afefbb46ab29a8a1db69536b04290a9403876" },
   "nvim-tree.lua": { "branch": "master", "commit": "78c4c083ed5d47e7fab7627d78ce33d3bcfb88f0" },
   "nvim-web-devicons": { "branch": "master", "commit": "5b9067899ee6a2538891573500e8fd6ff008440f" },

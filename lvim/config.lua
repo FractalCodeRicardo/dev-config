@@ -5,7 +5,7 @@
 -- Discord: https://discord.com/invite/Xb9B4N
 --
 
--- Keys
+-- KEYS
 -- jk to enter normal mode  
 lvim.keys.insert_mode["jk"] = "<Esc>"
 
@@ -13,6 +13,20 @@ lvim.keys.insert_mode["jk"] = "<Esc>"
 lvim.keys.normal_mode["<C-s>"] = ":w<CR>"
 lvim.keys.insert_mode["<C-s>"] = "<Esc>:w<CR>"
 lvim.keys.visual_mode["<C-s>"] = "<Esc>:w<CR>"
+
+-- open terminal in horizontal split
+vim.api.nvim_set_keymap('n', '<C-t>', ':split | term<CR>', { noremap = true, silent = true })
+
+
+-- KEYS FOR DAP
+-- F5 to continue debugging
+vim.api.nvim_set_keymap('n', '<F5>', ':lua require"dap".continue()<CR>', { noremap = true, silent = true })
+-- F10 to step over
+vim.api.nvim_set_keymap('n', '<F10>', ':lua require"dap".step_over()<CR>', { noremap = true, silent = true })
+-- F11 to step into
+vim.api.nvim_set_keymap('n', '<F11>', ':lua require"dap".step_into()<CR>', { noremap = true, silent = true })
+-- F12 to step out
+vim.api.nvim_set_keymap('n', '<F12>', ':lua require"dap".step_out()<CR>', { noremap = true, silent = true })
 
 
 
@@ -33,7 +47,7 @@ dap.configurations.cs = {
         name = 'Launch',
         request = 'launch',
         program = function()
-            local dir = vim.fn.getcwd(); 
+            local dir = vim.fn.getcwd();
             local project_name = vim.fn.fnamemodify(dir, ':t');
             local dll_path = dir .. '/bin/Debug/net8.0/' .. project_name .. '.dll';
             vim.notify(dll_path);

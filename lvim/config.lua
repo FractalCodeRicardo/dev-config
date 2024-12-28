@@ -86,3 +86,17 @@ dap.configurations.cs = {
     end,
   },
 }
+
+require("lvim.lsp.manager").setup("omnisharp", {
+  cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+  filetypes = { "cs", "vb" }, -- C# and VB file types
+  root_dir = function(fname)
+    return vim.fn.getcwd()    -- Use the current working directory as the root
+  end,
+  settings = {
+    omnisharp = {
+      enableRoslynAnalyzers = true,   -- Enable Roslyn analyzers (optional)
+      organizeImportsOnFormat = true, -- Automatically organize imports on save (optional)
+    }
+  }
+})

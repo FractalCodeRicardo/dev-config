@@ -46,8 +46,10 @@ lvim.keys.visual_mode["<C-s>"] = "<Esc>:w<CR>"
 -- open terminal in horizontal split
 vim.api.nvim_set_keymap('n', '<C-t>', ':split | term<CR>', { noremap = true, silent = true })
 
+-- ctr + backspace delete word
+vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', { noremap = true, silent = true })
 
--- KEYS FOR DAP
+-- KEYS
 -- F5 to continue debugging
 vim.api.nvim_set_keymap('n', '<F5>', ':lua require"dap".continue()<CR>', { noremap = true, silent = true })
 -- F10 to step over
@@ -61,13 +63,18 @@ vim.api.nvim_set_keymap('n', '<F12>', ':lua require"dap".step_out()<CR>', { nore
 -- CODE
 lvim.format_on_save.enabled = true
 
+--TELESCOPE
+-- Map Ctrl + P to open Telescope file finder
+lvim.keys.normal_mode["<C-p>"] = "<cmd>Telescope find_files<cr>"
+
+
 -- DAP Configuration
 local dap = require("dap")
 
 -- Adapter for .NET Core
 dap.adapters.coreclr = {
   type = 'executable',
-  command = '/home/ricardo/netcoredbg/netcoredbg', -- Path to netcoredbg
+  command = 'netcoredbg', -- Path to netcoredb
   args = { '--interpreter=vscode' },
 }
 
@@ -78,14 +85,26 @@ dap.configurations.cs = {
     name = 'Launch',
     request = 'launch',
     program = function()
-      local dir = vim.fn.getcwd();
-      local project_name = vim.fn.fnamemodify(dir, ':t');
-      local dll_path = dir .. '/bin/Debug/net8.0/' .. project_name .. '.dll';
-      vim.notify(dll_path);
-      return dll_path;
+      local selector = require('projectselector');
+      local project = selector.select()
+
+      if project == nil then
+        return nil
+      end
+
+      local project_name = project:match("([^\\]+)%.csproj$")
+
+      -- Extract the base directory from the .csproj path
+      local base_dir = project:match("(.+)\\[^\\]+%.csproj$")
+
+      -- Construct the DLL path
+      local dll_path = base_dir .. "\\bin\\Debug\\net8.0\\win-x64\\" .. project_name .. ".dll"
+      print(dll_path)
+      return dll_path
     end,
   },
 }
+
 
 require("lvim.lsp.manager").setup("omnisharp", {
   cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },

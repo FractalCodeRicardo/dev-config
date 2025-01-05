@@ -1,0 +1,13 @@
+ shift + ^ -> first non empty character
+ () -> up and down one sentence
+ ctr d u -> up and down half page
+ shift I insert at the begining of the line
+ yi{ -> copiar dentro de {}
+ ya{ -> copiar con todo y {}
+  
+.  repeat
+== autoindent
+<> indent right of left 
+
+var a = "";
+var a2 = "";

@@ -24,4 +24,4 @@ map.set({ "n", "v", "i" }, "<C-S>", "<C-c>:update<cr>", { silent = true, desc = 
 
 -- LSP
 
-map.set("n", "<C-S-f>", vim.lsp.buf.format, options)
+map.set("n", "<S-A-f>", vim.lsp.buf.format, options)

@@ -23,5 +23,7 @@ map.set('n', '<C-z>', 'u', options)
 map.set({ "n", "v", "i" }, "<C-S>", "<C-c>:update<cr>", { silent = true, desc = "Save" })
 
 -- LSP
-
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
 map.set("n", "<S-A-f>", vim.lsp.buf.format, options)
+map.set("n", "<C-q>", vim.lsp.buf.code_action, options)
+map.set('n', '<C-k>', vim.lsp.buf.hover, options)

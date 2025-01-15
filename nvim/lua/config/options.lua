@@ -8,3 +8,4 @@ opt.shiftwidth = 3
 
 vim.wo.number = true
 opt.relativenumber = true
+opt.termguicolors = true

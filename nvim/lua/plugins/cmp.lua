@@ -26,6 +26,7 @@ return {
 
                  }),
                 sources = cmp.config.sources({
+                        { name = "codeium" },
                         { name = 'nvim_lsp' },
                         { name = 'nvim_lsp_signature_help' }
                     },
@@ -35,5 +36,11 @@ return {
                     })
             })
         end
+    },
+    { 
+       'windwp/nvim-autopairs',
+       config = function ()
+         require("nvim-autopairs").setup({}) 
+       end
     }
 }

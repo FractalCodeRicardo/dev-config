@@ -6,3 +6,4 @@ require("config.options")
 --vim.cmd("colorscheme onedark")
 vim.cmd("colorscheme one_monokai")
 
+

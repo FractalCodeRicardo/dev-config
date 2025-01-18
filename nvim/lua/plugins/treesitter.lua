@@ -6,7 +6,13 @@ return {
       require('nvim-treesitter.configs').setup {
          highlight = {
             enabled = true
+         },
+         indent = {
+            enabled = true
          }
       }
+
+      vim.o.foldmethod = 'manual'
+      vim.o.foldenable = false
    end
 }

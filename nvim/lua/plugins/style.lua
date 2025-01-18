@@ -1,6 +1,10 @@
---return {
---   'navarasu/onedark.nvim'
---}
+-- return {
+--    'navarasu/onedark.nvim',
+--    opts = {
+--       style = "darker"
+--
+--    }
+-- }
 return {
    {
       "folke/tokyonight.nvim",
@@ -34,6 +38,12 @@ return {
    },
    {
       "cpea2506/one_monokai.nvim",
+   },
+   {
+      "rebelot/kanagawa.nvim",
+      opts = {
+         theme = "wave"
+      }
    }
 
 

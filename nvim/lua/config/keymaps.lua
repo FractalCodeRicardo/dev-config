@@ -24,7 +24,7 @@ map.set('n', '<C-z>', 'u', options)
 map.set({ "n", "v", "i" }, "<C-S>", "<C-c>:update<cr>", { silent = true, desc = "Save" })
 
 
-map.set("n", "q", ":cclose<cr>", options)
+--map.set("n", "q", ":cclose<cr>", options)
 -- LSP
 map.set("n", "<C-F2>", vim.lsp.buf.rename, options)
 map.set('n', 'gd', vim.lsp.buf.definition, {})

@@ -1,6 +1,10 @@
 local options = { noremap = true }
 local map = vim.keymap
 
+--tab to indent 
+map.set('v', '<Tab>', '>', options)
+map.set('v', '<S-Tab>', '<', options)
+
 map.set("i", "jk", "<Esc>", options)
 -- ctr + backspace delete word
 vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', { noremap = true, silent = true })

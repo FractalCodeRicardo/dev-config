@@ -90,6 +90,8 @@ return {
          lspconfig.ts_ls.setup({
             capabilities = capabilities,
          })
+
+         lspconfig.jsonls.setup{}
       end
    }
 

@@ -1,0 +1,43 @@
+{
+    "workbench.activityBar.location": "top",
+    "workbench.colorTheme": "One Monokai",
+    "editor.fontFamily": "Hack Nerd Font",
+    "editor.fontSize": 16,
+    "editor.fontWeight": "600",
+    "editor.lineHeight": 1.3,
+    "editor.codeLens": false,
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<esc>"
+            ]
+        }
+    ],
+    "vim.useSystemClipboard": true,
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-c>": false,
+        "<C-v>": false,
+        "<C-p>": false,
+        "<C-x>": false,
+        "<C-w>": false,
+        "<C-f>": false,
+        "<C-h>": false,
+        "<C-k>": false,
+        "<C-b>": false,
+        
+    },
+    "workbench.iconTheme": "vscode-great-icons",
+    "breadcrumbs.enabled": false,
+    "editor.stickyScroll.enabled": false,
+    "editor.minimap.enabled": false,
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorSmoothCaretAnimation": "explicit",
+    "editor.lineNumbers": "relative"
+}

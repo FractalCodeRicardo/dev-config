@@ -92,6 +92,8 @@ return {
          })
 
          lspconfig.jsonls.setup{}
+
+         lspconfig.powershell_es.setup {}
       end
    }
 

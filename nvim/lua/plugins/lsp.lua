@@ -93,7 +93,7 @@ return {
 
          lspconfig.jsonls.setup{}
 
-         lspconfig.powershell_es.setup {}
+        -- lspconfig.powershell_es.setup {}
       end
    }
 

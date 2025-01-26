@@ -17,3 +17,12 @@ opt.fillchars = { fold = " " }
 opt.foldmethod = "indent"
 opt.foldenable = false
 opt.foldlevel = 99
+
+-- Enable diagnostics
+vim.diagnostic.config({
+  virtual_text = true, -- Show inline diagnostics
+  signs = true,        -- Show signs in the gutter
+  underline = true,    -- Underline errors
+  update_in_insert = false, -- Don't update diagnostics in insert mode
+  severity_sort = true, -- Sort diagnostics by severity
+})

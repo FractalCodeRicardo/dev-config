@@ -72,21 +72,6 @@ return {
 
          --typscript
          -- Configure tsserver for React and JavaScript
-         lspconfig.tsserver.setup({
-            on_attach = function(client, bufnr)
-               -- Add any custom keybindings or settings for tsserver here
-               -- For example, enable formatting
-               client.resolved_capabilities.document_formatting = true
-               -- Keybindings for LSP
-               vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>',
-                  { noremap = true, silent = true })
-               vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>',
-                  { noremap = true, silent = true })
-               vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>',
-                  { noremap = true, silent = true })
-            end
-         })
-
          lspconfig.ts_ls.setup({
             capabilities = capabilities,
          })

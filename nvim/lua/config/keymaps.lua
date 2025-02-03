@@ -1,31 +1,33 @@
 local options = { noremap = true, silent=true }
 local map = vim.keymap
 
+
+
+
 --tab to indent 
 map.set('v', '<Tab>', '>', options)
+
 map.set('v', '<S-Tab>', '<', options)
 
+-- jk to normal mode 
 map.set("i", "jk", "<Esc>", options)
+
 -- ctr + backspace delete word
 vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', { noremap = true, silent = true })
 
 --ctrl + A select all
 vim.api.nvim_set_keymap('n', '<C-a>','ggVG<CR>', options);
 
+-- alt + z and x to <>
 vim.api.nvim_set_keymap('i', '<A-z>', '<', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<A-x>', '>', { noremap = true, silent = true })
---nvim tree
+
+-- navigate buffers
 map.set('n', '<C-h>', '<C-w><Left>', options)
 map.set('n', '<C-l>', '<C-w><Right>', options)
-map.set('n', '<C-z>', 'u', options)
-map.set('n', 'te', ':NvimTreeToggle<CR>', options)
--- telescope
---local builtin = require('telescope.builtin')
---map.set('n', '<leader>ff', builtin.find_files, {})
---map.set('n', '<C-f>', builtin.live_grep, { noremap = false })
---map.set('n', '<leader>fb', builtin.buffers, {})
---map.set('n', '<leader>fh', builtin.help_tags, {})
 
+-- undo
+map.set('n', '<C-z>', 'u', options)
 
 -- Save with ctrl + s
 map.set({ "n", "v", "i" }, "<C-S>", "<C-c>:update<cr>", { silent = true, desc = "Save" })

@@ -2,11 +2,9 @@ return {
   {
     'hrsh7th/cmp-nvim-lsp',
     event = { "BufReadPre", "BufNewFile" },
-    -- event = "VeryLazy",
   },
   {
     'hrsh7th/nvim-cmp',
-    -- event = "VeryLazy",
     dependencies = {
       'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-nvim-lsp-signature-help',

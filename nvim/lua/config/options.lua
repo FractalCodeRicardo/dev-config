@@ -1,7 +1,7 @@
 local opt = vim.opt;
 
 opt.expandtab = true
-opt.shiftwidth = 2
+opt.shiftwidth = 4
 
 -- Needed for feline plugin
 --opt.termguicolors = true

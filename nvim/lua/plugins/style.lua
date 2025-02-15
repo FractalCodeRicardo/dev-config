@@ -44,7 +44,12 @@ return {
       opts = {
          theme = "wave"
       }
+   },
+   {
+     { "EdenEast/nightfox.nvim" }
+   },
+   {
+     {"morhetz/gruvbox"}
    }
-
 
 }

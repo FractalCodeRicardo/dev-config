@@ -1,10 +1,10 @@
---return
---{
---   'github/copilot.vim',
---   config = function()
---      -- You can add configuration settings here if needed
---   end
---}
+return
+{
+   'github/copilot.vim',
+   config = function()
+      -- You can add configuration settings here if needed
+   end
+}
 -- return {
 --   'Exafunction/codeium.vim',
 --   config = function()
@@ -14,4 +14,4 @@
 --     map.set('i', '<C-g>', function() return vim.fn['codeium#Accept']() end, opts)
 --   end
 -- }
-return {}
+--return {}

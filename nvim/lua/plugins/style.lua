@@ -53,6 +53,7 @@ return {
    },
    {
      {"morhetz/gruvbox", lazy= true}
-   }
+   },
+   {'marko-cerovac/material.nvim'}
 
 }

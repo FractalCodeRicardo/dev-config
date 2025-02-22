@@ -1,18 +1,14 @@
 return {
-   'nvim-treesitter/nvim-treesitter',
-   build = ':TSUpdate',
-   config = function()
-      vim.print("Configurando treesitter");
-      require('nvim-treesitter.configs').setup {
-         highlight = {
-            enabled = true
-         },
-         indent = {
-            enabled = true
-         }
-      }
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    config = function()
+        require 'nvim-treesitter.configs'.setup {
+            ensure_installed = { "c_sharp" },
+            highlight = { enable = true },
+            indent = { enable = true }
+        }
 
-      vim.o.foldmethod = 'manual'
-      vim.o.foldenable = false
-   end
+        vim.o.foldmethod = 'manual'
+        vim.o.foldenable = false
+    end
 }

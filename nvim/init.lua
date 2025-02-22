@@ -10,5 +10,6 @@ vim.cmd("colorscheme tokyonight-storm")
 -- vim.cmd("colorscheme onedark")
 --vim.cmd("colorscheme one_monokai")
 --vim.cmd("colorscheme kanagawa")
+--vim.cmd 'colorscheme material'
 
 

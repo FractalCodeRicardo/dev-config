@@ -5,7 +5,7 @@ opt.shiftwidth = 4
 
 -- Needed for feline plugin
 --opt.termguicolors = true
-
+opt.pumheight = 10
 vim.wo.number = true
 opt.relativenumber = true
 opt.termguicolors = true

@@ -39,7 +39,7 @@ return {
    },
    {
       "cpea2506/one_monokai.nvim",
-      lazy = true
+      lazy = false
    },
    {
       "rebelot/kanagawa.nvim",
@@ -49,10 +49,10 @@ return {
       }
    },
    {
-     { "EdenEast/nightfox.nvim", lazy=true }
+     { "EdenEast/nightfox.nvim", lazy=false }
    },
    {
-     {"morhetz/gruvbox", lazy= true}
+     {"morhetz/gruvbox", lazy= false}
    },
    {'marko-cerovac/material.nvim'}
 

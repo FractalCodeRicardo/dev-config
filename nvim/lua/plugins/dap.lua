@@ -89,6 +89,12 @@ return {
             args = { '--interpreter=vscode' }
         }
 
+        dap.adapters.netcoredbg = {
+            type = 'executable',
+            command = get_netcoredbg_path(), 
+            args = { '--interpreter=vscode' }
+        }
+
 
         dapui.setup()
 

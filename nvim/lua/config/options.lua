@@ -23,6 +23,13 @@ vim.diagnostic.config({
   virtual_text = true, -- Show inline diagnostics
   signs = true,        -- Show signs in the gutter
   underline = true,    -- Underline errors
-  update_in_insert = false, -- Don't update diagnostics in insert mode
+  update_in_insert = true, -- Don't update diagnostics in insert mode
   severity_sort = true, -- Sort diagnostics by severity
 })
+
+vim.fn.sign_define("DiagnosticSignError", { text = "❌", texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn",  { text = "⚠️", texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignInfo",  { text = "ℹ️", texthl = "DiagnosticSignInfo" })
+vim.fn.sign_define("DiagnosticSignHint",  { text = "💡", texthl = "DiagnosticSignHint" })
+
+

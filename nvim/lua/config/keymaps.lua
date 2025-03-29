@@ -31,7 +31,7 @@ map.set('n', '<C-l>', '<C-w><Right>', options)
 --map.set('n', '<C-z>', 'u', options)
 
 -- Save with ctrl + s
-map.set({ "n", "v", "i" }, "<C-S>", "<C-c>:update<cr>", { silent = true, desc = "Save" })
+map.set({ "n", "v", "i" }, "<C-S>", "<C-c>:wa<cr>", { silent = true, desc = "Save" })
 
 
 --map.set("n", "q", ":cclose<cr>", options)

@@ -7,39 +7,7 @@ return {
     config = function()
         local dap = require("dap")
         local dapui = require("dapui")
-
-        local function get_csproj_name()
-            local files = vim.fn.globpath(vim.fn.getcwd(), "**/*.csproj", false, true)
-
-            if #files == 0 then
-                print("No .csproj files found.")
-                return nil
-            end
-
-            if #files == 1 then
-                return vim.fn.fnamemodify(files[1], ":t:r")
-            end
-
-            local options = {}
-            for idx, file in ipairs(files) do
-                table.insert(options, string.format("%d: %s", idx, file))
-            end
-
-            local choice = vim.fn.inputlist(options)
-
-            if choice > 0 and choice <= #files then
-                return vim.fn.fnamemodify(files[choice], ":t:r") -- Get filename without extension
-            end
-
-            print("Invalid selection.")
-            return nil
-        end
-
-        local function get_dll_path(project_name)
-            local dll_path = vim.fn.getcwd() .. "/" .. project_name .. "/bin/Debug/net8.0/" .. project_name .. ".dll"
-
-            return dll_path
-        end
+        local utils = require("my.utils")
 
         dap.configurations.cs = {
             {
@@ -47,14 +15,14 @@ return {
                 name = "launch - netcoredbg",
                 request = "launch",
                 program = function()
-                    local project = get_csproj_name()
+                    local project = utils.get_csproj_name()
 
                     if project == nil then
                         print("Opción cancelada.")
                         return nil
                     end
 
-                    local dll = get_dll_path(project)
+                    local dll = utils.get_dll_path(project)
                     print("Debugging " .. project .. " with " .. dll)
                     return dll
                 end,
@@ -69,29 +37,9 @@ return {
             }
         }
 
-        local function get_netcoredbg_path()
-            local os = vim.loop.os_uname().sysname
-            local data_path = vim.fn.stdpath("data")
-            local window_path = "/mason/packages/netcoredbg/netcoredbg/netcoredbg.exe"
-            local linux_path = "/mason/bin/netcoredbg"
-
-            if os == "Windows_NT" then
-                return data_path .. window_path
-            end
-
-            return data_path .. linux_path
-        end
-
-
         dap.adapters.coreclr = {
             type = 'executable',
-            command = get_netcoredbg_path(),
-            args = { '--interpreter=vscode' }
-        }
-
-        dap.adapters.netcoredbg = {
-            type = 'executable',
-            command = get_netcoredbg_path(), 
+            command = utils.get_netcoredbg_path(),
             args = { '--interpreter=vscode' }
         }
 

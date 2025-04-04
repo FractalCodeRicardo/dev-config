@@ -1,8 +1,9 @@
 return {
-  "nvim-lualine/lualine.nvim",
-  config = function()
-    require("lualine").setup({
-      options = { theme = "material" }
-    })
-  end
+    "nvim-lualine/lualine.nvim",
+    enabled = false,
+    config = function()
+        require("lualine").setup({
+            options = { theme = "material" }
+        })
+    end
 }

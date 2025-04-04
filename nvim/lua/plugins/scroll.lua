@@ -1,6 +1,7 @@
 return {
     "petertriho/nvim-scrollbar",
-    config = function ()
-       require("scrollbar").setup();
+    enabled = false,
+    config = function()
+        require("scrollbar").setup();
     end
 }

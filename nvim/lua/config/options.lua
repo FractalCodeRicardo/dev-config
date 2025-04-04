@@ -9,6 +9,7 @@ opt.pumheight = 10
 vim.wo.number = true
 opt.relativenumber = true
 opt.termguicolors = true
+vim.o.winborder = 'rounded'
 
 vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
 vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
@@ -32,4 +33,20 @@ vim.fn.sign_define("DiagnosticSignWarn",  { text = "⚠️", texthl = "Diagnosti
 vim.fn.sign_define("DiagnosticSignInfo",  { text = "ℹ️", texthl = "DiagnosticSignInfo" })
 vim.fn.sign_define("DiagnosticSignHint",  { text = "💡", texthl = "DiagnosticSignHint" })
 
+
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--   callback = function(ev)
+--     local client = vim.lsp.get_client_by_id(ev.data.client_id)
+--     local supported = client:supports_method('textDocument/completion');
+--
+--     if not supported then
+--         print("Autocompletion not supported " .. ev.data.client_id)
+--     end
+--
+--     if supported then
+--       print("Autocompletion supported");
+--       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = false })
+--     end
+--   end,
+-- })
 

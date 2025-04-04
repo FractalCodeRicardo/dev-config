@@ -3,7 +3,6 @@ local map = vim.keymap
 
 
 
-
 --tab to indent 
 map.set('v', '<Tab>', '>', options)
 

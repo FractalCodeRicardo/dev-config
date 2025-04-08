@@ -36,11 +36,14 @@ map.set({ "n", "v", "i" }, "<C-S>", "<C-c>:wa<cr>", { silent = true, desc = "Sav
 --map.set("n", "q", ":cclose<cr>", options)
 -- LSP
 map.set("n", "<F2>", vim.lsp.buf.rename, options)
+
 map.set('n', 'gd', vim.lsp.buf.definition, {})
 map.set('n', 'gr', vim.lsp.buf.references, {})
-map.set("n", "<S-A-f>", vim.lsp.buf.format, options)
+map.set('n', 'gi', vim.lsp.buf.implementation, {})
 map.set("n", "<C-q>", vim.lsp.buf.code_action, options)
 map.set('n', '<C-k>', vim.lsp.buf.hover, options)
+
+map.set("n", "<S-A-f>", vim.lsp.buf.format, options)
 map.set('n', '<C-.', vim.lsp.buf.code_action, options)
 map.set('n', '<A-l>', ':BufferLineCycleNext<CR>', options)
 map.set('n', '<A-h>', ':BufferLineCyclePrev<CR>', options)

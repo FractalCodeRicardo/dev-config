@@ -63,9 +63,9 @@ return {
         -- Keybindings
         local maps = vim.keymap;
         maps.set('n', '<F5>', dap.continue, { desc = "Start/Continue Debugging" })
-        maps.set('n', '<F10>', dap.step_over, { desc = "Step Over" })
-        maps.set('n', '<F11>', dap.step_into, { desc = "Step Into" })
-        maps.set('n', '<F12>', dap.step_out, { desc = "Step Out" })
+        maps.set('n', '<F6>', dap.step_over, { desc = "Step Over" })
+        maps.set('n', '<F7>', dap.step_into, { desc = "Step Into" })
+        maps.set('n', '<F8>', dap.step_out, { desc = "Step Out" })
         maps.set('n', '<Leader>b', dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
         maps.set('n', '<Leader>B', function()
             dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))

@@ -42,9 +42,12 @@ map.set('n', 'gr', vim.lsp.buf.references, {})
 map.set('n', 'gi', vim.lsp.buf.implementation, {})
 map.set("n", "<C-q>", vim.lsp.buf.code_action, options)
 map.set('n', '<C-k>', vim.lsp.buf.hover, options)
+map.set('n', 'gt', vim.lsp.buf.document_symbol, options)
+
 
 map.set("n", "<S-A-f>", vim.lsp.buf.format, options)
 map.set('n', '<C-.', vim.lsp.buf.code_action, options)
+map.set('n', '<gh', vim.lsp.buf.signature_help, options)
 map.set('n', '<A-l>', ':BufferLineCycleNext<CR>', options)
 map.set('n', '<A-h>', ':BufferLineCyclePrev<CR>', options)
 map.set('n', '<C-w>', ':bdelete<CR>', options)

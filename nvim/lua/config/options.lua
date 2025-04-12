@@ -45,7 +45,7 @@ vim.fn.sign_define("DiagnosticSignHint",  { text = "💡", texthl = "DiagnosticS
 --
 --     if supported then
 --       print("Autocompletion supported");
---       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = false })
+--       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true})
 --     end
 --   end,
 -- })

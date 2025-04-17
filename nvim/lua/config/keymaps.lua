@@ -54,3 +54,16 @@ map.set('n', '<C-w>', ':bdelete<CR>', options)
 map.set('n', '<A-w>', ':BufferLineCloseLeft<CR>:BufferLineCloseRight<CR>', options)
 map.set('n', '<A-e>', vim.diagnostic.open_float, options)
 map.set('n', 'ne', '<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })<CR>', options)
+
+
+-- Clipboard
+-- Copy
+vim.keymap.set('v', '<C-c>', '"+y')
+vim.keymap.set('n', '<C-c>', '"+yy')
+
+-- Cut
+vim.keymap.set('v', '<C-x>', '"+d')
+
+-- Paste
+vim.keymap.set({'n', 'v'}, '<C-v>', '"+p')
+vim.keymap.set('i', '<C-v>', '<C-r>+')

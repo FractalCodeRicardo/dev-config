@@ -28,8 +28,9 @@ return {
             severity = { min = vim.diagnostic.severity.WARN },    -- WARN and ERROR only
           })
         end,
-        { desc = 'Find Grep' }
+        { desc = 'Find errors' }
       },
+
     }
   },
   {

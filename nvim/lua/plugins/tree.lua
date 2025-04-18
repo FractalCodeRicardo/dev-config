@@ -15,6 +15,7 @@
 
 return {
     "nvim-neo-tree/neo-tree.nvim",
+    enabled = false,
     branch = "v3.x",
     dependencies = {
         "nvim-lua/plenary.nvim",
@@ -35,7 +36,7 @@ return {
                 }
             }
         })
-        vim.keymap.set("n", "te", ":Neotree toggle<CR>", { noremap = true, silent = true })
+
 
         -- transparency in NeoTree
         vim.cmd([[

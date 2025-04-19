@@ -1,9 +1,12 @@
 return {
     "seblyng/roslyn.nvim",
-    enabled = true,
+    enabled = false,
     ft = "cs",
+    ---@module 'roslyn.config'
+    ---@type RoslynNvimConfig
     opts = {
       config = {
+        filewatching = "auto",
         settings = {
           ["csharp|background_analysis"] = {
             dotnet_analyzer_diagnostics_scope = "fullSolution",

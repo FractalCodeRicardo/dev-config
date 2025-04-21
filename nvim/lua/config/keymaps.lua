@@ -24,7 +24,8 @@ vim.api.nvim_set_keymap('i', '<A-x>', '>', { noremap = true, silent = true })
 -- navigate buffers
 map.set('n', '<C-h>', '<C-w><Left>', options)
 map.set('n', '<C-l>', '<C-w><Right>', options)
-
+map.set('n', '<C-j>', '<C-w><Down>', options)
+map.set('n', '<C-k>', '<C-w><Up>', options)
 -- undo
 -- overlaps suspend
 --map.set('n', '<C-z>', 'u', options)
@@ -40,7 +41,7 @@ map.set("n", "<F2>", vim.lsp.buf.rename, options)
 map.set('n', 'gd', vim.lsp.buf.definition, {})
 map.set('n', 'gi', vim.lsp.buf.implementation, {})
 map.set("n", "<C-q>", vim.lsp.buf.code_action, options)
-map.set('n', '<C-k>', vim.lsp.buf.hover, options)
+map.set('n', 'K', vim.lsp.buf.hover, options)
 map.set('n', 'gt', vim.lsp.buf.document_symbol, options)
 
 

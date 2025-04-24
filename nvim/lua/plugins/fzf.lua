@@ -13,7 +13,7 @@ return {
         map.set('n', '<C-q>', fzf.lsp_code_actions, options)
         map.set('n', '<C-p>', fzf.files, options)
         map.set('n', '<C-e>', function()
-            require('fzf-lua').diagnostics_workspace({
+            require('fzf-lua').lsp_workspace_diagnostics({
                 min_severity = vim.diagnostic.severity.WARN,
                 max_severity = vim.diagnostic.severity.ERROR,
             })

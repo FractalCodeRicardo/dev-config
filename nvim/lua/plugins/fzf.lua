@@ -4,11 +4,19 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     -- or if using mini.icons/mini.nvim
     -- dependencies = { "echasnovski/mini.icons" },
-    opts = {},
+    opts = {
+    },
     config = function()
         local map = vim.keymap;
         local options = {};
         local fzf = require('fzf-lua');
+
+        fzf.setup(
+    {
+        winopts = { preview = { layout = "vertical" } }
+    }
+)
+
         map.set('n', 'gr', fzf.lsp_references, options)
         map.set('n', '<C-q>', fzf.lsp_code_actions, options)
         map.set('n', '<C-p>', fzf.files, options)
@@ -19,5 +27,7 @@ return {
             })
         end, options)
         map.set('n', '<C-f>', fzf.live_grep, options)
+
+        fzf.register_ui_select();
     end
 }

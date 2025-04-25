@@ -42,7 +42,7 @@ return {
     },
     {
         "nvim-telescope/telescope-ui-select.nvim",
-        enabled = true,
+        enabled = false,
         config = function()
             require("telescope").setup({
                 extensions = {

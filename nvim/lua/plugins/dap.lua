@@ -15,16 +15,7 @@ return {
                 name = "launch - netcoredbg",
                 request = "launch",
                 program = function()
-                    local project = utils.get_csproj_name()
-
-                    if project == nil then
-                        print("Opción cancelada.")
-                        return nil
-                    end
-
-                    local dll = utils.get_dll_path(project)
-                    print("Debugging " .. project .. " with " .. dll)
-                    return dll
+                    return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
                 end,
             },
             {

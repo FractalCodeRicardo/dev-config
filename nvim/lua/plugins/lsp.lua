@@ -55,7 +55,7 @@ return {
         lspconfig.powershell_es.setup {}
 
         lspconfig.lemminx.setup({
-            filetypes = { "xml", "xsd", "xslt", "csproj" },
+            filetypes = { "xml","axaml", "xsd", "xslt", "csproj" },
         })
         --
     end

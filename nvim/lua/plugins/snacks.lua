@@ -8,8 +8,6 @@ return
         snacks.setup( -- lazy.nvim
             {
                 explorer = {},
-                dashboard = {},
-                lazygit = {},
                 picker = {
                     sources = {
                         explorer = {

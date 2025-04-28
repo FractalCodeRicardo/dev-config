@@ -1,56 +1,84 @@
 local wezterm = require 'wezterm'
 local projects = require 'projects'
 
-local function open_fzf()
-    return wezterm.action_callback(function(window, pane)
-        window:perform_action(
-            wezterm.action.SpawnCommandInNewTab {
-                 args = {"pwsh.exe", "-NoLogo", "-Command", "fzf | ForEach-Object { nvim $_ }"},
-            },
-            pane
-        )
-        wezterm.time.call_after(0.1, function()
+local function is_windows()
+    return wezterm.target_triple:find("windows")
+end
+
+local function get_shell()
+    if is_windows() then
+        return { "pwsh.exe", "-NoLogo" }
+    end
+
+    return { "/bin/bash" }
+end
+
+local function get_fzf_command()
+    if is_windows() then
+        return { "pwsh.exe", "-NoLogo", "-Command", "fzf | ForEach-Object { nvim $_ }" }
+    end
+    return { 'bash', '-c', 'nvim "$(fzf)"' }
+end
+
+local function perform_open_tab(window, pane, title, opts)
+        local action = wezterm.action.SpawnCommandInNewTab(opts)
+        window:perform_action(action, pane)
+
+        wezterm.time.call_after(0.2, function()
             local tab = window:active_tab()
             if tab then
-                tab:set_title("FZF Search")
+                tab:set_title(title)
             end
         end)
+end
+
+local function open_tab_action(title, opts)
+    wezterm.log_info("Opening tab " .. title)
+    wezterm.log_info(opts)
+
+     return wezterm.action_callback(function(window, pane)
+        perform_open_tab(window, pane, title, opts)
     end)
 end
 
-local function select_project()
+local function open_fzf_action()
+    local commands = get_fzf_command()
+    return open_tab_action("fzf search", {args = commands})
+end
+
+local function get_projects_choices()
     local choices = {}
     for _, project in ipairs(projects) do
         table.insert(choices, { label = project.id .. " - " .. project.name, id = project.id })
     end
 
+    return choices
+end
+
+local function get_project_by_id(id)
+    for _, project in ipairs(projects) do
+        if project.id == id then
+            return project
+        end
+    end
+
+    return nil
+end
+
+local function select_project()
+    local choices =get_projects_choices()
+
     return wezterm.action_callback(function(window, pane)
         window:perform_action(
             wezterm.action.InputSelector {
                 action = wezterm.action_callback(function(window2, pane2, id)
-                    for _, project in ipairs(projects) do
-                        if project.id == id then
-                            window2:perform_action(
-                                wezterm.action.SwitchToWorkspace {
-                                    name = project.name,
-                                },
-                                pane2
-                            )
-                            window2:perform_action(
-                                wezterm.action.SpawnCommandInNewTab {
-                                    cwd = project.path,
-                                    label = project.name
-                                },
-                                pane2
-                            )
-                            wezterm.time.call_after(0.1, function()
-                                local tab = window2:active_tab()
-                                if tab then
-                                    tab:set_title(project.name)
-                                end
-                            end)
-                        end
+                    local project = get_project_by_id(id)
+                    wezterm.log_info("select_project")
+                    wezterm.log_info(project)
+                    if project ~= nil then
+                        perform_open_tab(window2, pane2, project.name, {cwd = project.path})
                     end
+
                 end),
                 title = "Select a Project",
                 choices = choices,
@@ -60,12 +88,13 @@ local function select_project()
     end)
 end
 
+
 return {
     -- Set your default shell (like PowerShell, cmd, or WSL)
-    default_prog = { "pwsh.exe", "-NoLogo" },
+    default_prog = get_shell(),
 
     -- Appearance
-    font = wezterm.font("JetBrainsMono Nerd Font Propo", { weight = "Bold" }),
+    font = wezterm.font("JetBrains Mono", { weight = "Bold" }),
     font_size = 14.0,
     color_scheme = "Catppuccin Mocha", -- You can change this to any built-in color scheme
 
@@ -75,7 +104,11 @@ return {
     use_fancy_tab_bar = true,
 
     -- Window settings
-    window_decorations = "RESIZE|TITLE",
+    window_decorations = "RESIZE",
+    window_frame = {
+        active_titlebar_bg = '#333333',
+        inactive_titlebar_bg = '#222222',
+    },
     window_background_opacity = 0.95, -- slight transparency
     initial_cols = 120,
     initial_rows = 30,
@@ -104,7 +137,12 @@ return {
         {
             key = "F",
             mods = "CTRL|SHIFT",
-            action = open_fzf(),
+            action = open_fzf_action(),
         },
-    },
+        {
+            key = 'I',
+            mods = 'CTRL|SHIFT',
+            action = wezterm.action.ShowDebugOverlay,
+        }
+    }
 }

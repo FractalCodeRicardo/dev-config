@@ -57,6 +57,13 @@ return {
         lspconfig.lemminx.setup({
             filetypes = { "xml","axaml", "xsd", "xslt", "csproj" },
         })
+
+        vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+          pattern = "*.axaml",
+          callback = function()
+                vim.bo.filetype = "xml"
+              end,
+        })
         --
     end
 }

@@ -71,3 +71,6 @@ vim.keymap.set('i', '<C-v>', '<C-r>+')
 --tree
 -- map.set("n", "te", ":Neotree toggle<CR>", options)
 -- map.set("n", "te", function() require('mini.files').open() end, options)
+
+--suspend
+vim.keymap.set('n', '<Leader>z', '<C-z>', { noremap = true, silent = true })

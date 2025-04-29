@@ -21,8 +21,7 @@ return {
 
         map.set('n', '<C-e>', function()
             fzf.lsp_workspace_diagnostics({
-                min_severity = vim.diagnostic.severity.WARN,
-                max_severity = vim.diagnostic.severity.ERROR,
+                severity_limit = 2 --warning
             })
         end, options)
 

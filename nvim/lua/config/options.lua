@@ -13,8 +13,6 @@ opt.ignorecase = true
 opt.smartcase = true
 vim.o.winborder = 'rounded'
 
-vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
-vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
 
 opt.fillchars = { fold = " " }
 opt.foldmethod = "indent"
@@ -34,6 +32,7 @@ vim.fn.sign_define("DiagnosticSignError", { text = "❌", texthl = "DiagnosticSi
 vim.fn.sign_define("DiagnosticSignWarn",  { text = "⚠️", texthl = "DiagnosticSignWarn" })
 vim.fn.sign_define("DiagnosticSignInfo",  { text = "ℹ️", texthl = "DiagnosticSignInfo" })
 vim.fn.sign_define("DiagnosticSignHint",  { text = "💡", texthl = "DiagnosticSignHint" })
+
 
 
 -- vim.api.nvim_create_autocmd('LspAttach', {

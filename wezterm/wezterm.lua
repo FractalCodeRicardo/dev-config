@@ -1,6 +1,13 @@
 local wezterm = require 'wezterm'
 local projects = require 'projects'
 
+local mux = wezterm.mux
+
+-- wezterm.on("gui-startup", function()
+--       local tab, pane, window = mux.spawn_window{}
+--       window:gui_window():maximize()
+-- end)
+
 local function is_windows()
     return wezterm.target_triple:find("windows")
 end
@@ -104,7 +111,7 @@ return {
     use_fancy_tab_bar = true,
 
     -- Window settings
-    window_decorations = "RESIZE",
+    window_decorations = "RESIZE|TITLE",
     window_frame = {
         active_titlebar_bg = '#333333',
         inactive_titlebar_bg = '#222222',

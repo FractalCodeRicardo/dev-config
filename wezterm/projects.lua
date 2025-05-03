@@ -6,6 +6,8 @@ local projects = {
     { id = "pos",        name = "Pos",         path = base_dir .. "\\Pos\\Pos" },
     { id = "pos-etl",    name = "Pos Etl",     path = base_dir .. "\\Pos\\Etl" },
     { id = "bama-etl",   name = "Bama Etl",    path = base_dir .. "\\Bamaware_etl" },
+    { id = "etl",   name = "Etl",    path = base_dir .. "\\ETL" },
+    { id = "chrono",   name = "Chrono",    path = base_dir .. "\\Chronoguard" },
     { id = "dev",        name = "Dev",         path = "C:\\Users\\Ricardo\\Desktop\\Ricardo\\dev-config" },
     { id = "nvim",       name = "Nvim",        path = "C:\\Users\\Ricardo\\AppData\\Local\\nvim" },
     { id = "nvim-linux", name = "Nvim linux", path = "/home/ricardo/.config/nvim/" }

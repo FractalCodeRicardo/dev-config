@@ -32,9 +32,14 @@ return {
                 },
             },
         })
+        local util = require('lspconfig.util')
 
                    -- omnisharp
         lspconfig.omnisharp.setup({
+             cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+           root_dir = function()
+				return vim.loop.cwd() -- current working directory
+			end,
             capabilities = capabilities,
             enable_editorconfig_support = true,
             enable_roslyn_analyzers = true,

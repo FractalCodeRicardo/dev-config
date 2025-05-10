@@ -1,6 +1,6 @@
 return {
     {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
         lazy = true,
         config = function()
             require('mason').setup({
@@ -13,10 +13,10 @@ return {
     },
 
     {
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason-lspconfig.nvim",
         lazy = true,
         dependencies = {
-            "williamboman/mason.nvim"
+            "mason-org/mason.nvim"
         },
         opts = {
             auto_install = true,

@@ -28,10 +28,11 @@ vim.diagnostic.config({
   severity_sort = true, -- Sort diagnostics by severity
 })
 
-vim.fn.sign_define("DiagnosticSignError", { text = "❌", texthl = "DiagnosticSignError" })
-vim.fn.sign_define("DiagnosticSignWarn",  { text = "⚠️", texthl = "DiagnosticSignWarn" })
-vim.fn.sign_define("DiagnosticSignInfo",  { text = "ℹ️", texthl = "DiagnosticSignInfo" })
-vim.fn.sign_define("DiagnosticSignHint",  { text = "💡", texthl = "DiagnosticSignHint" })
+--deprecated
+-- vim.fn.sign_define("DiagnosticSignError", { text = "❌", texthl = "DiagnosticSignError" })
+-- vim.fn.sign_define("DiagnosticSignWarn",  { text = "⚠️", texthl = "DiagnosticSignWarn" })
+-- vim.fn.sign_define("DiagnosticSignInfo",  { text = "ℹ️", texthl = "DiagnosticSignInfo" })
+-- vim.fn.sign_define("DiagnosticSignHint",  { text = "💡", texthl = "DiagnosticSignHint" })
 
 
 

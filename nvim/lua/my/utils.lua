@@ -62,6 +62,13 @@ function M.get_lua_extension_folder()
     return data_path .. extension_path
 end
 
+function M.get_omnisharp()
+    local data_path = vim.fn.stdpath("data")
+    local file_path = "/mason/packages/omnisharp/OmniSharp"
+
+    return data_path .. file_path
+end
+
 
 
 

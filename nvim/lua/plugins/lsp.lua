@@ -3,16 +3,15 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     -- lazy = true,
     dependencies = {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason.nvim",
+        "mason-org/mason-lspconfig.nvim",
     },
     config = function()
         local capabilities = vim.lsp.protocol.make_client_capabilities()
         local lspconfig = require('lspconfig')
 
-
         -- Lua
-        lspconfig.lua_ls.setup({
+        vim.lsp.config("lua_ls", {
             capabilities = capabilities,
             settings = {
                 Lua = {
@@ -32,14 +31,21 @@ return {
                 },
             },
         })
-        local util = require('lspconfig.util')
-
-                   -- omnisharp
-        lspconfig.omnisharp.setup({
-             cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
-           root_dir = function()
-				return vim.loop.cwd() -- current working directory
-			end,
+        local utils = require("my.utils");
+        local omnisharp_path = utils.get_omnisharp()
+        -- omnisharp
+        vim.lsp.config("omnisharp", {
+            cmd = {
+                "dotnet",
+                omnisharp_path .. ".dll",
+                "-z",
+                "--hostPID",
+                tostring(vim.fn.getpid()),
+                "DotNet:enablePackageRestore=false",
+                "--encoding",
+                "utf-8",
+                "--languageserver"
+            },
             capabilities = capabilities,
             enable_editorconfig_support = true,
             enable_roslyn_analyzers = true,
@@ -47,27 +53,47 @@ return {
             enable_import_completion = true,
             sdk_include_prereleases = true,
             analyze_open_documents_only = false,
-            filetypes = { 'cs', 'vb', 'csproj', 'sln', 'slnx', 'props', 'csx', 'targets' }
+            enable_decompilation_support = true,
+            settings = {
+                FormattingOptions = {
+                    EnableEditorConfigSupport = true
+                },
+                MsBuild = {},
+                RenameOptions = {},
+                RoslynExtensionsOptions = {
+                     enableDecompilationSupport = true
+                },
+                Sdk = {
+                    IncludePrereleases = true
+                }
+            },
+            filetypes = { 'cs', 'vb', 'csproj', 'sln', 'slnx', 'props', 'csx', 'targets' },
+            handlers = {
+                ["textDocument/definition"] = require('omnisharp_extended').definition_handler,
+                ["textDocument/typeDefinition"] = require('omnisharp_extended').type_definition_handler,
+                ["textDocument/references"] = require('omnisharp_extended').references_handler,
+                ["textDocument/implementation"] = require('omnisharp_extended').implementation_handler,
+            }
         })
         --typscript
         -- Configure tsserver for React and JavaScript
         --
-        lspconfig.ts_ls.setup({
+        vim.lsp.config("ts_ls", {
             capabilities = capabilities,
         })
 
-        lspconfig.jsonls.setup {}
-        lspconfig.powershell_es.setup {}
+        vim.lsp.config("jsonls", {})
+        vim.lsp.config("powershell_es", {})
 
-        lspconfig.lemminx.setup({
-            filetypes = { "xml","axaml", "xsd", "xslt", "csproj" },
+        vim.lsp.config("lemminx", {
+            filetypes = { "xml", "axaml", "xsd", "xslt", "csproj" },
         })
 
         vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-          pattern = "*.axaml",
-          callback = function()
+            pattern = "*.axaml",
+            callback = function()
                 vim.bo.filetype = "xml"
-              end,
+            end,
         })
         --
     end

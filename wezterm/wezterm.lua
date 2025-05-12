@@ -116,7 +116,7 @@ return {
         active_titlebar_bg = '#333333',
         inactive_titlebar_bg = '#222222',
     },
-    window_background_opacity = 0.95, -- slight transparency
+    window_background_opacity = 0.9, -- slight transparency
     initial_cols = 120,
     initial_rows = 30,
 

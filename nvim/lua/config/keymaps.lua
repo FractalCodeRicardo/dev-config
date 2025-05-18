@@ -1,11 +1,8 @@
 local options = { noremap = true, silent = true }
 local map = vim.keymap
 
-
-
 --tab to indent
 map.set('v', '<Tab>', '>', options)
-
 map.set('v', '<S-Tab>', '<', options)
 
 -- jk to normal mode
@@ -27,11 +24,10 @@ map.set('n', '<C-l>', '<C-w><Right>', options)
 
 -- undo
 -- overlaps suspend
---map.set('n', '<C-z>', 'u', options)
+-- map.set('n', '<C-z>', 'u', options)
 
 -- Save with ctrl + s
 map.set({ "n", "v", "i" }, "<C-S>", "<C-c>:wa<cr>", { silent = true, desc = "Save" })
-
 
 --map.set("n", "q", ":cclose<cr>", options)
 -- LSP
@@ -43,7 +39,6 @@ map.set("n", "<C-q>", vim.lsp.buf.code_action, options)
 map.set('n', '<C-k>', vim.lsp.buf.hover, options)
 map.set('n', 'gt', vim.lsp.buf.document_symbol, options)
 
-
 map.set("n", "<S-A-f>", vim.lsp.buf.format, options)
 map.set('n', '<C-.', vim.lsp.buf.code_action, options)
 map.set('n', '<gh', vim.lsp.buf.signature_help, options)
@@ -54,7 +49,6 @@ map.set('n', '<A-w>', ':BufferLineCloseLeft<CR>:BufferLineCloseRight<CR>', optio
 map.set('n', '<A-e>', vim.diagnostic.open_float, options)
 map.set('n', 'ne', '<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })<CR>', options)
 map.set('n', 'nw', '<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARNING})<CR>', options)
-
 
 -- Clipboard
 -- Copy

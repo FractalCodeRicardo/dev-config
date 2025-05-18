@@ -35,7 +35,6 @@ vim.diagnostic.config({
 -- vim.fn.sign_define("DiagnosticSignHint",  { text = "💡", texthl = "DiagnosticSignHint" })
 
 
-
 -- vim.api.nvim_create_autocmd('LspAttach', {
 --   callback = function(ev)
 --     local client = vim.lsp.get_client_by_id(ev.data.client_id)

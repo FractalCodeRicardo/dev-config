@@ -7,7 +7,8 @@ return {
             require("toggleterm").setup({
                 open_mapping = [[<c-t>]],
                 shell = is_windows and "pwsh" or "/bin/bash",
-                start_in_insert = true
+                direction = "horizontal",
+                border = "shadow"
             })
         end
     }

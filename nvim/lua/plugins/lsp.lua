@@ -34,47 +34,47 @@ return {
         local utils = require("my.utils");
         local omnisharp_path = utils.get_omnisharp()
         -- omnisharp
-        vim.lsp.config("omnisharp", {
-            cmd = {
-                "dotnet",
-                omnisharp_path .. ".dll",
-                "-z",
-                "--hostPID",
-                tostring(vim.fn.getpid()),
-                "DotNet:enablePackageRestore=false",
-                "--encoding",
-                "utf-8",
-                "--languageserver"
-            },
-            capabilities = capabilities,
-            enable_editorconfig_support = true,
-            enable_roslyn_analyzers = true,
-            organize_imports_on_format = true,
-            enable_import_completion = true,
-            sdk_include_prereleases = true,
-            analyze_open_documents_only = false,
-            enable_decompilation_support = true,
-            settings = {
-                FormattingOptions = {
-                    EnableEditorConfigSupport = true
-                },
-                MsBuild = {},
-                RenameOptions = {},
-                RoslynExtensionsOptions = {
-                     enableDecompilationSupport = true
-                },
-                Sdk = {
-                    IncludePrereleases = true
-                }
-            },
-            filetypes = { 'cs', 'vb', 'csproj', 'sln', 'slnx', 'props', 'csx', 'targets' },
-            handlers = {
-                ["textDocument/definition"] = require('omnisharp_extended').definition_handler,
-                ["textDocument/typeDefinition"] = require('omnisharp_extended').type_definition_handler,
-                ["textDocument/references"] = require('omnisharp_extended').references_handler,
-                ["textDocument/implementation"] = require('omnisharp_extended').implementation_handler,
-            }
-        })
+        -- vim.lsp.config("omnisharp", {
+        --     cmd = {
+        --         "dotnet",
+        --         omnisharp_path .. ".dll",
+        --         "-z",
+        --         "--hostPID",
+        --         tostring(vim.fn.getpid()),
+        --         "DotNet:enablePackageRestore=false",
+        --         "--encoding",
+        --         "utf-8",
+        --         "--languageserver"
+        --     },
+        --     capabilities = capabilities,
+        --     enable_editorconfig_support = true,
+        --     enable_roslyn_analyzers = true,
+        --     organize_imports_on_format = true,
+        --     enable_import_completion = true,
+        --     sdk_include_prereleases = true,
+        --     analyze_open_documents_only = false,
+        --     enable_decompilation_support = true,
+        --     settings = {
+        --         FormattingOptions = {
+        --             EnableEditorConfigSupport = true
+        --         },
+        --         MsBuild = {},
+        --         RenameOptions = {},
+        --         RoslynExtensionsOptions = {
+        --              enableDecompilationSupport = true
+        --         },
+        --         Sdk = {
+        --             IncludePrereleases = true
+        --         }
+        --     },
+        --     filetypes = { 'cs', 'vb', 'csproj', 'sln', 'slnx', 'props', 'csx', 'targets' },
+        --     handlers = {
+        --         ["textDocument/definition"] = require('omnisharp_extended').definition_handler,
+        --         ["textDocument/typeDefinition"] = require('omnisharp_extended').type_definition_handler,
+        --         ["textDocument/references"] = require('omnisharp_extended').references_handler,
+        --         ["textDocument/implementation"] = require('omnisharp_extended').implementation_handler,
+        --     }
+        -- })
         --typscript
         -- Configure tsserver for React and JavaScript
         --

@@ -32,7 +32,7 @@ return {
             },
         })
         local utils = require("my.utils");
-        local omnisharp_path = utils.get_omnisharp()
+        -- local omnisharp_path = utils.get_omnisharp()
         -- omnisharp
         -- vim.lsp.config("omnisharp", {
         --     cmd = {

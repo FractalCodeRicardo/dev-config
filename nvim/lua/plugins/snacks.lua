@@ -8,12 +8,12 @@ return
         snacks.setup( -- lazy.nvim
             {
                 explorer = {},
-                notifier= {},
+                notifier = {},
                 lazygit = {},
                 picker = {
                     sources = {
                         explorer = {
-                                auto_close = true
+                            auto_close = true
                         }
                     }
                 }
@@ -21,12 +21,11 @@ return
         );
 
         local map = vim.keymap;
-        map.set('n',"te", function()
+        map.set('n', "te", function()
             snacks.explorer()
         end, {})
 
-
-        map.set('n',"gg", function()
+        vim.api.nvim_create_user_command("Git", function()
             snacks.lazygit.open();
         end, {})
     end

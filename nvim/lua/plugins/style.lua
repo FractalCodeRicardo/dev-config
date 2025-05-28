@@ -33,4 +33,9 @@ return {
         lazy = true
     },
 
+    {
+            "scottmckendry/cyberdream.nvim",
+            lazy = false,
+            priority = 1000,
+    }
 }

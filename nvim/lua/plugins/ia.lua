@@ -1,10 +1,10 @@
-return{}
---{
-   -- 'github/copilot.vim',
-   -- config = function()
-      -- You can add configuration settings here if needed
-   -- end
--- }
+return
+{
+   'github/copilot.vim',
+    enable = false,
+   config = function()
+    end
+}
 -- return {
 --   'Exafunction/codeium.vim',
 --   config = function()

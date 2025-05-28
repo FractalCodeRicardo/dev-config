@@ -39,6 +39,13 @@ map.set("n", "<C-q>", vim.lsp.buf.code_action, options)
 map.set('n', '<C-k>', vim.lsp.buf.hover, options)
 map.set('n', 'gt', vim.lsp.buf.document_symbol, options)
 
+-- go to definition split
+map.set('n', 'gs', function()
+      vim.cmd('vsplit')
+      vim.cmd('wincmd l')
+      vim.lsp.buf.definition()
+end, options)
+
 map.set("n", "<S-A-f>", vim.lsp.buf.format, options)
 map.set('n', '<C-.', vim.lsp.buf.code_action, options)
 map.set('n', '<gh', vim.lsp.buf.signature_help, options)

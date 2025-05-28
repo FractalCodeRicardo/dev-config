@@ -1,6 +1,6 @@
 return {
     "nvim-lualine/lualine.nvim",
-    enabled = false,
+    enabled = true,
     config = function()
         require("lualine").setup({
             options = { theme = "material" }

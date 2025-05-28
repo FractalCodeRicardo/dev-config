@@ -82,6 +82,10 @@ return {
             capabilities = capabilities,
         })
 
+
+        vim.lsp.config("clangd", {})
+        vim.lsp.config("rust_analyzer", {})
+        vim.lsp.config("clangd", {})
         vim.lsp.config("jsonls", {})
         vim.lsp.config("powershell_es", {})
 

@@ -4,6 +4,7 @@ local base_dir = "C:\\Users\\Ricardo\\Desktop\\Proyectos"
 
 local projects = {
     { id = "pos",        name = "Pos",         path = base_dir .. "\\Pos\\Pos" },
+    { id = "etl",        name = "ETL",         path = base_dir .. "\\ETL" },
     { id = "pos-etl",    name = "Pos Etl",     path = base_dir .. "\\Pos\\Etl" },
     { id = "bama-etl",   name = "Bama Etl",    path = base_dir .. "\\Bamaware_etl" },
     { id = "etl",   name = "Etl",    path = base_dir .. "\\ETL" },

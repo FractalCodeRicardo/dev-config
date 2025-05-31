@@ -5,6 +5,8 @@ vim.g.maplocalleader = " "  -- Set space as local leader
 require("config.lazy")
 require("config.keymaps")
 require("config.options")
+-- vim.cmd("colorscheme onedark")
+--vim.cmd("colorscheme catppuccin")
 vim.cmd("colorscheme duskfox")
 -- vim.cmd("colorscheme tokyonight-storm")
 

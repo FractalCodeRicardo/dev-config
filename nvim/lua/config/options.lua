@@ -51,4 +51,8 @@ vim.diagnostic.config({
 --   end,
 -- })
 
-
+vim.api.nvim_create_user_command("Dotnet", function()
+  vim.cmd("compiler dotnet")
+  vim.cmd("make")
+  vim.cmd("copen")
+end, {})

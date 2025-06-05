@@ -2,7 +2,7 @@ return {
     {
         "folke/tokyonight.nvim",
         lazy = true,
-        enabled = true,
+        enabled = false,
         priority = 1000,
         opts = {
             transparent = true,
@@ -23,7 +23,7 @@ return {
     },
     {
         "catppuccin/nvim",
-        enabled = true,
+        enabled = false,
         lazy = true,
         name = "catppuccin",
         priority = 1000,
@@ -47,6 +47,7 @@ return {
     -- Using Lazy
     {
         "navarasu/onedark.nvim",
+        enable = false,
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             require('onedark').setup {
@@ -58,6 +59,7 @@ return {
     },
     {
         'nyngwang/nvimgelion',
+        enable = false,
         config = function()
             -- do whatever you want for further customization~
         end

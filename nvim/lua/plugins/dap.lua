@@ -28,12 +28,39 @@ return {
             }
         }
 
+
+        dap.configurations.rust = {
+            {
+                name = "Launch file",
+                type = "codelldb",
+                request = "launch",
+                program = function()
+                    -- ask for binary
+                    return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
+                end,
+                cwd = '${workspaceFolder}',
+                stopOnEntry = false,
+                args = {},
+            },
+        }
+
+
+
         dap.adapters.coreclr = {
             type = 'executable',
             command = utils.get_netcoredbg_path(),
             args = { '--interpreter=vscode' }
         }
 
+
+        dap.adapters.codelldb = {
+            type = 'server',
+            port = "${port}",
+            executable = {
+                command = utils.get_codelldb(), 
+                args = { "--port", "${port}" },
+            }
+        }
 
         dapui.setup()
 

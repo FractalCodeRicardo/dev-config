@@ -71,5 +71,13 @@ end
 
 
 
+function M.get_codelldb()
+    local data_path = vim.fn.stdpath("data")
+    local file_path = "/mason/packages/codelldb/codelldb"
+
+    return data_path .. file_path
+end
+
+
 
 return M

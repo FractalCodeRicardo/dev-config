@@ -13,6 +13,7 @@ vim.cmd("colorscheme duskfox")
 -- vim.lsp.enable("omnisharp")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("ts_ls")
+vim.lsp.enable("rust_analyzer")
 
 
 

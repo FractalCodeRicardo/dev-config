@@ -57,12 +57,22 @@ return {
             type = 'server',
             port = "${port}",
             executable = {
-                command = utils.get_codelldb(), 
+                command = utils.get_codelldb(),
                 args = { "--port", "${port}" },
             }
         }
 
-        dapui.setup()
+        dapui.setup({
+            layouts = { {
+                elements = { {
+                    id = "watches",
+                    size = 1
+                } },
+                position = "bottom",
+                size = 10
+            }
+            },
+        })
 
         -- Automatically open/close UI when debugging starts/stops
         dap.listeners.after.event_initialized["dapui_config"] = function()

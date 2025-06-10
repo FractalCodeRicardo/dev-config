@@ -12,6 +12,7 @@ opt.termguicolors = true
 opt.ignorecase = true
 opt.smartcase = true
 vim.o.winborder = 'rounded'
+opt.cursorline = true
 
 
 opt.fillchars = { fold = " " }

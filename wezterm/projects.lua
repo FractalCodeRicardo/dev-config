@@ -11,7 +11,8 @@ local projects = {
     { id = "chrono",   name = "Chrono",    path = base_dir .. "\\Chronoguard" },
     { id = "dev",        name = "Dev",         path = "C:\\Users\\Ricardo\\Desktop\\Ricardo\\dev-config" },
     { id = "nvim",       name = "Nvim",        path = "C:\\Users\\Ricardo\\AppData\\Local\\nvim" },
-    { id = "nvim-linux", name = "Nvim linux", path = "/home/ricardo/.config/nvim/" }
+    { id = "nvim-linux", name = "Nvim linux", path = "/home/ricardo/.config/nvim/" },
+    { id = "red-efectiva", name = "Red efectiva", path = base_dir .. "\\Pos\\RedEfectiva"}
 }
 
 return projects

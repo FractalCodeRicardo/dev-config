@@ -44,8 +44,6 @@ return {
             },
         }
 
-
-
         dap.adapters.coreclr = {
             type = 'executable',
             command = utils.get_netcoredbg_path(),
@@ -87,7 +85,18 @@ return {
 
         -- Keybindings
         local maps = vim.keymap;
-        maps.set('n', '<F5>', dap.continue, { desc = "Start/Continue Debugging" })
+        maps.set('n', '<F5>',
+            dap.continue
+            -- function()
+            --     if utils.get_debug_assembly() == nil then
+            --         utils.configure_debug_assembly(function()
+            --             dap.continue()
+            --         end)
+            --     else
+            --         dap.continue()
+            --     end
+            -- end
+            , { desc = "Start/Continue Debugging" })
         maps.set('n', '<F6>', dap.step_over, { desc = "Step Over" })
         maps.set('n', '<F7>', dap.step_into, { desc = "Step Into" })
         maps.set('n', '<F8>', dap.step_out, { desc = "Step Out" })

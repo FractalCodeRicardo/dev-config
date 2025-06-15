@@ -27,25 +27,26 @@ function M.get_csproj_name()
     return nil
 end
 
-
 function M.get_dll_path(project_name)
     local dll_path = vim.fn.getcwd() .. "/" .. project_name .. "/bin/Debug/net8.0/" .. project_name .. ".dll"
 
     return dll_path
 end
 
-
 function M.get_netcoredbg_path()
     local os = vim.loop.os_uname().sysname
     local data_path = vim.fn.stdpath("data")
     local window_path = "/mason/packages/netcoredbg/netcoredbg/netcoredbg.exe"
     local linux_path = "/mason/bin/netcoredbg"
-
+    local path = ""
     if os == "Windows_NT" then
-        return data_path .. window_path
+      path = data_path .. window_path
+    else
+        path = data_path .. linux_path
     end
 
-    return data_path .. linux_path
+    print("netcoredbg path: " ..path)
+    return  path
 end
 
 function M.get_lua_debugger()
@@ -69,8 +70,6 @@ function M.get_omnisharp()
     return data_path .. file_path
 end
 
-
-
 function M.get_codelldb()
     local data_path = vim.fn.stdpath("data")
     local file_path = "/mason/packages/codelldb/codelldb"
@@ -78,6 +77,46 @@ function M.get_codelldb()
     return data_path .. file_path
 end
 
+function M.find_dll(callback)
+    local fzf = require('fzf-lua');
+    fzf.files({
+        prompt = 'Select File> ',
+        cmd = "fd --type f --extension dll --no-ignore",
+        actions = {
+            ['default'] = function(selected)
+                local file = selected[1]
+                callback(file)
+            end
+        }
+    })
+end
 
+function M.set_debug_assembly(file)
+    vim.g["debug_assembly"] = file
+end
+
+function M.get_debug_assembly()
+    return vim.g["debug_assembly"]
+end
+
+function M.configure_debug_assembly(callback)
+    local assembly = M.get_debug_assembly()
+
+    local askFile = function()
+        M.find_dll(function(file)
+            M.set_debug_assembly(file)
+            callback()
+        end)
+    end
+
+    if assembly == nil then
+        askFile()
+        return
+    end
+
+    if vim.fn.confirm('Change debug assembly?\n' .. assembly, '&yes\n&no', 2) == 1 then
+        askFile()
+    end
+end
 
 return M

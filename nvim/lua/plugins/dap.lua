@@ -15,7 +15,11 @@ return {
                 name = "launch - netcoredbg",
                 request = "launch",
                 program = function()
-                    return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+                    -- ask for binary
+                    -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
+                    local assembly = utils.get_debug_assembly()
+                    print("Assembly file: " .. assembly)
+                    return assembly
                 end,
             },
             {
@@ -36,7 +40,10 @@ return {
                 request = "launch",
                 program = function()
                     -- ask for binary
-                    return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
+                    -- return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
+                    local assembly = utils.get_debug_assembly()
+                    print("Assembly file: " .. assembly)
+                    return assembly
                 end,
                 cwd = '${workspaceFolder}',
                 stopOnEntry = false,
@@ -86,16 +93,16 @@ return {
         -- Keybindings
         local maps = vim.keymap;
         maps.set('n', '<F5>',
-            dap.continue
-            -- function()
-            --     if utils.get_debug_assembly() == nil then
-            --         utils.configure_debug_assembly(function()
-            --             dap.continue()
-            --         end)
-            --     else
-            --         dap.continue()
-            --     end
-            -- end
+            -- dap.continue
+            function()
+                if utils.get_debug_assembly() == nil then
+                    utils.configure_debug_assembly(function()
+                        dap.continue()
+                    end)
+                else
+                    dap.continue()
+                end
+            end
             , { desc = "Start/Continue Debugging" })
         maps.set('n', '<F6>', dap.step_over, { desc = "Step Over" })
         maps.set('n', '<F7>', dap.step_into, { desc = "Step Into" })

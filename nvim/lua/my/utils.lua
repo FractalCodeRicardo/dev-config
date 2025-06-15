@@ -77,14 +77,16 @@ function M.get_codelldb()
     return data_path .. file_path
 end
 
-function M.find_dll(callback)
+function M.find_file(callback)
     local fzf = require('fzf-lua');
     fzf.files({
-        prompt = 'Select File> ',
-        cmd = "fd --type f --extension dll --no-ignore",
+        git_icons = false,
+        file_icons = false,
+        prompt = 'Select File: ',
+        cmd = "fd --type f --no-ignore",
         actions = {
             ['default'] = function(selected)
-                local file = selected[1]
+                local file = vim.fn.getcwd() .. "/" .. selected[1]
                 callback(file)
             end
         }
@@ -103,7 +105,7 @@ function M.configure_debug_assembly(callback)
     local assembly = M.get_debug_assembly()
 
     local askFile = function()
-        M.find_dll(function(file)
+        M.find_file(function(file)
             M.set_debug_assembly(file)
             callback()
         end)

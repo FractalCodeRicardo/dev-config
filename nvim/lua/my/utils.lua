@@ -33,13 +33,21 @@ function M.get_dll_path(project_name)
     return dll_path
 end
 
-function M.get_netcoredbg_path()
+function M.im_on_windows()
     local os = vim.loop.os_uname().sysname
+    if os == "Windows_NT" then
+        return true
+    end
+
+    return false
+end
+function M.get_netcoredbg_path()
     local data_path = vim.fn.stdpath("data")
     local window_path = "/mason/packages/netcoredbg/netcoredbg/netcoredbg.exe"
     local linux_path = "/mason/bin/netcoredbg"
     local path = ""
-    if os == "Windows_NT" then
+
+    if M.im_on_windows()  then
       path = data_path .. window_path
     else
         path = data_path .. linux_path

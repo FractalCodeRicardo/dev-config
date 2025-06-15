@@ -22,11 +22,11 @@ opt.foldlevel = 99
 
 -- Enable diagnostics
 vim.diagnostic.config({
-  virtual_text = true, -- Show inline diagnostics
-  signs = true,        -- Show signs in the gutter
-  underline = true,    -- Underline errors
-  update_in_insert = true, -- Don't update diagnostics in insert mode
-  severity_sort = true, -- Sort diagnostics by severity
+    virtual_text = true,   -- Show inline diagnostics
+    signs = true,          -- Show signs in the gutter
+    underline = true,      -- Underline errors
+    update_in_insert = true, -- Don't update diagnostics in insert mode
+    severity_sort = true,  -- Sort diagnostics by severity
 })
 
 --deprecated
@@ -53,7 +53,18 @@ vim.diagnostic.config({
 -- })
 
 vim.api.nvim_create_user_command("Dotnet", function()
-  vim.cmd("compiler dotnet")
-  vim.cmd("make")
-  vim.cmd("copen")
+    vim.cmd("compiler dotnet")
+    vim.cmd("make")
+    vim.cmd("copen")
 end, {})
+
+local utils = require("my.utils")
+
+if utils.im_on_windows() then
+    --netcoredbg issue
+    --https://github.com/mfussenegger/nvim-dap/discussions/1156
+    vim.opt.shellslash = false
+    vim.defer_fn(function()
+        vim.opt.shellslash = false
+    end, 5000)
+end

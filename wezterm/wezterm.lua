@@ -122,7 +122,7 @@ return {
         top = 1,
         bottom= 0
     },
-    window_background_opacity = 0.60, -- slight transparency
+    window_background_opacity = 0.97, -- slight transparency
     initial_cols = 120,
     initial_rows = 30,
 

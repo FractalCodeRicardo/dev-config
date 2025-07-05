@@ -101,8 +101,8 @@ return {
     default_prog = get_shell(),
 
     -- Appearance
-    font = wezterm.font("JetBrains Mono", { weight = "Bold" }),
-    font_size = 14.0,
+    font = wezterm.font("JetBrains Mono", { weight = "DemiBold" }),
+    font_size = 15.0,
     color_scheme = "Catppuccin Mocha", -- You can change this to any built-in color scheme
 
     -- Tab bar settings

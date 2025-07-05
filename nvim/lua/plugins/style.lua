@@ -40,7 +40,7 @@ return {
     },
     {
         "EdenEast/nightfox.nvim",
-        lazy = true
+        lazy = false
     },
 
     {

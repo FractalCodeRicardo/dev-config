@@ -13,7 +13,7 @@ opt.ignorecase = true
 opt.smartcase = true
 vim.o.winborder = 'rounded'
 opt.cursorline = true
-
+-- opt.colorcolumn=90
 
 opt.fillchars = { fold = " " }
 opt.foldmethod = "indent"

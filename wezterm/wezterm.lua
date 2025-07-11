@@ -22,9 +22,9 @@ end
 
 local function get_fzf_command()
     if is_windows() then
-        return { "pwsh.exe", "-NoLogo", "-Command", "fzf | ForEach-Object { nvim $_ }" }
+        return { "pwsh.exe", "-NoLogo", "-Command", "cd ~; fzf | ForEach-Object { nvim $_ }" }
     end
-    return { 'bash', '-c', 'nvim "$(fzf)"' }
+    return { 'bash', '-c', 'cd ~ && nvim "$(fzf)"' }
 end
 
 local function perform_open_tab(window, pane, title, opts)
@@ -101,7 +101,7 @@ return {
     default_prog = get_shell(),
 
     -- Appearance
-    font = wezterm.font("JetBrains Mono", { weight = "DemiBold" }),
+    font = wezterm.font("JetBrains Mono", { weight = "Bold" }),
     font_size = 15.0,
     color_scheme = "Catppuccin Mocha", -- You can change this to any built-in color scheme
 
@@ -122,7 +122,7 @@ return {
         top = 1,
         bottom= 0
     },
-    window_background_opacity = 0.88, -- slight transparency
+    window_background_opacity = 0.95, -- slight transparency
     initial_cols = 120,
     initial_rows = 30,
 

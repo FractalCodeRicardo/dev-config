@@ -12,7 +12,7 @@ vim.cmd("colorscheme tokyonight-night")
 
 -- vim.lsp.enable("omnisharp")
 vim.lsp.enable("lua_ls")
-vim.lsp.enable("ts_ls")
+vim.lsp.enable("tsserver")
 vim.lsp.enable("rust_analyzer")
 
 

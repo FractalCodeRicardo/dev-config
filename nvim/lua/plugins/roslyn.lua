@@ -1,6 +1,6 @@
 return {
     "seblyng/roslyn.nvim",
-    enabled = true,
+    enabled = false,
     ft = "cs",
     config = function()
         vim.lsp.config("roslyn", {

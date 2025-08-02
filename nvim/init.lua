@@ -14,6 +14,7 @@ vim.cmd("colorscheme duskfox")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("tsserver")
 vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("roslyn_ls")
 
 
 

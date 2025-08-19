@@ -2,7 +2,7 @@ return {
     {
         "folke/tokyonight.nvim",
         lazy = true,
-        enabled = true,
+        enabled = false,
         priority = 1000,
         opts = {
             transparent = true,
@@ -51,7 +51,7 @@ return {
     -- Using Lazy
     {
         "navarasu/onedark.nvim",
-        enable = false,
+        enabled = false,
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             require('onedark').setup {
@@ -63,7 +63,7 @@ return {
     },
     {
         'nyngwang/nvimgelion',
-        enable = false,
+        enabled = false,
         config = function()
             -- do whatever you want for further customization~
         end
@@ -71,7 +71,7 @@ return {
     {
 	"rose-pine/neovim",
 	name = "rose-pine",
-        enable = false,
+        enabled = false,
         config = function()
             local rose = require("rose-pine")
             rose.setup({

@@ -45,16 +45,16 @@ return {
         vim.lsp.config("jsonls", {})
         vim.lsp.config("powershell_es", {})
 
-        local sysname = vim.uv.os_uname().sysname:lower()
-        local iswin = not not (sysname:find("windows") or sysname:find("mingw"))
-        vim.lsp.config("roslyn_ls", {
-            cmd = {
-                iswin and "roslyn.cmd" or "roslyn",
-                "--logLevel=Information",
-                "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
-                "--stdio"
-            }
-        })
+        -- local sysname = vim.uv.os_uname().sysname:lower()
+        -- local iswin = not not (sysname:find("windows") or sysname:find("mingw"))
+        -- vim.lsp.config("roslyn_ls", {
+        --     cmd = {
+        --         iswin and "roslyn.cmd" or "roslyn",
+        --         "--logLevel=Information",
+        --         "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
+        --         "--stdio"
+        --     }
+        -- })
 
         vim.lsp.config("lemminx", {
             filetypes = { "xml", "axaml", "xsd", "xslt", "csproj" },

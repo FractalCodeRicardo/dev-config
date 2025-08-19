@@ -10,11 +10,10 @@ require("config.options")
 vim.cmd("colorscheme duskfox")
 -- vim.cmd("colorscheme tokyonight-night")
 
--- vim.lsp.enable("omnisharp")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("tsserver")
 vim.lsp.enable("rust_analyzer")
-vim.lsp.enable("roslyn_ls")
+vim.lsp.disable("roslyn_ls")
 
 
 

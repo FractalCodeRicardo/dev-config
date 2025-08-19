@@ -68,3 +68,10 @@ if utils.im_on_windows() then
         vim.opt.shellslash = false
     end, 5000)
 end
+
+vim.api.nvim_create_user_command("RestartAll", function()
+  vim.lsp.stop_client(vim.lsp.get_clients())
+  vim.cmd("edit")
+  print("✅ It's me, Good. I'm here behind you.")
+
+end, { })

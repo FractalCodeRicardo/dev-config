@@ -53,7 +53,7 @@ function M.get_netcoredbg_path()
         path = data_path .. linux_path
     end
 
-    print("netcoredbg path: " ..path)
+    -- print("netcoredbg path: " ..path)
     return  path
 end
 

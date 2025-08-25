@@ -75,3 +75,8 @@ vim.api.nvim_create_user_command("RestartAll", function()
   print("✅ It's me, Good. I'm here behind you.")
 
 end, { })
+
+vim.opt.shortmess:append { I = true, c = false, F = false }
+-- I → skip the intro message
+-- c → suppress completion messages
+-- F → suppress file info messages

@@ -78,3 +78,4 @@ vim.keymap.set('i', '<C-v>', '<C-r>+')
 vim.keymap.set('n', '<Leader>z', '<C-z>', { noremap = true, silent = true })
 
 vim.keymap.set("t", "<esc><esc>", "<C-\\><C-n>", { silent = true })
+

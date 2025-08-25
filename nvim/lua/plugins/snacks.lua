@@ -2,12 +2,13 @@ return
 -- lazy.nvim
 {
     "folke/snacks.nvim",
+    enabled = false,
     ---@type snacks.Config
     config = function()
         local snacks = require("snacks")
         snacks.setup( -- lazy.nvim
             {
-                explorer = {},
+                -- explorer = {},
                 notifier = {},
                 lazygit = {},
                 picker = {
@@ -27,9 +28,9 @@ return
         );
 
         local map = vim.keymap;
-        map.set('n', "te", function()
-            snacks.explorer()
-        end, {})
+        -- map.set('n', "te", function()
+        --     snacks.explorer()
+        -- end, {})
 
         vim.api.nvim_create_user_command("Git", function()
             snacks.lazygit.open();

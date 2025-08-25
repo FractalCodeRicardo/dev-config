@@ -93,7 +93,7 @@ return {
         -- Keybindings
         local maps = vim.keymap;
         maps.set('n', '<F5>',
-            -- dap.continue
+            
             function()
                 if utils.get_debug_assembly() == nil then
                     utils.configure_debug_assembly(function()

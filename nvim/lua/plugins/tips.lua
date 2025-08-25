@@ -1,4 +1,5 @@
 return {
+    enabled = false,
   "saxon1964/neovim-tips",
   dependencies = { "ibhagwan/fzf-lua" },
   opts = {

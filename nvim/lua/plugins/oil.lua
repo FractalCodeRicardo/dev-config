@@ -13,7 +13,7 @@ return {
         oil.setup({
             default_file_explorer = true, -- this replaces netrw but won't auto-open
         })
-        vim.api.nvim_set_keymap('n', 'te', ':Oil<CR>', { noremap = true, silent = true })
+        vim.api.nvim_set_keymap('n', 'te', ":Oil<CR>", { noremap = true, silent = true })
 
         vim.api.nvim_create_autocmd("FileType", {
             pattern = "oil",

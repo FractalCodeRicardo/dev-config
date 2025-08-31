@@ -28,29 +28,29 @@ local function get_fzf_command()
 end
 
 local function perform_open_tab(window, pane, title, opts)
-        local action = wezterm.action.SpawnCommandInNewTab(opts)
-        window:perform_action(action, pane)
+    local action = wezterm.action.SpawnCommandInNewTab(opts)
+    window:perform_action(action, pane)
 
-        wezterm.time.call_after(0.2, function()
-            local tab = window:active_tab()
-            if tab then
-                tab:set_title(title)
-            end
-        end)
+    wezterm.time.call_after(0.2, function()
+        local tab = window:active_tab()
+        if tab then
+            tab:set_title(title)
+        end
+    end)
 end
 
 local function open_tab_action(title, opts)
     wezterm.log_info("Opening tab " .. title)
     wezterm.log_info(opts)
 
-     return wezterm.action_callback(function(window, pane)
+    return wezterm.action_callback(function(window, pane)
         perform_open_tab(window, pane, title, opts)
     end)
 end
 
 local function open_fzf_action()
     local commands = get_fzf_command()
-    return open_tab_action("fzf search", {args = commands})
+    return open_tab_action("fzf search", { args = commands })
 end
 
 local function get_projects_choices()
@@ -73,7 +73,7 @@ local function get_project_by_id(id)
 end
 
 local function select_project()
-    local choices =get_projects_choices()
+    local choices = get_projects_choices()
 
     return wezterm.action_callback(function(window, pane)
         window:perform_action(
@@ -83,9 +83,8 @@ local function select_project()
                     wezterm.log_info("select_project")
                     wezterm.log_info(project)
                     if project ~= nil then
-                        perform_open_tab(window2, pane2, project.name, {cwd = project.path})
+                        perform_open_tab(window2, pane2, project.name, { cwd = project.path })
                     end
-
                 end),
                 title = "Select a Project",
                 choices = choices,
@@ -95,6 +94,23 @@ local function select_project()
     end)
 end
 
+local function get_dir_name(dir_path)
+    if not dir_path then
+        return "Terminal"
+    end
+
+    dir_path = dir_path:gsub("\\", "/")
+
+    local name =dir_path:match("([^/]+)/*$")
+    print(dir_path)
+    return name 
+end
+
+-- wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+--     return {
+--         { Text = tab.active_pane.current_working_dir },
+--     }
+-- end)
 
 return {
     -- Set your default shell (like PowerShell, cmd, or WSL)
@@ -104,10 +120,10 @@ return {
     -- font = wezterm.font("JetBrains Mono", { weight = "Bold" }),
     -- font = wezterm.font("FiraCode Nerd Font", { weight = "Bold" }),
     -- font = wezterm.font("Hack Nerd Font", { weight = "Bold" }),
--- font = wezterm.font("IosevkaTerm Nerd Font", { weight = "Bold" }),
--- font = wezterm.font("UbuntuMono Nerd Font", { weight = "Bold" }),
--- font = wezterm.font("Mononoki Nerd Font", { weight = "Bold" }),
-font = wezterm.font("Maple Mono", { weight = "Bold" }),
+    -- font = wezterm.font("IosevkaTerm Nerd Font", { weight = "Bold" }),
+    -- font = wezterm.font("UbuntuMono Nerd Font", { weight = "Bold" }),
+    -- font = wezterm.font("Mononoki Nerd Font", { weight = "Bold" }),
+    font = wezterm.font("Maple Mono", { weight = "Bold" }),
     font_size = 14.0,
     color_scheme = "Catppuccin Mocha", -- You can change this to any built-in color scheme
 
@@ -126,12 +142,12 @@ font = wezterm.font("Maple Mono", { weight = "Bold" }),
         left = 0,
         right = 0,
         top = 1,
-        bottom= 0
+        bottom = 0
     },
     window_background_opacity = 0.97, -- slight transparency
     initial_cols = 120,
     initial_rows = 30,
-    warn_about_missing_glyphs=false,
+    warn_about_missing_glyphs = false,
 
     -- Key bindings
     keys = {

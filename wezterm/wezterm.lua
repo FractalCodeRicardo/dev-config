@@ -123,7 +123,7 @@ return {
     -- font = wezterm.font("IosevkaTerm Nerd Font", { weight = "Bold" }),
     -- font = wezterm.font("UbuntuMono Nerd Font", { weight = "Bold" }),
     -- font = wezterm.font("Mononoki Nerd Font", { weight = "Bold" }),
-    font = wezterm.font("Maple Mono", { weight = "Bold" }),
+    font = wezterm.font("Maple Mono", { weight = "DemiBold" }),
     font_size = 14.0,
     color_scheme = "Catppuccin Mocha", -- You can change this to any built-in color scheme
 

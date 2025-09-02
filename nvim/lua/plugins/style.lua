@@ -1,5 +1,6 @@
 return {
     {
+
         "folke/tokyonight.nvim",
         lazy = true,
         enabled = false,
@@ -45,17 +46,18 @@ return {
 
     {
         "scottmckendry/cyberdream.nvim",
+        enabled = false,
         lazy = false,
         priority = 1000,
     },
     -- Using Lazy
     {
         "navarasu/onedark.nvim",
-        enabled = false,
+        enabled = true,
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             require('onedark').setup {
-                style = 'cool'
+                style = 'warmer'
             }
             -- Enable theme
             require('onedark').load()
@@ -69,20 +71,14 @@ return {
         end
     },
     {
-	"rose-pine/neovim",
-	name = "rose-pine",
+        "rose-pine/neovim",
+        name = "rose-pine",
         enabled = false,
         config = function()
             local rose = require("rose-pine")
             rose.setup({
                 -- disable_background = true,
             })
-
-            -- vim.cmd("colorscheme rose-pine")
-            -- vim.cmd("colorscheme rose-pine-main")
-            -- vim.cmd("colorscheme rose-pine-moon")
-            vim.cmd("colorscheme rose-pine-dawn")
         end
-
     }
 }

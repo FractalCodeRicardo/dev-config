@@ -41,6 +41,7 @@ return {
     },
     {
         "EdenEast/nightfox.nvim",
+        enabled = true,
         lazy = false
     },
 
@@ -80,5 +81,40 @@ return {
                 -- disable_background = true,
             })
         end
+    },
+    {
+        "rebelot/kanagawa.nvim",
+        enabled = false,
+        config = function()
+            local kanagawa = require("kanagawa");
+            kanagawa.setup({
+                theme = "wave"
+            })
+        end
+    },
+    {
+        "cpea2506/one_monokai.nvim",
+        enabled = false
+    },
+    {
+        'sainnhe/gruvbox-material',
+        enabled = true,
+        lazy = false,
+        priority = 1000,
+        config = function()
+            -- Optionally configure and load the colorscheme
+            -- directly inside the plugin declaration.
+            vim.g.gruvbox_material_enable_italic = true
+
+            -- foreground option can be material, mix, or original
+            vim.g.gruvbox_material_foreground = "material"
+
+            --background option can be hard, medium, soft
+            vim.g.gruvbox_material_background = "medium"
+            vim.g.gruvbox_material_enable_italic = 1
+            vim.g.gruvbox_material_better_performance = 1
+            vim.cmd.colorscheme('gruvbox-material')
+        end
     }
+
 }

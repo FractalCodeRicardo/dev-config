@@ -111,22 +111,36 @@ end
 --         { Text = tab.active_pane.current_working_dir },
 --     }
 -- end)
+--
+wezterm.on("gui-startup", function(cmd)
+  local _, _, window = wezterm.mux.spawn_window(cmd or {})
+  local screen = wezterm.gui.screens().active -- get active monitor info
 
+  -- leave 50px padding on each side
+  local margin = 150
+  local width = screen.width - (margin * 2)
+  local height = screen.height - (margin * 2)
+  local x = screen.x + margin
+  local y = screen.y + margin
+
+  window:gui_window():set_position(x, y)
+  window:gui_window():set_inner_size(width, height)
+end)
 return {
     -- Set your default shell (like PowerShell, cmd, or WSL)
     default_prog = get_shell(),
 
     -- Appearance
-    -- font = wezterm.font("JetBrains Mono", { weight = "Bold" }),
+    -- font = wezterm.font("JetBrains Mono", { weight = "DemiBold" }),
     -- font = wezterm.font("FiraCode Nerd Font", { weight = "Bold" }),
-    -- font = wezterm.font("Hack Nerd Font", { weight = "Bold" }),
-    -- font = wezterm.font("IosevkaTerm Nerd Font", { weight = "Bold" }),
+    -- font = wezterm.font("Hack Nerd Font", { weight = "DemiBold" }),
+    font = wezterm.font("IosevkaTerm Nerd Font", { weight = "DemiBold" }),
     -- font = wezterm.font("UbuntuMono Nerd Font", { weight = "Bold" }),
     -- font = wezterm.font("Mononoki Nerd Font", { weight = "Bold" }),
-    font = wezterm.font("Maple Mono", { weight = "DemiBold" }),
-    font_size = 14.0,
-    color_scheme = "Catppuccin Mocha", -- You can change this to any built-in color scheme
-
+    -- font = wezterm.font("Maple Mono", { weight = "DemiBold" }),
+    font_size = 13.0,
+    -- color_scheme = "Catppuccin Mocha", -- You can change this to any built-in color scheme
+    color_scheme = "Gruvbox dark, medium (base16)", -- You can change this to any built-in color scheme
     -- Tab bar settings
     enable_tab_bar = true,
     hide_tab_bar_if_only_one_tab = true,

@@ -138,9 +138,9 @@ return {
     -- font = wezterm.font("UbuntuMono Nerd Font", { weight = "Bold" }),
     -- font = wezterm.font("Mononoki Nerd Font", { weight = "Bold" }),
     -- font = wezterm.font("Maple Mono", { weight = "DemiBold" }),
-    font_size = 15.0,
-    -- color_scheme = "Catppuccin Mocha", -- You can change this to any built-in color scheme
-    color_scheme = "Gruvbox dark, medium (base16)", -- You can change this to any built-in color scheme
+    font_size = 16.0,
+    color_scheme = "Catppuccin Mocha", -- You can change this to any built-in color scheme
+    -- color_scheme = "Gruvbox dark, medium (base16)", -- You can change this to any built-in color scheme
     -- Tab bar settings
     enable_tab_bar = true,
     hide_tab_bar_if_only_one_tab = true,

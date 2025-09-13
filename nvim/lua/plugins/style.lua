@@ -54,7 +54,7 @@ return {
     -- Using Lazy
     {
         "navarasu/onedark.nvim",
-        enabled = true,
+        enabled = false,
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
             require('onedark').setup {
@@ -98,7 +98,7 @@ return {
     },
     {
         'sainnhe/gruvbox-material',
-        enabled = true,
+        enabled = false,
         lazy = false,
         priority = 1000,
         config = function()

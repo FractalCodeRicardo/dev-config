@@ -22,9 +22,9 @@ end
 
 local function get_fzf_command()
     if is_windows() then
-        return { "pwsh.exe", "-NoLogo", "-Command", "cd ~; fzf | ForEach-Object { nvim $_ }" }
+        return "fzf | ForEach-Object { nvim $_ }"
     end
-    return { 'bash', '-c', 'cd ~ && nvim "$(fzf)"' }
+    return 'nvim "$(fzf)"'
 end
 
 local function perform_open_tab(window, pane, title, opts)
@@ -39,18 +39,12 @@ local function perform_open_tab(window, pane, title, opts)
     end)
 end
 
-local function open_tab_action(title, opts)
-    wezterm.log_info("Opening tab " .. title)
-    wezterm.log_info(opts)
-
-    return wezterm.action_callback(function(window, pane)
-        perform_open_tab(window, pane, title, opts)
-    end)
-end
-
 local function open_fzf_action()
     local commands = get_fzf_command()
-    return open_tab_action("fzf search", { args = commands })
+
+    return wezterm.action_callback(function(window, pane)
+         window:perform_action(wezterm.action.SendString(commands), pane)
+    end)
 end
 
 local function get_projects_choices()
@@ -94,38 +88,22 @@ local function select_project()
     end)
 end
 
-local function get_dir_name(dir_path)
-    if not dir_path then
-        return "Terminal"
-    end
 
-    dir_path = dir_path:gsub("\\", "/")
-
-    local name =dir_path:match("([^/]+)/*$")
-    print(dir_path)
-    return name 
-end
-
--- wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
---     return {
---         { Text = tab.active_pane.current_working_dir },
---     }
--- end)
---
 wezterm.on("gui-startup", function(cmd)
-  local _, _, window = wezterm.mux.spawn_window(cmd or {})
-  local screen = wezterm.gui.screens().active -- get active monitor info
+    local _, _, window = wezterm.mux.spawn_window(cmd or {})
+    local screen = wezterm.gui.screens().active -- get active monitor info
 
-  -- leave 50px padding on each side
-  local margin = 150
-  local width = screen.width - (margin * 2)
-  local height = screen.height - (margin * 2)
-  local x = screen.x + margin
-  local y = screen.y + margin
+    -- leave 50px padding on each side
+    local margin = 150
+    local width = screen.width - (margin * 2)
+    local height = screen.height - (margin * 2)
+    local x = screen.x + margin
+    local y = screen.y + margin
 
-  window:gui_window():set_position(x, y)
-  window:gui_window():set_inner_size(width, height)
+    window:gui_window():set_position(x, y)
+    window:gui_window():set_inner_size(width, height)
 end)
+
 return {
     -- Set your default shell (like PowerShell, cmd, or WSL)
     default_prog = get_shell(),
@@ -138,7 +116,7 @@ return {
     -- font = wezterm.font("UbuntuMono Nerd Font", { weight = "Bold" }),
     -- font = wezterm.font("Mononoki Nerd Font", { weight = "Bold" }),
     -- font = wezterm.font("Maple Mono", { weight = "DemiBold" }),
-    font_size = 16.0,
+    font_size = 19.0,
     color_scheme = "Catppuccin Mocha", -- You can change this to any built-in color scheme
     -- color_scheme = "Gruvbox dark, medium (base16)", -- You can change this to any built-in color scheme
     -- Tab bar settings

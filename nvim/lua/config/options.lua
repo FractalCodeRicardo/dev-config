@@ -80,3 +80,6 @@ vim.opt.shortmess:append { I = true, c = false, F = false }
 -- I → skip the intro message
 -- c → suppress completion messages
 -- F → suppress file info messages
+
+-- remove "Press enter to continue message"
+vim.opt.more = false

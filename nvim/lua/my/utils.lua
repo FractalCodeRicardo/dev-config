@@ -129,4 +129,47 @@ function M.configure_debug_assembly(callback)
     end
 end
 
+function M.eval_buffer()
+-- Get all lines from current buffer
+  local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+  local chunk = table.concat(lines, "\n")
+
+  -- Open (or reuse) a scratch buffer for results
+  local buf_name = "LuaOutput"
+  local buf = vim.fn.bufnr(buf_name)
+  if buf == -1 then
+    buf = vim.api.nvim_create_buf(false, true) -- [listed=false, scratch=true]
+    vim.api.nvim_buf_set_name(buf, buf_name)
+  end
+
+  -- Create a split if it's not visible
+  local win = vim.fn.bufwinnr(buf)
+  if win == -1 then
+    vim.cmd("botright split")
+    vim.api.nvim_win_set_buf(0, buf)
+    vim.api.nvim_win_set_height(0, 10)
+  end
+
+  -- Clear previous content
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, {})
+
+  -- Run Lua code
+  local ok, result = pcall(load(chunk))
+
+  -- Collect output
+  local output = {}
+  if ok then
+    if result ~= nil then
+      table.insert(output, vim.inspect(result))
+    else
+      table.insert(output, "✔ Buffer executed successfully")
+    end
+  else
+    table.insert(output, "❌ Error: " .. result)
+  end
+
+  -- Write output to the scratch buffer
+  vim.api.nvim_buf_set_lines(buf, 0, -1, false, output)
+end
+
 return M

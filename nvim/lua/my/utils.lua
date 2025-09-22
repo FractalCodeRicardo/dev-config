@@ -129,8 +129,16 @@ function M.configure_debug_assembly(callback)
     end
 end
 
+local function append_lines(arr, str)
+  -- Split into lines (keep plain split, not regex)
+  local lines = vim.split(str, "\n", { plain = true })
+  for _, line in ipairs(lines) do
+    table.insert(arr, line)
+  end
+end
+
 function M.eval_buffer()
--- Get all lines from current buffer
+  -- Get all lines from current buffer
   local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
   local chunk = table.concat(lines, "\n")
 
@@ -153,14 +161,30 @@ function M.eval_buffer()
   -- Clear previous content
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, {})
 
+  -- Table to capture print output
+  local output = {}
+
+  -- Override print temporarily
+  local old_print = print
+  print = function(...)
+    local args = {}
+    for i = 1, select("#", ...) do
+      table.insert(args, tostring(select(i, ...)))
+    end
+    local text = table.concat(args, "\t")
+    append_lines(output, text)
+  end
+
   -- Run Lua code
   local ok, result = pcall(load(chunk))
 
-  -- Collect output
-  local output = {}
+  -- Restore original print
+  print = old_print
+
+  -- Add result or success message
   if ok then
     if result ~= nil then
-      table.insert(output, vim.inspect(result))
+      table.insert(output, "Result: " .. vim.inspect(result))
     else
       table.insert(output, "✔ Buffer executed successfully")
     end

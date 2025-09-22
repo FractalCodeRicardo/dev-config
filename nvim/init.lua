@@ -10,9 +10,9 @@ require("config.options")
 -- vim.cmd("colorscheme one_monokai")
 -- vim.cmd("colorscheme onedark")
 -- vim.cmd("colorscheme catppuccin-macchiato")
-vim.cmd("colorscheme duskfox")
+-- vim.cmd("colorscheme duskfox")
 -- vim.cmd("colorscheme rose-pine")
--- vim.cmd("colorscheme tokyonight-storm")
+vim.cmd("colorscheme tokyonight-storm")
 
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("tsserver")
@@ -22,4 +22,4 @@ vim.lsp.enable("rust_analyzer")
 vim.fn.setenv("DAP_LOG_LEVEL", "TRACE")
 vim.fn.setenv("DAP_LOG_FILE", vim.fn.stdpath("cache") .. "/dap.log")
 
-
+vim.opt.runtimepath:append("~/dev/eyes-wide-bright/")

@@ -11,7 +11,7 @@ map.set("i", "jk", "<Esc>", options)
 
 -- ctr + backspace delete word
 vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', { noremap = true, silent = true })
-
+vim.api.nvim_set_keymap('i', '<BS>', '<C-W>', { noremap = true, silent = true })
 --ctrl + A select all
 vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG<CR>', options);
 

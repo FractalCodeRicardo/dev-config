@@ -2,7 +2,7 @@ return {
     {
 
         "folke/tokyonight.nvim",
-        lazy = true,
+        lazy = false,
         enabled = true,
         priority = 1000,
         opts = {
@@ -41,7 +41,7 @@ return {
     },
     {
         "EdenEast/nightfox.nvim",
-        enabled = true,
+        enabled = false,
         lazy = false
     },
 

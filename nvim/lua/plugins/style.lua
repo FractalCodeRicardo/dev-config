@@ -2,18 +2,21 @@ return {
     {
 
         "folke/tokyonight.nvim",
-        lazy = false,
+        lazy = true,
         enabled = true,
         priority = 1000,
-        opts = {
-            transparent = true,
-            styles = {
-                sidebars = "transparent",
-                floats = "transparent",
-            }
-        },
-        config = function(_, opts)
-            require("tokyonight").setup(opts)
+        config = function()
+            local tokyo = require("tokyonight")
+            tokyo.setup({
+                transparent = true,
+                styles = {
+                    sidebars = "transparent",
+                    floats = "transparent",
+                },
+                on_highlights = function(hl, c)
+                    hl["@lsp.code.unused"] = { fg = c.comment, italic = true }
+                end
+            })
             -- vim.cmd.colorscheme("tokyonight")
             -- vim.cmd.colorscheme("tokyonight-night")
             -- vim.cmd.colorscheme("tokyonight-storm")
@@ -29,7 +32,7 @@ return {
     {
         "catppuccin/nvim",
         enabled = false,
-        lazy = true,
+        lazy = false,
         name = "catppuccin",
         priority = 1000,
         config = function()
@@ -84,7 +87,7 @@ return {
     },
     {
         "rebelot/kanagawa.nvim",
-        enabled = false,
+        enabled = true,
         config = function()
             local kanagawa = require("kanagawa");
             kanagawa.setup({
@@ -98,7 +101,7 @@ return {
     },
     {
         'sainnhe/gruvbox-material',
-        enabled = false,
+        enabled = true,
         lazy = false,
         priority = 1000,
         config = function()

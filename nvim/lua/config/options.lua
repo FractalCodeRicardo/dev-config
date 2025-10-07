@@ -83,3 +83,4 @@ vim.opt.shortmess:append { I = true, c = false, F = false }
 
 -- remove "Press enter to continue message"
 vim.opt.more = false
+

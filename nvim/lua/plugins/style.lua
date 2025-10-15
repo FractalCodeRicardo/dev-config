@@ -3,7 +3,7 @@ return {
 
         "folke/tokyonight.nvim",
         lazy = true,
-        enabled = true,
+        enabled = false,
         priority = 1000,
         config = function()
             local tokyo = require("tokyonight")
@@ -31,21 +31,30 @@ return {
     },
     {
         "catppuccin/nvim",
-        enabled = false,
+        enabled = true,
         lazy = false,
         name = "catppuccin",
         priority = 1000,
         config = function()
             local catpuccin = require("catppuccin")
             catpuccin.setup({
+                flavour = "mocha",
                 transparent_background = true
             })
         end
     },
     {
         "EdenEast/nightfox.nvim",
-        enabled = false,
-        lazy = false
+        enabled = true,
+        lazy = false,
+        config = function()
+            local nightfox = require("nightfox");
+            nightfox.setup({
+                options = {
+                    transparent = true
+                }
+            })
+        end
     },
 
     {
@@ -117,6 +126,27 @@ return {
             vim.g.gruvbox_material_enable_italic = 1
             vim.g.gruvbox_material_better_performance = 1
             vim.cmd.colorscheme('gruvbox-material')
+        end
+    },
+
+    {
+        "Tsuzat/NeoSolarized.nvim",
+        enabled = false,
+        lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
+        config = function()
+        end
+    },
+    {
+        "daschw/leaf.nvim",
+        enabled = false,
+        config = function()
+            local leaf = require("leaf");
+
+            leaf.setup({
+                contrast = "high",
+                transparent = false
+            })
         end
     }
 

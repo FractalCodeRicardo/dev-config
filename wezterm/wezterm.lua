@@ -9,168 +9,168 @@ local mux = wezterm.mux
 -- end)
 
 local function is_windows()
-    return wezterm.target_triple:find("windows")
+	return wezterm.target_triple:find("windows")
 end
 
 local function get_shell()
-    if is_windows() then
-        return { "pwsh.exe", "-NoLogo" }
-    end
+	if is_windows() then
+		return { "pwsh.exe", "-NoLogo" }
+	end
 
-    return { "/bin/bash" }
+	return { "/bin/bash" }
 end
 
 local function get_fzf_command()
-    if is_windows() then
-        return "fzf | ForEach-Object { nvim $_ }"
-    end
-    return 'nvim "$(fzf)"'
+	if is_windows() then
+		return "fzf | ForEach-Object { nvim $_ }"
+	end
+	return 'nvim "$(fzf)"'
 end
 
 local function perform_open_tab(window, pane, title, opts)
-    local action = wezterm.action.SpawnCommandInNewTab(opts)
-    window:perform_action(action, pane)
+	local action = wezterm.action.SpawnCommandInNewTab(opts)
+	window:perform_action(action, pane)
 
-    wezterm.time.call_after(0.2, function()
-        local tab = window:active_tab()
-        if tab then
-            tab:set_title(title)
-        end
-    end)
+	wezterm.time.call_after(0.2, function()
+		local tab = window:active_tab()
+		if tab then
+			tab:set_title(title)
+		end
+	end)
 end
 
 local function open_fzf_action()
-    local commands = get_fzf_command()
+	local commands = get_fzf_command()
 
-    return wezterm.action_callback(function(window, pane)
-         window:perform_action(wezterm.action.SendString(commands), pane)
-    end)
+	return wezterm.action_callback(function(window, pane)
+		window:perform_action(wezterm.action.SendString(commands), pane)
+	end)
 end
 
 local function get_projects_choices()
-    local choices = {}
-    for _, project in ipairs(projects) do
-        table.insert(choices, { label = project.id .. " - " .. project.name, id = project.id })
-    end
+	local choices = {}
+	for _, project in ipairs(projects) do
+		table.insert(choices, { label = project.id .. " - " .. project.name, id = project.id })
+	end
 
-    return choices
+	return choices
 end
 
 local function get_project_by_id(id)
-    for _, project in ipairs(projects) do
-        if project.id == id then
-            return project
-        end
-    end
+	for _, project in ipairs(projects) do
+		if project.id == id then
+			return project
+		end
+	end
 
-    return nil
+	return nil
 end
 
 local function select_project()
-    local choices = get_projects_choices()
+	local choices = get_projects_choices()
 
-    return wezterm.action_callback(function(window, pane)
-        window:perform_action(
-            wezterm.action.InputSelector {
-                action = wezterm.action_callback(function(window2, pane2, id)
-                    local project = get_project_by_id(id)
-                    wezterm.log_info("select_project")
-                    wezterm.log_info(project)
-                    if project ~= nil then
-                        perform_open_tab(window2, pane2, project.name, { cwd = project.path })
-                    end
-                end),
-                title = "Select a Project",
-                choices = choices,
-            },
-            pane
-        )
-    end)
+	return wezterm.action_callback(function(window, pane)
+		window:perform_action(
+			wezterm.action.InputSelector {
+				action = wezterm.action_callback(function(window2, pane2, id)
+					local project = get_project_by_id(id)
+					wezterm.log_info("select_project")
+					wezterm.log_info(project)
+					if project ~= nil then
+						perform_open_tab(window2, pane2, project.name, { cwd = project.path })
+					end
+				end),
+				title = "Select a Project",
+				choices = choices,
+			},
+			pane
+		)
+	end)
 end
 
 
 wezterm.on("gui-startup", function(cmd)
-    local _, _, window = wezterm.mux.spawn_window(cmd or {})
-    local screen = wezterm.gui.screens().active -- get active monitor info
+	local _, _, window = wezterm.mux.spawn_window(cmd or {})
+	local screen = wezterm.gui.screens().active -- get active monitor info
 
-    -- leave 50px padding on each side
-    local margin = 150
-    local width = screen.width - (margin * 2)
-    local height = screen.height - (margin * 2)
-    local x = screen.x + margin
-    local y = screen.y + margin
+	-- leave 50px padding on each side
+	local margin = 150
+	local width = screen.width - (margin * 2)
+	local height = screen.height - (margin * 2)
+	local x = screen.x + margin
+	local y = screen.y + margin
 
-    window:gui_window():set_position(x, y)
-    window:gui_window():set_inner_size(width, height)
+	window:gui_window():set_position(x, y)
+	window:gui_window():set_inner_size(width, height)
 end)
 
 return {
-    -- Set your default shell (like PowerShell, cmd, or WSL)
-    default_prog = get_shell(),
+	-- Set your default shell (like PowerShell, cmd, or WSL)
+	default_prog = get_shell(),
 
-    -- Appearance
-    -- font = wezterm.font("JetBrains Mono", { weight = "DemiBold" }),
-    -- font = wezterm.font("FiraCode Nerd Font", { weight = "Bold" }),
-    -- font = wezterm.font("Hack Nerd Font", { weight = "DemiBold" }),
-    font = wezterm.font("IosevkaTerm Nerd Font", { weight = "Bold" }),
-    -- font = wezterm.font("UbuntuMono Nerd Font", { weight = "Bold" }),
-    -- font = wezterm.font("Mononoki Nerd Font", { weight = "Bold" }),
-    -- font = wezterm.font("Maple Mono", { weight = "DemiBold" }),
-    font_size = 19.0,
-    color_scheme = "Catppuccin Mocha", -- You can change this to any built-in color scheme
-    -- color_scheme = "Gruvbox dark, medium (base16)", -- You can change this to any built-in color scheme
-    -- Tab bar settings
-    enable_tab_bar = true,
-    hide_tab_bar_if_only_one_tab = true,
-    use_fancy_tab_bar = false,
+	-- Appearance
+	-- font = wezterm.font("JetBrains Mono", { weight = "DemiBold" }),
+	-- font = wezterm.font("FiraCode Nerd Font", { weight = "Bold" }),
+	-- font = wezterm.font("Hack Nerd Font", { weight = "DemiBold" }),
+	-- font = wezterm.font("IosevkaTerm Nerd Font", { weight = "Bold" }),
+	-- font = wezterm.font("UbuntuMono Nerd Font", { weight = "Bold" }),
+	-- font = wezterm.font("Mononoki Nerd Font", { weight = "Bold" }),
+	font = wezterm.font("Maple Mono Normal", { weight = "DemiBold" }),
+	font_size = 18.0,
+	color_scheme = "Catppuccin Mocha", -- You can change this to any built-in color scheme
+	-- color_scheme = "Gruvbox dark, medium (base16)", -- You can change this to any built-in color scheme
+	-- Tab bar settings
+	enable_tab_bar = true,
+	hide_tab_bar_if_only_one_tab = true,
+	use_fancy_tab_bar = false,
 
-    -- Window settings
-    window_decorations = "RESIZE|TITLE",
-    window_frame = {
-        active_titlebar_bg = '#333333',
-        inactive_titlebar_bg = '#222222',
-    },
-    window_padding = {
-        left = 0,
-        right = 0,
-        top = 1,
-        bottom = 0
-    },
-    window_background_opacity = 0.85, -- slight transparency
-    initial_cols = 120,
-    initial_rows = 30,
-    warn_about_missing_glyphs = false,
+	-- Window settings
+	window_decorations = "RESIZE|TITLE",
+	window_frame = {
+		active_titlebar_bg = '#333333',
+		inactive_titlebar_bg = '#222222',
+	},
+	window_padding = {
+		left = 0,
+		right = 0,
+		top = 1,
+		bottom = 0
+	},
+	window_background_opacity = 0.97, -- slight transparency
+	initial_cols = 120,
+	initial_rows = 30,
+	warn_about_missing_glyphs = false,
 
-    -- Key bindings
-    keys = {
-        { key = "t", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
-        { key = "w", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentTab { confirm = true } },
-        -- Move to previous tab
-        {
-            key = "h",
-            mods = "CTRL|SHIFT",
-            action = wezterm.action.ActivateTabRelative(-1),
-        },
-        -- Move to next tab
-        {
-            key = "l",
-            mods = "CTRL|SHIFT",
-            action = wezterm.action.ActivateTabRelative(1),
-        },
-        {
-            key = "N",
-            mods = "CTRL|SHIFT",
-            action = select_project(),
-        },
-        {
-            key = "F",
-            mods = "CTRL|SHIFT",
-            action = open_fzf_action(),
-        },
-        {
-            key = 'I',
-            mods = 'CTRL|SHIFT',
-            action = wezterm.action.ShowDebugOverlay,
-        }
-    }
+	-- Key bindings
+	keys = {
+		{ key = "t", mods = "CTRL|SHIFT", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
+		{ key = "w", mods = "CTRL|SHIFT", action = wezterm.action.CloseCurrentTab { confirm = true } },
+		-- Move to previous tab
+		{
+			key = "h",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.ActivateTabRelative(-1),
+		},
+		-- Move to next tab
+		{
+			key = "l",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.ActivateTabRelative(1),
+		},
+		{
+			key = "N",
+			mods = "CTRL|SHIFT",
+			action = select_project(),
+		},
+		{
+			key = "F",
+			mods = "CTRL|SHIFT",
+			action = open_fzf_action(),
+		},
+		{
+			key = 'I',
+			mods = 'CTRL|SHIFT',
+			action = wezterm.action.ShowDebugOverlay,
+		}
+	}
 }

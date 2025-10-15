@@ -1,7 +1,7 @@
 local opt = vim.opt;
 
 opt.expandtab = true
-opt.shiftwidth = 4
+opt.shiftwidth = 2
 
 -- Needed for feline plugin
 --opt.termguicolors = true
@@ -12,7 +12,7 @@ opt.termguicolors = true
 opt.ignorecase = true
 opt.smartcase = true
 vim.o.winborder = 'rounded'
-opt.cursorline = true
+-- opt.cursorline = true
 -- opt.colorcolumn=90
 
 opt.fillchars = { fold = " " }

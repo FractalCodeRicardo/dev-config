@@ -14,6 +14,8 @@ vim.cmd("colorscheme duskfox")
 -- vim.cmd("colorscheme rose-pine")
 -- vim.cmd.colorscheme("tokyonight-storm")
 -- vim.cmd.colorscheme("leaf")
+-- vim.cmd("colorscheme cyberdream")
+-- vim.cmd("colorscheme moonfly")
 
 
 
@@ -21,5 +23,6 @@ vim.lsp.enable("lua_ls")
 vim.lsp.enable("astro")
 vim.lsp.enable("tsserver")
 vim.lsp.enable("rust_analyzer")
+vim.lsp.enable('jdtls')
 vim.fn.setenv("DAP_LOG_LEVEL", "TRACE")
 vim.fn.setenv("DAP_LOG_FILE", vim.fn.stdpath("cache") .. "/dap.log")

@@ -16,26 +16,26 @@ return {
       settings = {
         Lua = {
           runtime = {
-            version = 'LuaJIT',             -- Use LuaJIT for Neovim
+            version = 'LuaJIT', -- Use LuaJIT for Neovim
           },
           diagnostics = {
-            globals = { 'vim' },             -- Recognize `vim` as a global
+            globals = { 'vim' }, -- Recognize `vim` as a global
           },
           workspace = {
-            library = vim.api.nvim_get_runtime_file("", true),             -- Make LSP aware of Neovim runtime
-            checkThirdParty = false,                                       -- Disable third-party library warnings
+            library = vim.api.nvim_get_runtime_file("", true), -- Make LSP aware of Neovim runtime
+            checkThirdParty = false,                           -- Disable third-party library warnings
           },
           telemetry = {
-            enable = false,             -- Disable telemetry for privacy
+            enable = false, -- Disable telemetry for privacy
           },
         },
       },
     })
     local utils = require("my.utils");
+
     vim.lsp.config("tsserver", {
       capabilities = capabilities,
     })
-
 
     vim.lsp.config("clangd", {})
     vim.lsp.config("rust_analyzer", {
@@ -45,6 +45,12 @@ return {
     vim.lsp.config("jsonls", {})
     vim.lsp.config("powershell_es", {})
     vim.lsp.config("astro", {})
+
+    print("Configuring servers")
+
+    -- local jdtls_location = utils.get_jdtls_location();
+    -- print("jdtls" .. jdtls_location)
+    -- vim.lsp.config('jdtls', { cmd = { jdtls_location } })
 
     -- local sysname = vim.uv.os_uname().sysname:lower()
     -- local iswin = not not (sysname:find("windows") or sysname:find("mingw"))

@@ -9,6 +9,10 @@ wezterm_config="$HOME/.config/wezterm"
 i3_repo="i3"
 i3_config="$HOME/.i3"
 
+
+hypr_repo="hyprland"
+hypr_config="$HOME/.config/hypr"
+
 replace_folder() {
     local source_dir="$1"
     local target_dir="$2"
@@ -28,12 +32,14 @@ if [ "$1" = "config" ]; then
     replace_folder "$nvim_repo" "$nvim_config"
     replace_folder "$wezterm_repo" "$wezterm_config"
     replace_folder "$i3_repo" "$i3_config"
+    replace_folder "$hypr_repo" "$hypr_config"
 fi
 
 if [ "$1" = "repo" ]; then
     replace_folder "$nvim_config" "$nvim_repo"
     replace_folder "$wezterm_config" "$wezterm_repo"
     replace_folder "$i3_config" "$i3_repo"
+    replace_folder "$hypr_config" "$hypr_repo"
 fi
 
 echo "Ok!"

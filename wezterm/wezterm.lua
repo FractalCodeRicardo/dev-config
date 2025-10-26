@@ -131,8 +131,8 @@ return {
   -- font = wezterm.font("IosevkaTerm Nerd Font", { weight = "Bold" }),
   -- font = wezterm.font("UbuntuMono Nerd Font", { weight = "Bold" }),
   -- font = wezterm.font("Mononoki Nerd Font", { weight = "Bold" }),
-  font = wezterm.font("Maple Mono Normal", { weight = "DemiBold" }),
-  font_size = 23.0,
+  font = wezterm.font("Maple Mono", { weight = "DemiBold" }),
+  font_size = 19.0,
   -- color_scheme = "Catppuccin Mocha", -- You can change this to any built-in color scheme
   -- color_scheme = "Gruvbox dark, medium (base16)", -- You can change this to any built-in color scheme
   color_scheme = "Dracula",
@@ -153,7 +153,7 @@ return {
     top = 0,
     bottom = 0
   },
-  window_background_opacity = 1, -- slight transparency
+  window_background_opacity = 0.9, -- slight transparency
   initial_cols = 120,
   initial_rows = 30,
   warn_about_missing_glyphs = false,

@@ -30,7 +30,7 @@ return {
   },
   {
     "catppuccin/nvim",
-    enabled = false,
+    enabled = true,
     lazy = false,
     name = "catppuccin",
     priority = 1000,
@@ -110,7 +110,7 @@ return {
   },
   {
     "cpea2506/one_monokai.nvim",
-    enabled = false
+    enabled = true 
   },
   {
     'sainnhe/gruvbox-material',
@@ -143,7 +143,7 @@ return {
   },
   {
     "daschw/leaf.nvim",
-    enabled = false,
+    enabled = true,
     config = function()
       local leaf = require("leaf");
 
@@ -153,6 +153,90 @@ return {
       })
     end
   },
-  { "bluz71/vim-moonfly-colors", enabled = true, name = "moonfly", lazy = false, priority = 1000 }
+  {
+    "bluz71/vim-moonfly-colors",
+    enabled = true,
+    name = "moonfly",
+    lazy = false,
+    priority = 1000
+  },
+
+  {
+    'projekt0n/github-nvim-theme',
+    name = 'github-theme',
+    enabled = false,
+    config = function()
+      local github = require("github-theme");
+      github.setup({
+        options = {
+          transparent = true
+        }
+      });
+    end
+  },
+  {
+    'marko-cerovac/material.nvim',
+    config = function()
+      local material = require("material")
+      material.setup({
+        disable = {
+          colored_cursor = false, -- Disable the colored cursor
+          borders = false,        -- Disable borders between vertically split windows
+          background = true,      -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
+          term_colors = false,    -- Prevent the theme from setting terminal colors
+          eob_lines = false       -- Hide the end-of-buffer lines
+        }
+      });
+      --Lua:
+      vim.g.material_style = "deep ocean"
+    end
+  },
+
+  {
+    "dgox16/oldworld.nvim",
+    enabled = false,
+    config = function()
+      require("oldworld").setup({})
+    end
+  },
+  {
+    "vague-theme/vague.nvim",
+    enabled = false,
+    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other plugins
+    config = function()
+      -- NOTE: you do not need to call setup if you don't want to.
+      require("vague").setup({
+        -- optional configuration here
+      })
+      vim.cmd("colorscheme vague")
+    end
+  },
+  {
+    'Mofiqul/vscode.nvim',
+    enabled = false
+  },
+  {
+    'maxmx03/fluoromachine.nvim',
+    lazy = false,
+    priority = 1000,
+    enabled = false,
+    config = function()
+      local fm = require 'fluoromachine'
+
+      fm.setup {
+        glow = true,
+        theme = 'retrowave',
+        transparent = false,
+      }
+    end
+  },
+  {
+    "eldritch-theme/eldritch.nvim",
+    enabled = false,
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  }
 
 }

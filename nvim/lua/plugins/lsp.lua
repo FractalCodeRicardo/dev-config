@@ -39,7 +39,7 @@ return {
 
     vim.lsp.config("clangd", {})
     vim.lsp.config("rust_analyzer", {
-      cmd = { "/home/ricardo/.cargo/bin/rust-analyzer" }
+      -- cmd = { "/home/ricardo/.cargo/bin/rust-analyzer" }
     })
     vim.lsp.config("clangd", {})
     vim.lsp.config("jsonls", {})

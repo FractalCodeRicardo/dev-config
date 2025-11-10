@@ -1,174 +1,73 @@
-/* -- Global rules -- */
+/* === General === */
 * {
-  border: none;
-  font-family: "JetbrainsMono Nerd Font";
-  font-size: 15px;
-  min-height: 10px;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 12px;
+  color: #d0d0d0;
 }
 
+/* Bar background with a soft gradient */
 window#waybar {
-  background: rgba(34, 36, 54, 0.6);
+  background: linear-gradient(90deg, #1e1e2e 0%, #1b1b2b 100%);
+  border-bottom: 2px solid #2e2e3e;
 }
 
-window#waybar.hidden {
-  opacity: 0.2;
-}
-
-/* - Genera rules for visible modules -- */
-#custom-archicon,
-#clock,
+/* === Modules === */
 #cpu,
 #memory,
-#disk,
-#temperature,
-#idle_inhibitor,
-#pulseaudio,
-#pulseaudio-slider,
 #network,
-#language {
-  color: #161320;
-  margin-top: 6px;
-  margin-bottom: 6px;
-  padding-left: 10px;
-  padding-right: 10px;
-  transition: none;
+#battery {
+  padding: 0 8px;
+  border-radius: 6px;
+  margin: 0 4px;
+  transition: background 0.2s, color 0.2s;
 }
 
-/* Separation to the left */
-#custom-archicon,
-#cpu,
-#idle_inhibitor {
-  margin-left: 5px;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
-
-/* Separation to the rigth */
-#clock,
-#temperature,
-#language {
-  margin-right: 5px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-/* -- Specific styles -- */
-
-/* Modules left */
-#custom-archicon {
-  font-size: 20px;
-  color: #89B4FA;
-  background: #161320;
-  padding-right: 17px;
-}
-
+/* Clock (center) */
 #clock {
-  background: #ABE9B3;
+  background: #8aadf4;
+  color: #1e1e2e;
+  padding: 0 10px;
+  border-radius: 8px;
+  font-weight: 600;
 }
 
-#cpu {
-  background: #96CDFB;
-}
+/* Dimmed colorful palette for right modules */
+#cpu { background: #f5a97f; color: #1e1e2e; }
+#memory { background: #a6da95; color: #1e1e2e; }
+#network { background: #c6a0f6; color: #1e1e2e; }
+#battery { background: #ed8796; color: #1e1e2e; }
 
-#memory {
-  background: #DDB6F2;
-}
-
-#disk {
-  background: #F5C2E7;
-}
-
-#temperature {
-  background: #F8BD96;
-}
-
-/* Modules center */
+/* === Workspaces === */
 #workspaces {
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  margin: 6px 5px;
-  padding: 0px 6px;
+  margin-left: 6px;
 }
 
 #workspaces button {
-  color: #B5E8E0;
-  background: transparent;
-  padding: 4px 4px;
-  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
-}
-
-#workspaces button.occupied {
-  color: #A6E3A1;
-}
-
-#workspaces button.active {
-  color: #89B4FA;
-  text-shadow: 0 0 4px #ABE9B3;
-}
-
-#workspaces button:hover {
-  color: #89B4FA;
-}
-
-#workspaces button.active:hover {}
-
-/* Modules right */
-#taskbar {
-  background: transparent;
-  border-radius: 10px;
-  padding: 0px 5px;
-  margin: 6px 5px;
-}
-
-#taskbar button {
-  padding: 0px 5px;
-  margin: 0px 3px;
+  padding: 0 8px;
+  margin: 0 2px;
   border-radius: 6px;
-  transition: background 0.3s ease;
+  background: #2b2b3c;
+  color: #a6adc8;
+  border: 1px solid transparent;
+  transition: all 0.25s ease;
 }
 
-#taskbar button.active {
-  background: rgba(34, 36, 54, 0.5);
+/* Focused workspace indicator */
+#workspaces button.focused {
+  background: #89b4fa;
+  color: #1e1e2e;
+  border: 1px solid #b4befe;
+  box-shadow: 0 0 4px #89b4fa;
 }
 
-#taskbar button:hover {
-  background: rgba(34, 36, 54, 0.5);
+/* Hover effect */
+#workspaces button:hover {
+  background: #313244;
+  border: 1px solid #45475a;
 }
 
-#idle_inhibitor {
-  background: #B5E8E0;
-  padding-right: 15px;
-}
-
-#pulseaudio {
-  min-width: 55px;
-  color: #1A1826;
-  background: #F5E0DC;
-}
-
-#pulseaudio-slider {
-  color: #1A1826;
-  background: #E8A2AF;
-  min-width: 50px;
-}
-
-#pulseaudio-slider slider {}
-
-
-#network {
-  background: #CBA6F7;
-  padding-right: 13px;
-}
-
-#language {
-  background: #A6E3A1;
-  padding-right: 15px;
-}
-
-/* === Optional animation === */
-@keyframes blink {
-  to {
-    background-color: #BF616A;
-    color: #B5E8E0;
-  }
+/* Optional: urgent window indicator */
+#workspaces button.urgent {
+  background: #ed8796;
+  color: #1e1e2e;
 }

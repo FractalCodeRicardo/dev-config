@@ -100,7 +100,7 @@ function M.find_file(callback)
     git_icons = false,
     file_icons = false,
     prompt = 'Select File: ',
-    cmd = "fdfind --type f --no-ignore",
+    cmd = "find",
     actions = {
       ['default'] = function(selected)
         local file = vim.fn.getcwd() .. "/" .. selected[1]

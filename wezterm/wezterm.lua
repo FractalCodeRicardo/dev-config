@@ -128,14 +128,18 @@ return {
   -- font = wezterm.font("JetBrains Mono", { weight = "DemiBold" }),
   -- font = wezterm.font("FiraCode Nerd Font", { weight = "Bold" }),
   -- font = wezterm.font("Hack Nerd Font", { weight = "DemiBold" }),
-  -- font = wezterm.font("Iosevka Term", { weight = "DemiBold" }),
+  -- font = wezterm.font("Iosevka Term", { weight = "Bold" }),
   -- font = wezterm.font("UbuntuMono Nerd Font", { weight = "Bold" }),
   -- font = wezterm.font("Mononoki Nerd Font", { weight = "Bold" }),
   font = wezterm.font("Maple Mono", { weight = "DemiBold" }),
+  -- font = wezterm.font("Google Sans Code", { weight = "Regular" }),
+  -- font = wezterm.font("Julia Mono", { weight = "DemiBold" }),
+  -- font = wezterm.font("Monaspace Krypton NF", { weight = "DemiBold" }),
   font_size = 20.0,
   -- color_scheme = "Catppuccin Mocha", -- You can change this to any built-in color scheme
   -- color_scheme = "Gruvbox dark, medium (base16)", -- You can change this to any built-in color scheme
   color_scheme = "Dracula",
+  -- color_scheme = "Belge (terminal.sexy)",
   -- Tab bar settings
   enable_tab_bar = true,
   hide_tab_bar_if_only_one_tab = true,
@@ -153,7 +157,7 @@ return {
     top = 0,
     bottom = 0
   },
-  window_background_opacity = 1, -- slight transparency
+  window_background_opacity = 0.9, -- slight transparency
   initial_cols = 120,
   initial_rows = 30,
   warn_about_missing_glyphs = false,

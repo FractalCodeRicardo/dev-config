@@ -1,8 +1,8 @@
 return {
   {
     "folke/tokyonight.nvim",
-    lazy = true,
-    enabled = false,
+    lazy = false,
+    enabled = true,
     priority = 1000,
     config = function()
       local tokyo = require("tokyonight")
@@ -70,11 +70,11 @@ return {
   -- Using Lazy
   {
     "navarasu/onedark.nvim",
-    enabled = false,
+    enabled = true,
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       require('onedark').setup {
-        style = 'warmer'
+        style = 'darker'
       }
       -- Enable theme
       require('onedark').load()
@@ -90,7 +90,7 @@ return {
   {
     "rose-pine/neovim",
     name = "rose-pine",
-    enabled = false,
+    enabled = true,
     config = function()
       local rose = require("rose-pine")
       rose.setup({
@@ -100,7 +100,7 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
-    enabled = false,
+    enabled = true,
     config = function()
       local kanagawa = require("kanagawa");
       kanagawa.setup({
@@ -110,7 +110,7 @@ return {
   },
   {
     "cpea2506/one_monokai.nvim",
-    enabled = true 
+    enabled = false
   },
   {
     'sainnhe/gruvbox-material',
@@ -194,7 +194,7 @@ return {
 
   {
     "dgox16/oldworld.nvim",
-    enabled = false,
+    enabled = true,
     config = function()
       require("oldworld").setup({})
     end
@@ -227,7 +227,7 @@ return {
       fm.setup {
         glow = true,
         theme = 'retrowave',
-        transparent = false,
+        transparent = true,
       }
     end
   },
@@ -237,6 +237,23 @@ return {
     lazy = false,
     priority = 1000,
     opts = {},
-  }
+  },
+  {
+    "tiagovla/tokyodark.nvim",
+    enabled = false,
+    opts = {
+      -- custom options here
+    },
+    config = function(_, opts)
+      require("tokyodark").setup(opts) -- calling setup is optional
+    end,
+  },
+  { 
+    "bluz71/vim-nightfly-colors",
+  name = "nightfly",
+  lazy = false,
+  priority = 1000 }
+
+
 
 }

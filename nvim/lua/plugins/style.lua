@@ -58,7 +58,7 @@ return {
 
   {
     "scottmckendry/cyberdream.nvim",
-    enabled = false,
+    enabled = true,
     lazy = false,
     priority = 1000,
     config = function()
@@ -220,7 +220,7 @@ return {
     'maxmx03/fluoromachine.nvim',
     lazy = false,
     priority = 1000,
-    enabled = false,
+    enabled = true,
     config = function()
       local fm = require 'fluoromachine'
 
@@ -233,10 +233,18 @@ return {
   },
   {
     "eldritch-theme/eldritch.nvim",
-    enabled = false,
+    enabled = true,
     lazy = false,
     priority = 1000,
     opts = {},
+    config = function()
+      local eldritch = require("eldritch");
+
+      eldritch.setup({
+        transparent = true
+      })
+      
+    end
   },
   {
     "tiagovla/tokyodark.nvim",
@@ -248,11 +256,23 @@ return {
       require("tokyodark").setup(opts) -- calling setup is optional
     end,
   },
-  { 
+  {
     "bluz71/vim-nightfly-colors",
-  name = "nightfly",
-  lazy = false,
-  priority = 1000 }
+    name = "nightfly",
+    lazy = false,
+    priority = 1000
+  },
+  {
+    "samharju/synthweave.nvim",
+    enabled = true,
+    lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000,
+    config = function()
+      -- vim.cmd.colorscheme("synthweave")
+      -- transparent version
+      -- vim.cmd.colorscheme("synthweave-transparent")
+    end
+  }
 
 
 

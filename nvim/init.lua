@@ -26,6 +26,7 @@ require("config.options")
 -- vim.cmd.colorscheme("leaf")
 vim.cmd("colorscheme moonfly")
 -- vim.cmd('colorscheme oldworld')
+      -- vim.cmd.colorscheme("synthweave-transparent")
 
 
 

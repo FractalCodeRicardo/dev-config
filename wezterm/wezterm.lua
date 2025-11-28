@@ -128,7 +128,7 @@ return {
   -- font = wezterm.font("JetBrains Mono", { weight = "DemiBold" }),
   -- font = wezterm.font("FiraCode Nerd Font", { weight = "Bold" }),
   -- font = wezterm.font("Hack Nerd Font", { weight = "DemiBold" }),
-  font = wezterm.font("Iosevka Term", { weight = "Bold" }),
+  font = wezterm.font("Iosevka Term", { weight = "DemiBold" }),
   -- font = wezterm.font("UbuntuMono Nerd Font", { weight = "Bold" }),
   -- font = wezterm.font("Mononoki Nerd Font", { weight = "Bold" }),
   -- font = wezterm.font("Maple Mono", { weight = "DemiBold" }),

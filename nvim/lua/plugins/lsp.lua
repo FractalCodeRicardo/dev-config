@@ -31,37 +31,17 @@ return {
         },
       },
     })
-    local utils = require("my.utils");
 
     vim.lsp.config("tsserver", {
       capabilities = capabilities,
     })
 
     vim.lsp.config("clangd", {})
-    vim.lsp.config("rust_analyzer", {
-      -- cmd = { "/home/ricardo/.cargo/bin/rust-analyzer" }
-    })
+    vim.lsp.config("rust_analyzer", {})
     vim.lsp.config("clangd", {})
     vim.lsp.config("jsonls", {})
     vim.lsp.config("powershell_es", {})
     vim.lsp.config("astro", {})
-
-    print("Configuring servers")
-
-    -- local jdtls_location = utils.get_jdtls_location();
-    -- print("jdtls" .. jdtls_location)
-    -- vim.lsp.config('jdtls', { cmd = { jdtls_location } })
-
-    -- local sysname = vim.uv.os_uname().sysname:lower()
-    -- local iswin = not not (sysname:find("windows") or sysname:find("mingw"))
-    -- vim.lsp.config("roslyn_ls", {
-    --     cmd = {
-    --         iswin and "roslyn.cmd" or "roslyn",
-    --         "--logLevel=Information",
-    --         "--extensionLogDirectory=" .. vim.fs.dirname(vim.lsp.get_log_path()),
-    --         "--stdio"
-    --     }
-    -- })
 
     vim.lsp.config("lemminx", {
       filetypes = { "xml", "axaml", "xsd", "xslt", "csproj" },

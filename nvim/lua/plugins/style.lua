@@ -2,7 +2,7 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = false,
-    enabled = true,
+    enabled = false,
     priority = 1000,
     config = function()
       local tokyo = require("tokyonight")
@@ -30,7 +30,7 @@ return {
   },
   {
     "catppuccin/nvim",
-    enabled = true,
+    enabled = false,
     lazy = false,
     name = "catppuccin",
     priority = 1000,
@@ -44,7 +44,7 @@ return {
   },
   {
     "EdenEast/nightfox.nvim",
-    enabled = true,
+    enabled = false,
     lazy = false,
     config = function()
       local nightfox = require("nightfox");
@@ -58,7 +58,7 @@ return {
 
   {
     "scottmckendry/cyberdream.nvim",
-    enabled = true,
+    enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
@@ -70,7 +70,7 @@ return {
   -- Using Lazy
   {
     "navarasu/onedark.nvim",
-    enabled = true,
+    enabled = false,
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       require('onedark').setup {
@@ -90,7 +90,7 @@ return {
   {
     "rose-pine/neovim",
     name = "rose-pine",
-    enabled = true,
+    enabled = false,
     config = function()
       local rose = require("rose-pine")
       rose.setup({
@@ -104,7 +104,8 @@ return {
     config = function()
       local kanagawa = require("kanagawa");
       kanagawa.setup({
-        theme = "wave"
+        theme = "wave",
+        transparent = true
       })
     end
   },
@@ -143,7 +144,7 @@ return {
   },
   {
     "daschw/leaf.nvim",
-    enabled = true,
+    enabled = false,
     config = function()
       local leaf = require("leaf");
 
@@ -155,7 +156,7 @@ return {
   },
   {
     "bluz71/vim-moonfly-colors",
-    enabled = true,
+    enabled = false,
     name = "moonfly",
     lazy = false,
     priority = 1000
@@ -176,6 +177,7 @@ return {
   },
   {
     'marko-cerovac/material.nvim',
+    enabled = false,
     config = function()
       local material = require("material")
       material.setup({
@@ -194,7 +196,7 @@ return {
 
   {
     "dgox16/oldworld.nvim",
-    enabled = true,
+    enabled = false,
     config = function()
       require("oldworld").setup({})
     end
@@ -220,7 +222,7 @@ return {
     'maxmx03/fluoromachine.nvim',
     lazy = false,
     priority = 1000,
-    enabled = true,
+    enabled = false,
     config = function()
       local fm = require 'fluoromachine'
 
@@ -233,7 +235,7 @@ return {
   },
   {
     "eldritch-theme/eldritch.nvim",
-    enabled = true,
+    enabled = false,
     lazy = false,
     priority = 1000,
     opts = {},
@@ -243,7 +245,6 @@ return {
       eldritch.setup({
         transparent = true
       })
-      
     end
   },
   {
@@ -264,7 +265,7 @@ return {
   },
   {
     "samharju/synthweave.nvim",
-    enabled = true,
+    enabled = false,
     lazy = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000,
     config = function()
@@ -272,8 +273,67 @@ return {
       -- transparent version
       -- vim.cmd.colorscheme("synthweave-transparent")
     end
-  }
+  },
 
+  {
+    'projekt0n/github-nvim-theme',
+    enabled = false,
+    name = 'github-theme',
+    config = function()
+      require('github-theme').setup({
+      })
+    end,
+  },
+  {
+    "neanias/everforest-nvim",
+    enabled = false,
+    lazy = false,
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      require("everforest").setup({
+      })
+    end,
+  },
+  {
+    "olimorris/onedarkpro.nvim",
+    priority = 1000, -- Ensure it loads first
+  },
+ {
+  "Mofiqul/dracula.nvim",
+  enabled = false
+},
+{
+  "shaunsingh/nord.nvim",
+  enabled = false
+},
+{
+  "nyoom-engineering/oxocarbon.nvim",
+  enabled = false
+  -- Add in any other configuration; 
+  --   event = foo, 
+  --   config = bar
+  --   end,
+},
+{
+  "sainnhe/sonokai",
+  enable = true
+},
+{
+  "craftzdog/solarized-osaka.nvim",
+  enabled = false,
+  lazy = false,
+  priority = 1000,
+  opts = {},
+},
+{
+    'AlexvZyl/nordic.nvim',
+    enabled = false,
+    lazy = false,
+    priority = 1000,
+    config = function()
+        require('nordic').load()
+    end
+}
 
 
 }

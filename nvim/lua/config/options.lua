@@ -29,29 +29,6 @@ vim.diagnostic.config({
     severity_sort = true,  -- Sort diagnostics by severity
 })
 
---deprecated
--- vim.fn.sign_define("DiagnosticSignError", { text = "❌", texthl = "DiagnosticSignError" })
--- vim.fn.sign_define("DiagnosticSignWarn",  { text = "⚠️", texthl = "DiagnosticSignWarn" })
--- vim.fn.sign_define("DiagnosticSignInfo",  { text = "ℹ️", texthl = "DiagnosticSignInfo" })
--- vim.fn.sign_define("DiagnosticSignHint",  { text = "💡", texthl = "DiagnosticSignHint" })
-
-
--- vim.api.nvim_create_autocmd('LspAttach', {
---   callback = function(ev)
---     local client = vim.lsp.get_client_by_id(ev.data.client_id)
---     local supported = client:supports_method('textDocument/completion');
---
---     if not supported then
---         print("Autocompletion not supported " .. ev.data.client_id)
---     end
---
---     if supported then
---       print("Autocompletion supported");
---       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true})
---     end
---   end,
--- })
-
 vim.api.nvim_create_user_command("Dotnet", function()
     vim.cmd("compiler dotnet")
     vim.cmd("make")
@@ -68,13 +45,6 @@ if utils.im_on_windows() then
         vim.opt.shellslash = false
     end, 5000)
 end
-
-vim.api.nvim_create_user_command("RestartAll", function()
-  vim.lsp.stop_client(vim.lsp.get_clients())
-  vim.cmd("edit")
-  print("✅ It's me, Good. I'm here behind you.")
-
-end, { })
 
 vim.opt.shortmess:append { I = true, c = false, F = false }
 -- I → skip the intro message

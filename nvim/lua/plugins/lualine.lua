@@ -3,11 +3,9 @@ return {
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
     require("lualine").setup({
-      -- ... other config
       options = {
-        theme = "auto",     -- "auto" will set the theme dynamically based on the colorscheme
+        theme = "auto",
       },
-      -- ... other config
     })
   end
 }

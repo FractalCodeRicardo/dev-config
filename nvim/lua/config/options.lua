@@ -22,28 +22,28 @@ opt.foldlevel = 99
 
 -- Enable diagnostics
 vim.diagnostic.config({
-    virtual_text = true,   -- Show inline diagnostics
-    signs = true,          -- Show signs in the gutter
-    underline = true,      -- Underline errors
-    update_in_insert = true, -- Don't update diagnostics in insert mode
-    severity_sort = true,  -- Sort diagnostics by severity
+  virtual_text = true,       -- Show inline diagnostics
+  signs = true,              -- Show signs in the gutter
+  underline = true,          -- Underline errors
+  update_in_insert = true,   -- Don't update diagnostics in insert mode
+  severity_sort = true,      -- Sort diagnostics by severity
 })
 
 vim.api.nvim_create_user_command("Dotnet", function()
-    vim.cmd("compiler dotnet")
-    vim.cmd("make")
-    vim.cmd("copen")
+  vim.cmd("compiler dotnet")
+  vim.cmd("make")
+  vim.cmd("copen")
 end, {})
 
 local utils = require("my.utils")
 
 if utils.im_on_windows() then
-    --netcoredbg issue
-    --https://github.com/mfussenegger/nvim-dap/discussions/1156
+  --netcoredbg issue
+  --https://github.com/mfussenegger/nvim-dap/discussions/1156
+  vim.opt.shellslash = false
+  vim.defer_fn(function()
     vim.opt.shellslash = false
-    vim.defer_fn(function()
-        vim.opt.shellslash = false
-    end, 5000)
+  end, 5000)
 end
 
 vim.opt.shortmess:append { I = true, c = false, F = false }
@@ -53,4 +53,30 @@ vim.opt.shortmess:append { I = true, c = false, F = false }
 
 -- remove "Press enter to continue message"
 vim.opt.more = false
+
+vim.api.nvim_create_user_command("SaveMacro", function (params)
+  local name = params.args
+  local dir = vim.fn.expand("~/.config/nvim/macros/")
+  local file = dir .. name .. ".macro"
+  local content = vim.fn.getreg("q")
+
+  vim.fn.mkdir(dir, "p")
+
+  vim.fn.writefile(
+    {content},
+    file,
+    "a"
+  )
+end, {nargs = 1})
+
+
+vim.api.nvim_create_user_command("LoadMacro", function (params)
+  local name = params.args
+  local dir = vim.fn.expand("~/.config/nvim/macros/")
+  local file = dir .. name .. ".macro"
+
+  local content = vim.fn.readfile(file)
+
+ vim.fn.setreg("q", content)
+end, {nargs = 1})
 

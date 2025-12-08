@@ -6,21 +6,31 @@ require("config.keymaps")
 require("config.options")
 
 -- vim.cmd("colorscheme catppuccin-macchiato")
+-- vim.cmd("colorscheme catppuccin-latte")
+
 -- vim.cmd.colorscheme("tokyonight-storm")
-vim.cmd("colorscheme kanagawa")
+-- vim.cmd.colorscheme("tokyonight-day")
+
+-- vim.cmd("colorscheme kanagawa")
+
 -- vim.cmd("colorscheme rose-pine")
--- vim.cmd("colorscheme duskfox")
+-- vim.cmd("colorscheme dayfox")
 
 
 -- vim.cmd("colorscheme onedark")
 -- vim.cmd("colorscheme gruvbox-material")
+
 -- vim.cmd('colorscheme github_dark_default')
+-- vim.cmd('colorscheme github_light')
+-- vim.cmd('colorscheme github_light_colorblind')
+
 -- vim.cmd("colorscheme everforest")
 -- vim.cmd('colorscheme vscode')
 
 
 -- vim.cmd("colorscheme cyberdream")
 -- vim.cmd("colorscheme onedark_dark")
+-- vim.cmd("colorscheme onelight")
 -- vim.cmd("colorscheme dracula")
 -- vim.cmd('colorscheme material')
 -- vim.cmd('colorscheme nord')
@@ -31,6 +41,14 @@ vim.cmd("colorscheme kanagawa")
 -- vim.cmd('colorscheme nordic')
 -- vim.cmd("colorscheme moonfly")
 
+-- vim.cmd.colorscheme('edge')
+-- vim.cmd.colorscheme('melange')
+vim.cmd.colorscheme('bamboo')
+-- vim.cmd.colorscheme('onenord')
+-- vim.cmd.colorscheme('zenbones')
+-- vim.cmd.colorscheme('modus')
+
+-- vim.cmd("colorscheme mellifluous")
 
 
 
@@ -45,7 +63,7 @@ vim.cmd("colorscheme kanagawa")
 -- vim.cmd.colorscheme("leaf")
 -- vim.cmd("colorscheme moonfly")
 -- vim.cmd('colorscheme oldworld')
-      -- vim.cmd.colorscheme("synthweave-transparent")
+-- vim.cmd.colorscheme("synthweave-transparent")
 
 
 

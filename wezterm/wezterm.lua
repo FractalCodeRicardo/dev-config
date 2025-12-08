@@ -32,7 +32,7 @@ local function get_fzf_open_dir_command()
   if is_windows() then
     return "not implemented yet, sorry"
   end
-  return 'cd "$(find . -type d 2>/dev/null | fzf)"'
+  return 'cd "$(find . -type d | fzf)"'
 end
 
 local function perform_open_tab(window, pane, title, opts)
@@ -125,20 +125,24 @@ return {
   default_prog = get_shell(),
 
   -- Appearance
-  -- font = wezterm.font("JetBrains Mono", { weight = "DemiBold" }),
-  -- font = wezterm.font("FiraCode Nerd Font", { weight = "Bold" }),
-  -- font = wezterm.font("Hack Nerd Font", { weight = "DemiBold" }),
+   -- font = wezterm.font("JetBrains Mono", { weight = "Regular" }),
+  -- font = wezterm.font("FiraCode Nerd Font", { weight = "Regular" }),
+  -- font = wezterm.font("Hack Nerd Font", { weight = "Regular" }),
   font = wezterm.font("Iosevka Term", { weight = "DemiBold" }),
-  -- font = wezterm.font("UbuntuMono Nerd Font", { weight = "Bold" }),
-  -- font = wezterm.font("Mononoki Nerd Font", { weight = "Bold" }),
-  -- font = wezterm.font("Maple Mono", { weight = "DemiBold" }),
+  -- font_size = 22.0,
+
+  -- font = wezterm.font("UbuntuMono Nerd Font", { weight = "Regular" }),
+  -- font = wezterm.font("Mononoki Nerd Font", { weight = "Regular" }),
+  -- font = wezterm.font("Maple Mono", { weight = "Regular" }),
   -- font = wezterm.font("Google Sans Code", { weight = "Regular" }),
-  -- font = wezterm.font("Julia Mono", { weight = "DemiBold" }),
-  -- font = wezterm.font("Monaspace Krypton NF", { weight = "Bold" }),
+  -- font = wezterm.font("Julia Mono", { weight = "Regular" }),
+  -- font = wezterm.font("Monaspace Krypton NF", { weight = "Regular" }),
   font_size = 22.0,
   -- color_scheme = "Catppuccin Mocha", -- You can change this to any built-in color scheme
+  -- color_scheme = "Catppuccin Latte", -- You can change this to any built-in color scheme
+  color_scheme = "Kanagawa Dragon (Gogh)", -- You can change this to any built-in color scheme
   -- color_scheme = "Gruvbox dark, medium (base16)", -- You can change this to any built-in color scheme
-  color_scheme = "Dracula",
+  -- color_scheme = "Dracula",
   -- color_scheme = "Belge (terminal.sexy)",
   -- color_scheme = "synthwave",
   -- color_scheme = "sakura",
@@ -160,7 +164,7 @@ return {
     top = 0,
     bottom = 0
   },
-  window_background_opacity = 0.9, -- slight transparency
+  window_background_opacity = 0.90, -- slight transparency
   initial_cols = 120,
   initial_rows = 30,
   warn_about_missing_glyphs = false,
@@ -206,5 +210,6 @@ return {
       mods = 'CTRL|SHIFT',
       action = wezterm.action.ShowDebugOverlay,
     }
+
   }
 }

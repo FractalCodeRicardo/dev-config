@@ -63,6 +63,7 @@ return {
     priority = 1000,
     config = function()
       require("cyberdream").setup({
+        variant = "light",
         transparent = true
       });
     end
@@ -94,19 +95,24 @@ return {
     config = function()
       local rose = require("rose-pine")
       rose.setup({
-        -- disable_background = true,
+        variant = "dawn",
+        styles = {
+          transparency = true
+        }
       })
     end
   },
   {
     "rebelot/kanagawa.nvim",
-    enabled = true,
+    enabled = false,
     config = function()
       local kanagawa = require("kanagawa");
       kanagawa.setup({
-        theme = "wave",
+        -- theme = "wave",
         transparent = true
       })
+
+      vim.o.background = "dark"
     end
   },
   {
@@ -130,6 +136,7 @@ return {
       vim.g.gruvbox_material_background = "medium"
       vim.g.gruvbox_material_enable_italic = 1
       vim.g.gruvbox_material_better_performance = 1
+      vim.o.background = "light"
       vim.cmd.colorscheme('gruvbox-material')
     end
   },
@@ -162,18 +169,20 @@ return {
     priority = 1000
   },
 
+
   {
     'projekt0n/github-nvim-theme',
     name = 'github-theme',
     enabled = false,
+    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      local github = require("github-theme");
-      github.setup({
+      require('github-theme').setup({
         options = {
           transparent = true
         }
-      });
-    end
+      })
+    end,
   },
   {
     'marko-cerovac/material.nvim',
@@ -190,7 +199,7 @@ return {
         }
       });
       --Lua:
-      vim.g.material_style = "deep ocean"
+      vim.g.material_style = "lighter"
     end
   },
 
@@ -216,10 +225,16 @@ return {
   },
   {
     'Mofiqul/vscode.nvim',
-    enabled = false
+    enabled = false,
+    config = function()
+      local vscode = require("vscode");
+      vscode.setup();
+      vim.o.background = "light"
+    end
   },
   {
     'maxmx03/fluoromachine.nvim',
+    enabled = false,
     lazy = false,
     priority = 1000,
     enabled = false,
@@ -259,6 +274,7 @@ return {
   },
   {
     "bluz71/vim-nightfly-colors",
+    enabled = false,
     name = "nightfly",
     lazy = false,
     priority = 1000
@@ -276,64 +292,124 @@ return {
   },
 
   {
-    'projekt0n/github-nvim-theme',
-    enabled = false,
-    name = 'github-theme',
-    config = function()
-      require('github-theme').setup({
-      })
-    end,
-  },
-  {
     "neanias/everforest-nvim",
     enabled = false,
     lazy = false,
-    priority = 1000, -- make sure to load this before all the other start plugins
+    priority = 1000,
     config = function()
       require("everforest").setup({
       })
+      vim.o.background = "light";
     end,
   },
   {
     "olimorris/onedarkpro.nvim",
+    enabled = false,
     priority = 1000, -- Ensure it loads first
   },
- {
-  "Mofiqul/dracula.nvim",
-  enabled = false
-},
-{
-  "shaunsingh/nord.nvim",
-  enabled = false
-},
-{
-  "nyoom-engineering/oxocarbon.nvim",
-  enabled = false
-  -- Add in any other configuration; 
-  --   event = foo, 
-  --   config = bar
-  --   end,
-},
-{
-  "sainnhe/sonokai",
-  enable = true
-},
-{
-  "craftzdog/solarized-osaka.nvim",
-  enabled = false,
-  lazy = false,
-  priority = 1000,
-  opts = {},
-},
-{
+  {
+    "Mofiqul/dracula.nvim",
+    enabled = false
+  },
+  {
+    "shaunsingh/nord.nvim",
+    enabled = false
+  },
+  {
+    "nyoom-engineering/oxocarbon.nvim",
+    enabled = false,
+  },
+  {
+    "sainnhe/sonokai",
+    enabled = false,
+  },
+  {
+    "craftzdog/solarized-osaka.nvim",
+    enabled = false,
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  {
     'AlexvZyl/nordic.nvim',
     enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
-        require('nordic').load()
+      require('nordic').load()
     end
-}
+  },
+  {
+    'sainnhe/edge',
+    enabled = false,
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.edge_enable_italic = true
+      vim.o.background = "light"
+    end
+  },
+  {
+    "savq/melange-nvim",
+    enabled = false,
+  },
+  -- Using lazy.nvim
+  {
+    'ribru17/bamboo.nvim',
+    enabled = true,
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('bamboo').setup {
+        transparent = true
+      }
+      require('bamboo').load()
+
+    end,
+  },
+  {
+    'rmehri01/onenord.nvim',
+    enabled = false,
+    config = function()
+      require('lualine').setup {
+
+        options = {
+          theme = 'onenord'
+        }
+
+      }
+      vim.o.background = "light"
+    end
+  },
+  {
+    "zenbones-theme/zenbones.nvim",
+    enabled = false,
+
+    dependencies = "rktjmp/lush.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.zenbones_darken_comments = 45
+      vim.o.background = "light"
+    end
+  },
+  {
+    "miikanissi/modus-themes.nvim",
+    priority = 1000,
+    enabled = false,
+    config = function()
+      vim.o.background = "light"
+    end
+
+  },
+  {
+    "ramojus/mellifluous.nvim",
+    enabled = false,
+    config = function()
+      require("mellifluous").setup({}) -- optional, see configuration section.
+      vim.o.background = "light"
+    end,
+  }
 
 
 }

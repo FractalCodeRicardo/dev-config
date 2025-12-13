@@ -17,7 +17,7 @@ local function get_shell()
     return { "pwsh.exe", "-NoLogo" }
   end
 
-  return { "/bin/bash" }
+  return { "/bin/zsh" }
 end
 
 local function get_fzf_command()
@@ -131,22 +131,25 @@ return {
   font = wezterm.font("Iosevka Term", { weight = "DemiBold" }),
   -- font_size = 22.0,
 
-  -- font = wezterm.font("UbuntuMono Nerd Font", { weight = "Regular" }),
+  -- font = wezterm.font("UbuntuMono Nerd Font", { weight = "DemiBold" }),
   -- font = wezterm.font("Mononoki Nerd Font", { weight = "Regular" }),
-  -- font = wezterm.font("Maple Mono", { weight = "Regular" }),
-  -- font = wezterm.font("Google Sans Code", { weight = "Regular" }),
+  -- font = wezterm.font("Maple Mono", { weight = "DemiBold" }),
+  -- font = wezterm.font("Google Sans Code", { weight = "DemiBold" }),
   -- font = wezterm.font("Julia Mono", { weight = "Regular" }),
   -- font = wezterm.font("Monaspace Krypton NF", { weight = "Regular" }),
+  -- font = wezterm.font("Monocraft", { weight = "DemiBold" }),
   font_size = 22.0,
   -- color_scheme = "Catppuccin Mocha", -- You can change this to any built-in color scheme
   -- color_scheme = "Catppuccin Latte", -- You can change this to any built-in color scheme
-  color_scheme = "Kanagawa Dragon (Gogh)", -- You can change this to any built-in color scheme
+  -- color_scheme = "Kanagawa Dragon (Gogh)", -- You can change this to any built-in color scheme
   -- color_scheme = "Gruvbox dark, medium (base16)", -- You can change this to any built-in color scheme
   -- color_scheme = "Dracula",
   -- color_scheme = "Belge (terminal.sexy)",
   -- color_scheme = "synthwave",
   -- color_scheme = "sakura",
   -- color_scheme = "SynthwaveAlpha",
+ -- color_scheme = 'Macintosh (base16)',
+ color_scheme = 'Circus (base16)',
   -- Tab bar settings
   enable_tab_bar = true,
   hide_tab_bar_if_only_one_tab = true,
@@ -164,7 +167,7 @@ return {
     top = 0,
     bottom = 0
   },
-  window_background_opacity = 0.90, -- slight transparency
+  window_background_opacity = 1, -- slight transparency
   initial_cols = 120,
   initial_rows = 30,
   warn_about_missing_glyphs = false,

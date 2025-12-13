@@ -54,29 +54,3 @@ vim.opt.shortmess:append { I = true, c = false, F = false }
 -- remove "Press enter to continue message"
 vim.opt.more = false
 
-vim.api.nvim_create_user_command("SaveMacro", function (params)
-  local name = params.args
-  local dir = vim.fn.expand("~/.config/nvim/macros/")
-  local file = dir .. name .. ".macro"
-  local content = vim.fn.getreg("q")
-
-  vim.fn.mkdir(dir, "p")
-
-  vim.fn.writefile(
-    {content},
-    file,
-    "a"
-  )
-end, {nargs = 1})
-
-
-vim.api.nvim_create_user_command("LoadMacro", function (params)
-  local name = params.args
-  local dir = vim.fn.expand("~/.config/nvim/macros/")
-  local file = dir .. name .. ".macro"
-
-  local content = vim.fn.readfile(file)
-
- vim.fn.setreg("q", content)
-end, {nargs = 1})
-

@@ -105,40 +105,40 @@ local function select_project()
 end
 
 
-wezterm.on("gui-startup", function(cmd)
-  local _, _, window = wezterm.mux.spawn_window(cmd or {})
-  local screen = wezterm.gui.screens().active -- get active monitor info
-
-  -- leave 50px padding on each side
-  local margin = 150
-  local width = screen.width - (margin * 2)
-  local height = screen.height - (margin * 2)
-  local x = screen.x + margin
-  local y = screen.y + margin
-
-  window:gui_window():set_position(x, y)
-  window:gui_window():set_inner_size(width, height)
-end)
+-- wezterm.on("gui-startup", function(cmd)
+--   local _, _, window = wezterm.mux.spawn_window(cmd or {})
+--   local screen = wezterm.gui.screens().active -- get active monitor info
+--
+--   -- leave 50px padding on each side
+--   local margin = 150
+--   local width = screen.width - (margin * 2)
+--   local height = screen.height - (margin * 2)
+--   local x = screen.x + margin
+--   local y = screen.y + margin
+--
+--   window:gui_window():set_position(x, y)
+--   window:gui_window():set_inner_size(width, height)
+-- end)
 
 return {
   -- Set your default shell (like PowerShell, cmd, or WSL)
   default_prog = get_shell(),
 
   -- Appearance
-   -- font = wezterm.font("JetBrains Mono", { weight = "Regular" }),
+   font = wezterm.font("JetBrains Mono", { weight = "DemiBold" }),
   -- font = wezterm.font("FiraCode Nerd Font", { weight = "Regular" }),
   -- font = wezterm.font("Hack Nerd Font", { weight = "Regular" }),
-  font = wezterm.font("Iosevka Term", { weight = "DemiBold" }),
+  -- font = wezterm.font("Iosevka Term", { weight = "DemiBold" }),
   -- font_size = 22.0,
 
-  -- font = wezterm.font("UbuntuMono Nerd Font", { weight = "DemiBold" }),
+  -- font = wezterm.font("UbuntuMono Nerd Font", { weight = "Regular" }),
   -- font = wezterm.font("Mononoki Nerd Font", { weight = "Regular" }),
   -- font = wezterm.font("Maple Mono", { weight = "DemiBold" }),
   -- font = wezterm.font("Google Sans Code", { weight = "DemiBold" }),
   -- font = wezterm.font("Julia Mono", { weight = "Regular" }),
   -- font = wezterm.font("Monaspace Krypton NF", { weight = "Regular" }),
   -- font = wezterm.font("Monocraft", { weight = "DemiBold" }),
-  font_size = 22.0,
+  font_size = 23.0,
   -- color_scheme = "Catppuccin Mocha", -- You can change this to any built-in color scheme
   -- color_scheme = "Catppuccin Latte", -- You can change this to any built-in color scheme
   -- color_scheme = "Kanagawa Dragon (Gogh)", -- You can change this to any built-in color scheme
@@ -149,7 +149,8 @@ return {
   -- color_scheme = "sakura",
   -- color_scheme = "SynthwaveAlpha",
  -- color_scheme = 'Macintosh (base16)',
- color_scheme = 'Circus (base16)',
+ -- color_scheme = 'Circus (base16)',
+ color_scheme = 'tokyonight',
   -- Tab bar settings
   enable_tab_bar = true,
   hide_tab_bar_if_only_one_tab = true,
@@ -162,10 +163,10 @@ return {
     inactive_titlebar_bg = '#222222',
   },
   window_padding = {
-    left = 0,
-    right = 0,
-    top = 0,
-    bottom = 0
+    left = 5,
+    right = 5,
+    top = 5,
+    bottom = 5
   },
   window_background_opacity = 1, -- slight transparency
   initial_cols = 120,

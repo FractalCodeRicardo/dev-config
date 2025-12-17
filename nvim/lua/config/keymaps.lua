@@ -11,7 +11,7 @@ map.set("i", "jk", "<Esc>", options)
 
 -- ctr + backspace delete word
 vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<BS>', '<C-W>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<C-BS>', '<C-W>', { noremap = true, silent = true })
 --ctrl + A select all
 vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG<CR>', options);
 
@@ -24,7 +24,13 @@ map.set('n', '<C-h>', '<C-w><Left>', options)
 map.set('n', '<C-l>', '<C-w><Right>', options)
 map.set('n', '<C-k>', '<C-w><Up>', options)
 map.set('n', '<C-j>', '<C-w><Down>', options)
+-- Resize vertically
+vim.keymap.set("n", "<C-w><Left>",  ":vertical resize -5<CR>", options)
+vim.keymap.set("n", "<C-w><Right>", ":vertical resize +5<CR>", options)
 
+-- Resize horizontally
+vim.keymap.set("n", "<C-w><Up>",    ":resize -5<CR>", options)
+vim.keymap.set("n", "<C-w><Down>",  ":resize +5<CR>", options)
 -- undo
 -- overlaps suspend
 -- map.set('n', '<C-z>', 'u', options)

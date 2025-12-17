@@ -6,6 +6,7 @@ require("config.keymaps")
 require("config.options")
 require("config.commands")
 require("my.surround")
+require("my.pairs")
 
 -- vim.cmd("colorscheme catppuccin-macchiato")
 -- vim.cmd("colorscheme catppuccin-latte")

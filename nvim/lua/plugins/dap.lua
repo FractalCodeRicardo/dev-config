@@ -64,15 +64,15 @@ return {
     }
 
     dapui.setup({
-      layouts = { {
-        elements = { {
-          id = "watches",
-          size = 1
-        } },
-        position = "bottom",
-        size = 10
-      }
-      },
+      -- layouts = { {
+      --   elements = { {
+      --     id = "watches",
+      --     size = 1
+      --   } },
+      --   position = "bottom",
+      --   size = 10
+      -- }
+      -- },
     })
 
     -- Automatically open/close UI when debugging starts/stops

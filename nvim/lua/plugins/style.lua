@@ -151,7 +151,7 @@ return {
   },
   {
     "daschw/leaf.nvim",
-    enabled = true,
+    enabled = false,
     config = function()
       local leaf = require("leaf");
 
@@ -163,7 +163,7 @@ return {
   },
   {
     "bluz71/vim-moonfly-colors",
-    enabled = true,
+    enabled = false,
     name = "moonfly",
     lazy = false,
     priority = 1000

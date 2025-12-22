@@ -22,6 +22,8 @@ wofi_config="$HOME/.config/wofi"
 waybar_repo="waybar"
 waybar_config="$HOME/.config/waybar"
 
+kitty_repo="kitty"
+kitty_config="$HOME/.config/kitty"
 replace_folder() {
     local source_dir="$1"
     local target_dir="$2"
@@ -44,6 +46,7 @@ if [ "$1" = "config" ]; then
     replace_folder "$hypr_repo" "$hypr_config"
     replace_folder "$wofi_repo" "$wofi_config"
     replace_folder "$waybar_repo" "$waybar_config"
+    replace_folder "$kitty_repo" "$kitty_config"
 fi
 
 if [ "$1" = "repo" ]; then
@@ -53,6 +56,7 @@ if [ "$1" = "repo" ]; then
     replace_folder "$hypr_config" "$hypr_repo"
     replace_folder "$wofi_config" "$wofi_repo"
     replace_folder "$waybar_config" "$waybar_repo"
+    replace_folder "$kitty_config" "$kitty_repo"
 fi
 
 echo "Ok!"

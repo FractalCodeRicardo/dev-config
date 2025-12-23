@@ -5,7 +5,7 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["cpu", "memory", "network", "battery"],
+  "modules-right": ["cpu", "memory", "network", "battery", "pulseaudio"],
 
   "clock": {
     "format": "  {:%H:%M  •  %a, %d %b %Y}",
@@ -24,6 +24,22 @@
     "disable-scroll": true,
     "all-outputs": true
   },
+
+"pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 Muted",
+    "on-click": "pavucontrol", // Opens the volume mixer on click
+    "scroll-step": 5, // Percent to change per scroll
+    "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+    }
+},
 
 
   "cpu": {

@@ -11,7 +11,8 @@ return {
           "json",
           "html",
           "css",
-          "c_sharp"
+          "c_sharp",
+          "rust"
         },
         highlight = {
           enable = true,

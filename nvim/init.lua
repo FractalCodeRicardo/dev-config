@@ -8,6 +8,7 @@ require("config.commands")
 require("my.surround")
 require("my.pairs")
 require("my.terminal")
+require("my.autocomplete")
 
 vim.cmd("colorscheme bamboo")
 

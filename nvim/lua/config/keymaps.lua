@@ -71,7 +71,7 @@ vim.keymap.set('v', '<C-c>', '"+y')
 vim.keymap.set('n', '<C-c>', '"+yy')
 
 -- Cut
-vim.keymap.set('v', '<C-x>', '"+d')
+-- vim.keymap.set('v', '<C-x>', '"+d')
 
 -- Paste
 vim.keymap.set({ 'n', 'v' }, '<C-v>', '"+p')

@@ -10,7 +10,7 @@ require("my.pairs")
 require("my.terminal")
 require("my.autocomplete")
 
-vim.cmd("colorscheme bamboo")
+vim.cmd("colorscheme moonfly")
 
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("astro")
@@ -20,4 +20,3 @@ vim.lsp.enable('jdtls')
 
 vim.fn.setenv("DAP_LOG_LEVEL", "TRACE")
 vim.fn.setenv("DAP_LOG_FILE", vim.fn.stdpath("cache") .. "/dap.log")
-

@@ -163,7 +163,7 @@ return {
   },
   {
     "bluz71/vim-moonfly-colors",
-    enabled = false,
+    enabled = true,
     name = "moonfly",
     lazy = false,
     priority = 1000

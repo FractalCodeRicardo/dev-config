@@ -30,3 +30,21 @@ vim.api.nvim_create_user_command("Reload", function ()
 end
 ,{})
 
+--autosave
+vim.api.nvim_create_autocmd("InsertLeave", {
+  callback = function ()
+    if vim.bo.readonly then
+      return
+    end
+
+    if not vim.bo.modifiable then
+      return
+    end
+
+    if not vim.bo.modified then
+      return
+    end
+
+    vim.cmd("write")
+  end
+})

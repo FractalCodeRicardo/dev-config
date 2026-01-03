@@ -1,6 +1,5 @@
 local options = { noremap = true, silent = true }
 local map = vim.keymap
-local utils = require("my.utils")
 
 --tab to indent
 map.set('v', '<Tab>', '>', options)
@@ -13,7 +12,7 @@ map.set("i", "jk", "<Esc>", options)
 vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<C-BS>', '<C-W>', { noremap = true, silent = true })
 --ctrl + A select all
-vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG<CR>', options);
+-- vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG<CR>', options);
 
 -- alt + z and x to <>
 vim.api.nvim_set_keymap('i', '<A-z>', '<', { noremap = true, silent = true })
@@ -84,6 +83,6 @@ vim.keymap.set('i', '<C-v>', '<C-r>+')
 --suspend
 vim.keymap.set('n', '<Leader>z', '<C-z>', { noremap = true, silent = true })
 
+--terminal insert to normal mode
 vim.keymap.set("t", "<esc><esc>", "<C-\\><C-n>", { silent = true })
 
-vim.keymap.set("n", "<leader>eb", utils.eval_buffer)

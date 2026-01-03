@@ -9,7 +9,7 @@ return {
     local oil = require("oil")
     oil.setup({
       show_hidden = true,
-      default_file_explorer = true, 
+      default_file_explorer = true,
     })
     vim.api.nvim_set_keymap('n', 'te', ":Oil<CR>", { noremap = true, silent = true })
 

@@ -104,7 +104,7 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
-    enabled = false,
+    enabled = true,
     config = function()
       local kanagawa = require("kanagawa");
       kanagawa.setup({
@@ -151,7 +151,7 @@ return {
   },
   {
     "daschw/leaf.nvim",
-    enabled = false,
+    enabled = true,
     config = function()
       local leaf = require("leaf");
 
@@ -163,7 +163,7 @@ return {
   },
   {
     "bluz71/vim-moonfly-colors",
-    enabled = true,
+    enabled = false,
     name = "moonfly",
     lazy = false,
     priority = 1000

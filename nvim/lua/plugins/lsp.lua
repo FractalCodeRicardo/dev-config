@@ -37,6 +37,7 @@ return {
     })
 
     vim.lsp.config("clangd", {})
+    vim.lsp.config("kotlin_language_server", {})
     vim.lsp.config("rust_analyzer", {})
     vim.lsp.config("clangd", {})
     vim.lsp.config("jsonls", {})

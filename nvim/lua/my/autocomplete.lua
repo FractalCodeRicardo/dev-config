@@ -1,6 +1,6 @@
 # built-in autocomplete
 
-vim.opt.completeopt = { "menuone", "popup", "fuzzy", "noselect" }
+vim.opt.completeopt = { "menuone", "popup","fuzzy", "noselect" }
 
 vim.api.nvim_create_autocmd('InsertCharPre', {
   callback = function()

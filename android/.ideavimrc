@@ -1,0 +1,122 @@
+
+" ===== Tabs & Indent =====
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+
+" ===== UI =====
+set number
+set relativenumber
+set ignorecase
+set smartcase
+
+" ===== Folding =====
+set foldmethod=indent
+set nofoldenable
+set foldlevel=99
+
+" ===== Popup menu size (approximation only) =====
+" IdeaVim does not support pumheight
+
+" ===== Colors =====
+" termguicolors not supported in IdeaVim
+
+" ===== Messages =====
+" These exact flags are not supported
+" but this gets close:
+set showmode
+set showcmd
+
+
+
+" ======================
+"  BASIC KEY MAPPINGS
+" ======================
+
+" Tab / Shift+Tab indent in Visual mode
+vnoremap <Tab> >
+vnoremap <S-Tab> <
+
+" jk to exit insert mode
+inoremap jk <Esc>
+
+" Ctrl+Backspace delete previous word
+inoremap <C-H> <C-W>
+inoremap <C-BS> <C-W>
+
+" ======================
+"  WINDOW NAVIGATION
+" ======================
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+
+" Resize splits
+nnoremap <C-w><Left>  :vertical resize -5<CR>
+nnoremap <C-w><Right> :vertical resize +5<CR>
+nnoremap <C-w><Up>    :resize -5<CR>
+nnoremap <C-w><Down>  :resize +5<CR>
+
+" ======================
+"  SAVE
+" ======================
+
+nnoremap <C-S> :wa<CR>
+inoremap <C-S> <Esc>:wa<CR>
+vnoremap <C-S> <Esc>:wa<CR>
+
+" ======================
+"  CLIPBOARD
+" ======================
+
+" Copy
+vnoremap <C-c> "+y
+nnoremap <C-c> "+yy
+
+" Paste
+nnoremap <C-v> "+p
+vnoremap <C-v> "+p
+inoremap <C-v> <C-r>+
+
+" ======================
+"  BUFFER MANAGEMENT
+" ======================
+
+" Close file / tab
+nnoremap <C-w> :action CloseContent<CR>
+
+" ======================
+"  IDE ACTION MAPPINGS
+"  (LSP EQUIVALENTS)
+" ======================
+
+" Go to definition
+nnoremap gd :action GotoDeclaration<CR>
+
+" Find usages
+nnoremap gi :action FindUsages<CR>
+
+" Rename symbol
+nnoremap <F2> :action RenameElement<CR>
+
+" Code actions / Intention actions
+nnoremap <C-q> :action ShowIntentionActions<CR>
+nnoremap <C-.> :action ShowIntentionActions<CR>
+
+" Symbol search in file
+nnoremap gt :action FileStructurePopup<CR>
+
+" Signature help alternative = Quick Documentation
+nnoremap gh :action QuickJavaDoc<CR>
+
+" Format file
+nnoremap <Leader>f :action ReformatCode<CR>
+
+" ======================
+"  SUSPEND (MINIMIZE IDEA)
+" ======================
+
+nnoremap <Leader>z <C-z>

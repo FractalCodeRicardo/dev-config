@@ -12,7 +12,7 @@ map.set("i", "jk", "<Esc>", options)
 vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<C-BS>', '<C-W>', { noremap = true, silent = true })
 --ctrl + A select all
--- vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG<CR>', options);
+vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG<CR>', options);
 
 -- alt + z and x to <>
 vim.api.nvim_set_keymap('i', '<A-z>', '<', { noremap = true, silent = true })
@@ -66,15 +66,15 @@ map.set('n', 'nw', '<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnosti
 
 -- Clipboard
 -- Copy
-vim.keymap.set('v', '<C-c>', '"+y')
-vim.keymap.set('n', '<C-c>', '"+yy')
+-- vim.keymap.set('v', '<C-c>', '"+y')
+-- vim.keymap.set('n', '<C-c>', '"+yy')
 
 -- Cut
 -- vim.keymap.set('v', '<C-x>', '"+d')
 
 -- Paste
-vim.keymap.set({ 'n', 'v' }, '<C-v>', '"+p')
-vim.keymap.set('i', '<C-v>', '<C-r>+')
+-- vim.keymap.set({ 'n', 'v' }, '<C-v>', '"+p')
+-- vim.keymap.set('i', '<C-v>', '<C-r>+')
 
 --tree
 -- map.set("n", "te", ":Neotree toggle<CR>", options)

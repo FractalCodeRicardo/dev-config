@@ -45,53 +45,6 @@ inoremap jk <Esc>
 inoremap <C-H> <C-W>
 inoremap <C-BS> <C-W>
 
-" ======================
-"  WINDOW NAVIGATION
-" ======================
-
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-nnoremap <C-k> <C-w>k
-nnoremap <C-j> <C-w>j
-
-" Resize splits
-nnoremap <C-w><Left>  :vertical resize -5<CR>
-nnoremap <C-w><Right> :vertical resize +5<CR>
-nnoremap <C-w><Up>    :resize -5<CR>
-nnoremap <C-w><Down>  :resize +5<CR>
-
-" ======================
-"  SAVE
-" ======================
-
-nnoremap <C-S> :wa<CR>
-inoremap <C-S> <Esc>:wa<CR>
-vnoremap <C-S> <Esc>:wa<CR>
-
-" ======================
-"  CLIPBOARD
-" ======================
-
-" Copy
-vnoremap <C-c> "+y
-nnoremap <C-c> "+yy
-
-" Paste
-nnoremap <C-v> "+p
-vnoremap <C-v> "+p
-inoremap <C-v> <C-r>+
-
-" ======================
-"  BUFFER MANAGEMENT
-" ======================
-
-" Close file / tab
-nnoremap <C-w> :action CloseContent<CR>
-
-" ======================
-"  IDE ACTION MAPPINGS
-"  (LSP EQUIVALENTS)
-" ======================
 
 " Go to definition
 nnoremap gd :action GotoDeclaration<CR>
@@ -115,8 +68,5 @@ nnoremap gh :action QuickJavaDoc<CR>
 " Format file
 nnoremap <Leader>f :action ReformatCode<CR>
 
-" ======================
-"  SUSPEND (MINIMIZE IDEA)
-" ======================
+nnoremap te :action ActivateProjectToolWindow<CR>
 
-nnoremap <Leader>z <C-z>

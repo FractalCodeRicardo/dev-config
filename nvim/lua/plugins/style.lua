@@ -50,9 +50,11 @@ return {
       local nightfox = require("nightfox");
       nightfox.setup({
         options = {
-          transparent = true
+          transparent = false
         }
       })
+
+      vim.cmd("colorscheme duskfox")
     end
   },
 
@@ -63,9 +65,11 @@ return {
     priority = 1000,
     config = function()
       require("cyberdream").setup({
-        variant = "light",
-        transparent = true
+        variant = "dark",
+        transparent = false
       });
+
+      vim.cmd("colorscheme cyberdream")
     end
   },
   -- Using Lazy
@@ -75,7 +79,7 @@ return {
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       require('onedark').setup {
-        style = 'darker'
+        style = 'deep'
       }
       -- Enable theme
       require('onedark').load()
@@ -104,7 +108,7 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
-    enabled = true,
+    enabled = false,
     config = function()
       local kanagawa = require("kanagawa");
       kanagawa.setup({
@@ -136,7 +140,7 @@ return {
       vim.g.gruvbox_material_background = "medium"
       vim.g.gruvbox_material_enable_italic = 1
       vim.g.gruvbox_material_better_performance = 1
-      vim.o.background = "light"
+      vim.o.background = "dark"
       vim.cmd.colorscheme('gruvbox-material')
     end
   },
@@ -159,6 +163,8 @@ return {
         contrast = "high",
         transparent = false
       })
+
+      vim.cmd("colorscheme leaf")
     end
   },
   {
@@ -166,7 +172,10 @@ return {
     enabled = false,
     name = "moonfly",
     lazy = false,
-    priority = 1000
+    priority = 1000,
+    config = function ()
+      vim.cmd("colorscheme moonfly")
+    end
   },
 
 
@@ -216,7 +225,6 @@ return {
     lazy = false,    -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other plugins
     config = function()
-      -- NOTE: you do not need to call setup if you don't want to.
       require("vague").setup({
         -- optional configuration here
       })
@@ -258,8 +266,10 @@ return {
       local eldritch = require("eldritch");
 
       eldritch.setup({
-        transparent = true
+        transparent = false
       })
+
+      vim.cmd("colorscheme eldritch")
     end
   },
   {
@@ -270,6 +280,8 @@ return {
     },
     config = function(_, opts)
       require("tokyodark").setup(opts) -- calling setup is optional
+
+     vim.cmd("colorscheme tokyodark")
     end,
   },
   {
@@ -277,7 +289,10 @@ return {
     enabled = false,
     name = "nightfly",
     lazy = false,
-    priority = 1000
+    priority = 1000,
+    config = function ()
+     vim.cmd("colorscheme nightfly")
+    end
   },
   {
     "samharju/synthweave.nvim",
@@ -356,7 +371,7 @@ return {
   -- Using lazy.nvim
   {
     'ribru17/bamboo.nvim',
-    enabled = true,
+    enabled = false,
     lazy = false,
     priority = 1000,
     config = function()

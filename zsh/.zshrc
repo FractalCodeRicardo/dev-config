@@ -24,3 +24,4 @@ PROMPT='last-hope:%~ '
 autoload -U colors && colors
 eval "$(starship init zsh)"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+. "$HOME/.cargo/env"

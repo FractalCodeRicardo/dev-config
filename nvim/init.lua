@@ -9,9 +9,7 @@ require("my.surround")
 -- require("my.pairs")
 require("my.terminal")
 -- require("my.autocomplete")
-require("my.evalbuffer")
-
-vim.cmd("colorscheme leaf")
+--require("my.evalbuffer")
 
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("astro")

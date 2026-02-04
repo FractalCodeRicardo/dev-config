@@ -66,15 +66,15 @@ map.set('n', 'nw', '<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnosti
 
 -- Clipboard
 -- Copy
--- vim.keymap.set('v', '<C-c>', '"+y')
--- vim.keymap.set('n', '<C-c>', '"+yy')
+vim.keymap.set('v', '<C-c>', '"+y')
+vim.keymap.set('n', '<C-c>', '"+yy')
 
 -- Cut
--- vim.keymap.set('v', '<C-x>', '"+d')
+vim.keymap.set('v', '<C-x>', '"+d')
 
 -- Paste
--- vim.keymap.set({ 'n', 'v' }, '<C-v>', '"+p')
--- vim.keymap.set('i', '<C-v>', '<C-r>+')
+vim.keymap.set({ 'n', 'v' }, '<C-v>', '"+p')
+vim.keymap.set('i', '<C-v>', '<C-r>+')
 
 --tree
 -- map.set("n", "te", ":Neotree toggle<CR>", options)

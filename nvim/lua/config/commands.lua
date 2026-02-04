@@ -31,20 +31,20 @@ end
 ,{})
 
 --autosave
-vim.api.nvim_create_autocmd("BufLeave", {
-  callback = function ()
-    if vim.bo.readonly then
-      return
-    end
-
-    if not vim.bo.modifiable then
-      return
-    end
-
-    if not vim.bo.modified then
-      return
-    end
-
-    vim.cmd("write")
-  end
-})
+-- vim.api.nvim_create_autocmd("BufLeave", {
+--   callback = function ()
+--     if vim.bo.readonly then
+--       return
+--     end
+--
+--     if not vim.bo.modifiable then
+--       return
+--     end
+--
+--     if not vim.bo.modified then
+--       return
+--     end
+--
+--     vim.cmd("write")
+--   end
+-- })

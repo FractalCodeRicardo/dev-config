@@ -1,4 +1,3 @@
-
 local function append_lines(arr, str)
   local lines = vim.split(str, "\n", { plain = true })
   for _, line in ipairs(lines) do
@@ -15,7 +14,7 @@ local function eval_buffer()
   local buf_name = "LuaOutput"
   local buf = vim.fn.bufnr(buf_name)
   if buf == -1 then
-    buf = vim.api.nvim_create_buf(false, true) 
+    buf = vim.api.nvim_create_buf(false, true)
     vim.api.nvim_buf_set_name(buf, buf_name)
   end
 
@@ -48,7 +47,7 @@ local function eval_buffer()
   -- Restore original print
   print = old_print
 
-  -- result 
+  -- result
   if ok then
     if result ~= nil then
       table.insert(output, "Result: " .. vim.inspect(result))
@@ -59,7 +58,11 @@ local function eval_buffer()
     table.insert(output, "❌ Error: " .. result)
   end
 
-  -- set lines in buf 
+  for i, v in ipairs(output) do
+    output[i] = v:gsub("\n", " ")
+  end
+
+  -- set lines in buf
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, output)
 end
 

@@ -30,7 +30,7 @@ return {
   },
   {
     "catppuccin/nvim",
-    enabled = false,
+    enabled = true,
     lazy = false,
     name = "catppuccin",
     priority = 1000,
@@ -40,6 +40,8 @@ return {
         flavour = "mocha",
         transparent_background = true
       })
+
+      vim.cmd("colorscheme catppuccin-mocha")
     end
   },
   {
@@ -155,7 +157,7 @@ return {
   },
   {
     "daschw/leaf.nvim",
-    enabled = true,
+    enabled = false,
     config = function()
       local leaf = require("leaf");
 

@@ -25,3 +25,7 @@ autoload -U colors && colors
 eval "$(starship init zsh)"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 . "$HOME/.cargo/env"
+export PATH="$HOME/.local/bin:$PATH"
+
+# opencode
+export PATH=/home/ricardo/.opencode/bin:$PATH

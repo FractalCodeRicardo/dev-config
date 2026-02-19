@@ -30,7 +30,7 @@ return {
   },
   {
     "catppuccin/nvim",
-    enabled = true,
+    enabled = false,
     lazy = false,
     name = "catppuccin",
     priority = 1000,
@@ -110,7 +110,7 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
-    enabled = false,
+    enabled = true,
     config = function()
       local kanagawa = require("kanagawa");
       kanagawa.setup({
@@ -119,6 +119,7 @@ return {
       })
 
       vim.o.background = "dark"
+      vim.cmd("colorscheme kanagawa")
     end
   },
   {

@@ -1,4 +1,5 @@
 
+
 " ===== Tabs & Indent =====
 set expandtab
 set shiftwidth=2
@@ -57,7 +58,6 @@ nnoremap <F2> :action RenameElement<CR>
 
 " Code actions / Intention actions
 nnoremap <C-q> :action ShowIntentionActions<CR>
-nnoremap <C-.> :action ShowIntentionActions<CR>
 
 " Symbol search in file
 nnoremap gt :action FileStructurePopup<CR>
@@ -70,3 +70,10 @@ nnoremap <Leader>f :action ReformatCode<CR>
 
 nnoremap te :action ActivateProjectToolWindow<CR>
 
+" Open file like Ctrl+P in VSCode
+nnoremap <C-p> :action GotoFile<CR>
+
+" Live grep (search in project)
+nnoremap <C-g> :action SearchEverywhere<CR>
+
+nnoremap ne :action GotoNextError<CR>

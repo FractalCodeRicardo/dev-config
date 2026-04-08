@@ -29,3 +29,5 @@ autoload -U colors && colors
 
 # opencode
 export PATH=/home/ricardo/.opencode/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.dotnet:$PATH"

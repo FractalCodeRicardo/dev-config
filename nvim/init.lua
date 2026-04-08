@@ -17,6 +17,7 @@ vim.lsp.enable("tsserver")
 vim.lsp.enable("rust_analyzer")
 vim.lsp.enable('jdtls')
 vim.lsp.enable('kotlin_lsp')
+vim.lsp.enable('lemminx')
 
 vim.fn.setenv("DAP_LOG_LEVEL", "TRACE")
 vim.fn.setenv("DAP_LOG_FILE", vim.fn.stdpath("cache") .. "/dap.log")

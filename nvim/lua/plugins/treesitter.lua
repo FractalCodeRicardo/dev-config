@@ -4,8 +4,10 @@ return {
     enabled = "true",
     build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = {
+
+      local treesitter =require("nvim-treesitter")
+
+      treesitter.install {
           "javascript",
           "typescript",
           "json",
@@ -13,11 +15,8 @@ return {
           "css",
           "c_sharp",
           "rust"
-        },
-        highlight = {
-          enable = true,
-        },
-      })
+      }
+
     end,
   }
 }

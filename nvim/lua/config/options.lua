@@ -2,7 +2,7 @@ local opt = vim.opt;
 
 opt.expandtab = true
 opt.shiftwidth = 2
-
+--opt.autocomplete = true
 -- Needed for feline plugin
 --opt.termguicolors = true
 opt.pumheight = 10
@@ -54,3 +54,4 @@ vim.opt.shortmess:append { I = true, c = false, F = false }
 -- remove "Press enter to continue message"
 vim.opt.more = false
 vim.opt.showmode = false
+

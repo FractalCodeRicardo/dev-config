@@ -110,7 +110,7 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
-    enabled = true,
+    enabled = false,
     config = function()
       local kanagawa = require("kanagawa");
       kanagawa.setup({
@@ -224,8 +224,7 @@ return {
   },
   {
     "vague-theme/vague.nvim",
-    enabled = false,
-    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    enabled = false,    -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other plugins
     config = function()
       require("vague").setup({
@@ -261,7 +260,7 @@ return {
   },
   {
     "eldritch-theme/eldritch.nvim",
-    enabled = false,
+    enabled = true,
     lazy = false,
     priority = 1000,
     opts = {},
@@ -269,7 +268,7 @@ return {
       local eldritch = require("eldritch");
 
       eldritch.setup({
-        transparent = false
+        transparent = true
       })
 
       vim.cmd("colorscheme eldritch")

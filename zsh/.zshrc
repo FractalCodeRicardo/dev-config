@@ -23,7 +23,7 @@ PROMPT='last-hope:%~ '
 # Enable colors
 autoload -U colors && colors
 #eval "$(starship init zsh)"
-#source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #. "$HOME/.cargo/env"
 #export PATH="$HOME/.local/bin:$PATH"
 
@@ -31,3 +31,5 @@ autoload -U colors && colors
 export PATH=/home/ricardo/.opencode/bin:$PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.dotnet:$PATH"
+
+eval "$(starship init zsh)"

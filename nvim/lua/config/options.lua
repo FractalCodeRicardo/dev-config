@@ -3,8 +3,7 @@ local opt = vim.opt;
 opt.expandtab = true
 opt.shiftwidth = 2
 --opt.autocomplete = true
--- Needed for feline plugin
---opt.termguicolors = true
+
 opt.pumheight = 10
 vim.wo.number = true
 opt.relativenumber = true

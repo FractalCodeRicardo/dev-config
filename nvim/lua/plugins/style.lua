@@ -176,7 +176,7 @@ return {
     name = "moonfly",
     lazy = false,
     priority = 1000,
-    config = function ()
+    config = function()
       vim.cmd("colorscheme moonfly")
     end
   },
@@ -224,7 +224,7 @@ return {
   },
   {
     "vague-theme/vague.nvim",
-    enabled = false,    -- make sure we load this during startup if it is your main colorscheme
+    enabled = false, -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other plugins
     config = function()
       require("vague").setup({
@@ -260,7 +260,7 @@ return {
   },
   {
     "eldritch-theme/eldritch.nvim",
-    enabled = true,
+    enabled = false,
     lazy = false,
     priority = 1000,
     opts = {},
@@ -283,7 +283,7 @@ return {
     config = function(_, opts)
       require("tokyodark").setup(opts) -- calling setup is optional
 
-     vim.cmd("colorscheme tokyodark")
+      vim.cmd("colorscheme tokyodark")
     end,
   },
   {
@@ -292,8 +292,8 @@ return {
     name = "nightfly",
     lazy = false,
     priority = 1000,
-    config = function ()
-     vim.cmd("colorscheme nightfly")
+    config = function()
+      vim.cmd("colorscheme nightfly")
     end
   },
   {
@@ -381,7 +381,6 @@ return {
         transparent = true
       }
       require('bamboo').load()
-
     end,
   },
   {
@@ -426,7 +425,31 @@ return {
       require("mellifluous").setup({}) -- optional, see configuration section.
       vim.o.background = "light"
     end,
+  },
+  {
+    'uloco/bluloco.nvim',
+    enabled = false,
+    lazy = false,
+    priority = 1000,
+    dependencies = { 'rktjmp/lush.nvim' },
+    config = function()
+      vim.cmd("colorscheme bluloco")
+    end,
+  },
+  -- lazy
+  {
+    'ray-x/aurora',
+    enabled = true,
+    init = function()
+      vim.g.aurora_italic = 1
+      vim.g.aurora_transparent = 1
+      vim.g.aurora_bold = 1
+    end,
+    config = function()
+      vim.cmd.colorscheme "aurora"
+      -- override defaults
+      vim.api.nvim_set_hl(0, '@number', { fg = '#e933e3' })
+    end
   }
-
 
 }

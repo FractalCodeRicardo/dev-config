@@ -1,5 +1,5 @@
 return {
-  enabled = true,
+  enabled = false,
   'nvim-mini/mini.nvim',
   version = '*',
   config = function()

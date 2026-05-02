@@ -21,3 +21,4 @@ vim.lsp.enable('lemminx')
 
 vim.fn.setenv("DAP_LOG_LEVEL", "TRACE")
 vim.fn.setenv("DAP_LOG_FILE", vim.fn.stdpath("cache") .. "/dap.log")
+

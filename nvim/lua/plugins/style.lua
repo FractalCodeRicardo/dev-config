@@ -439,6 +439,32 @@ return {
   -- lazy
   {
     'ray-x/aurora',
+    enabled = false,
+    init = function()
+      vim.g.aurora_italic = 1
+      vim.g.aurora_transparent = 1
+      vim.g.aurora_bold = 1
+    end,
+    config = function()
+      vim.cmd.colorscheme "aurora"
+      -- override defaults
+      vim.api.nvim_set_hl(0, '@number', { fg = '#e933e3' })
+    end
+  },
+  {
+    "oxfist/night-owl.nvim",
+    enabled = false,
+    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      -- load the colorscheme here
+      require("night-owl").setup()
+      vim.cmd.colorscheme("night-owl")
+    end,
+  },
+
+  {
+    'ray-x/aurora',
     enabled = true,
     init = function()
       vim.g.aurora_italic = 1
@@ -451,5 +477,4 @@ return {
       vim.api.nvim_set_hl(0, '@number', { fg = '#e933e3' })
     end
   }
-
 }

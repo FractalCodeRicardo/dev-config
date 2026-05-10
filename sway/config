@@ -13,7 +13,7 @@ set $term kitty
 # menu
 set $menu wmenu-run
 
-output * bg ~/wallpapers/current.jpg fill
+output * bg ~/wallpapers/current.jpg stretch
 
 # keyboard
 input * {
@@ -142,6 +142,8 @@ bindsym $mod+Shift+r mode "resize"
 
 bar {
     status_command i3status
+    position top
+    #status_command waybar
 }
 
 for_window [app_id="kitty"] floating enable
@@ -167,6 +169,7 @@ client.unfocused        #222222 #222222 #888888 #222222 #222222
 client.urgent           #ff0000 #ff0000 #ffffff #ff0000 #ff0000
 client.placeholder      #000000 #000000 #ffffff #000000 #000000
 
-
+bindsym $mod+f1 exec obs-cli recording start
+bindsym $mod+f2 exec obs-cli recording stop
 
 include /etc/sway/config.d/*

@@ -52,7 +52,7 @@ return {
       local nightfox = require("nightfox");
       nightfox.setup({
         options = {
-          transparent = false
+          transparent = true
         }
       })
 
@@ -154,6 +154,7 @@ return {
     lazy = true,     -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
+      vim.cmd("colorscheme NeoSolarized")
     end
   },
   {
@@ -164,7 +165,7 @@ return {
 
       leaf.setup({
         contrast = "high",
-        transparent = false
+        transparent = true
       })
 
       vim.cmd("colorscheme leaf")
@@ -247,7 +248,6 @@ return {
     enabled = false,
     lazy = false,
     priority = 1000,
-    enabled = false,
     config = function()
       local fm = require 'fluoromachine'
 
@@ -256,6 +256,9 @@ return {
         theme = 'retrowave',
         transparent = true,
       }
+
+
+      vim.cmd("colorscheme fluoromachine");
     end
   },
   {
@@ -288,12 +291,15 @@ return {
   },
   {
     "bluz71/vim-nightfly-colors",
-    enabled = false,
+    enabled = true,
     name = "nightfly",
     lazy = false,
     priority = 1000,
     config = function()
+      -- Lua initialization file
+      vim.g.nightflyTransparent = true
       vim.cmd("colorscheme nightfly")
+      
     end
   },
   {
@@ -345,7 +351,10 @@ return {
     enabled = false,
     lazy = false,
     priority = 1000,
-    opts = {},
+    config = function ()
+
+      vim.cmd("colorscheme solarized-osaka")
+    end
   },
   {
     'AlexvZyl/nordic.nvim',
@@ -465,7 +474,7 @@ return {
 
   {
     'ray-x/aurora',
-    enabled = true,
+    enabled = false,
     init = function()
       vim.g.aurora_italic = 1
       vim.g.aurora_transparent = 1

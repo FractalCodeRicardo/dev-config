@@ -39,7 +39,6 @@ return {
     vim.lsp.config("clangd", {})
     vim.lsp.config("kotlin_lsp", {})
     vim.lsp.config("rust_analyzer", {})
-    vim.lsp.config("clangd", {})
     vim.lsp.config("jsonls", {})
     vim.lsp.config("powershell_es", {})
     vim.lsp.config("astro", {})

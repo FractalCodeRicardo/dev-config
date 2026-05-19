@@ -54,3 +54,9 @@ vim.opt.shortmess:append { I = true, c = false, F = false }
 vim.opt.more = false
 vim.opt.showmode = false
 
+-- No status line
+vim.opt.laststatus = 0
+vim.opt.cmdheight = 0
+vim.opt.showmode = false
+vim.opt.ruler = false
+vim.opt.shell = "/bin/zsh"

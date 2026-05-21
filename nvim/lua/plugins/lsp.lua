@@ -20,6 +20,9 @@ return {
           },
           diagnostics = {
             globals = { 'vim' }, -- Recognize `vim` as a global
+            disable = {
+              "unused-local",
+            },
           },
           workspace = {
             library = vim.api.nvim_get_runtime_file("", true), -- Make LSP aware of Neovim runtime

@@ -173,11 +173,12 @@ return {
   },
   {
     "bluz71/vim-moonfly-colors",
-    enabled = false,
+    enabled = true,
     name = "moonfly",
     lazy = false,
     priority = 1000,
     config = function()
+      vim.g.moonflyTransparent = true
       vim.cmd("colorscheme moonfly")
     end
   },
@@ -291,7 +292,7 @@ return {
   },
   {
     "bluz71/vim-nightfly-colors",
-    enabled = true,
+    enabled = false,
     name = "nightfly",
     lazy = false,
     priority = 1000,

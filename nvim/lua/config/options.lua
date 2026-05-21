@@ -60,3 +60,4 @@ vim.opt.cmdheight = 0
 vim.opt.showmode = false
 vim.opt.ruler = false
 vim.opt.shell = "/bin/zsh"
+

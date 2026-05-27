@@ -61,3 +61,7 @@ vim.opt.showmode = false
 -- vim.opt.ruler = false
 vim.opt.shell = "/bin/zsh"
 
+local ui2 = require("vim._core.ui2")
+ui2.enable({
+  enable = true
+})

@@ -1,73 +1,58 @@
-/* === General === */
 * {
   font-family: "JetBrainsMono Nerd Font", monospace;
   font-size: 12px;
-  color: #d0d0d0;
+  font-weight: bold;
+  color: #cdd6f4;
 }
 
-/* Bar background with a soft gradient */
 window#waybar {
-  background: linear-gradient(90deg, #1e1e2e 0%, #1b1b2b 100%);
-  border-bottom: 2px solid #2e2e3e;
+  background: #11111b;
+  border-bottom: 1px solid #313244;
 }
 
-/* === Modules === */
+/* modules */
+#clock,
 #cpu,
 #memory,
 #network,
 #battery {
-  padding: 0 8px;
-  border-radius: 6px;
-  margin: 0 4px;
-  transition: background 0.2s, color 0.2s;
-}
-
-/* Clock (center) */
-#clock {
-  background: #8aadf4;
-  color: #1e1e2e;
   padding: 0 10px;
-  border-radius: 8px;
-  font-weight: 600;
+  margin: 0 4px;
+  background: transparent;
 }
 
-/* Dimmed colorful palette for right modules */
-#cpu { background: #f5a97f; color: #1e1e2e; }
-#memory { background: #a6da95; color: #1e1e2e; }
-#network { background: #c6a0f6; color: #1e1e2e; }
-#battery { background: #ed8796; color: #1e1e2e; }
-
-/* === Workspaces === */
+/* workspaces */
 #workspaces {
-  margin-left: 6px;
+  margin-left: 4px;
 }
 
 #workspaces button {
-  padding: 0 8px;
+  padding: 0 10px;
   margin: 0 2px;
-  border-radius: 6px;
-  background: #2b2b3c;
-  color: #a6adc8;
-  border: 1px solid transparent;
-  transition: all 0.25s ease;
+  background: transparent;
+  color: #6c7086;
+  border: none;
+  border-radius: 0;
+  transition: all 0.2s ease;
 }
 
-/* Focused workspace indicator */
+/* selected workspace */
+#workspaces button.active {
+  color: #ffffff;
+  border-bottom: 2px solid #89b4fa;
+}
+
 #workspaces button.focused {
-  background: #89b4fa;
-  color: #1e1e2e;
-  border: 1px solid #b4befe;
-  box-shadow: 0 0 4px #89b4fa;
+  color: #ffffff;
+  border-bottom: 2px solid #89b4fa;
 }
 
-/* Hover effect */
+/* hover */
 #workspaces button:hover {
-  background: #313244;
-  border: 1px solid #45475a;
+  background: transparent;
+  color: #ffffff;
 }
 
-/* Optional: urgent window indicator */
 #workspaces button.urgent {
-  background: #ed8796;
-  color: #1e1e2e;
+  color: #f38ba8;
 }

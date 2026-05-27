@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 28,
+  "height": 20,
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
@@ -13,14 +13,7 @@
   },
 
   "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": ""
-    },
+    "format": "{name}",
     "disable-scroll": true,
     "all-outputs": true
   },

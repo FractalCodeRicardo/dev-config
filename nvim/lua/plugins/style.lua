@@ -2,7 +2,7 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = false,
-    enabled = false,
+    enabled = true,
     priority = 1000,
     config = function()
       local tokyo = require("tokyonight")
@@ -173,7 +173,7 @@ return {
   },
   {
     "bluz71/vim-moonfly-colors",
-    enabled = true,
+    enabled = false,
     name = "moonfly",
     lazy = false,
     priority = 1000,
@@ -282,7 +282,7 @@ return {
     "tiagovla/tokyodark.nvim",
     enabled = false,
     opts = {
-      -- custom options here
+      transparent_background = true
     },
     config = function(_, opts)
       require("tokyodark").setup(opts) -- calling setup is optional

@@ -32,3 +32,4 @@ export PATH=/home/ricardo/.opencode/bin:$PATH
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.dotnet:$PATH"
 alias rm=trash
+export PATH="/home/ricardo/.usagi/bin:$PATH"

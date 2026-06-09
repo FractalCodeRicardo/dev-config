@@ -12,7 +12,7 @@ map.set("i", "jk", "<Esc>", options)
 vim.api.nvim_set_keymap('i', '<C-H>', '<C-W>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('i', '<C-BS>', '<C-W>', { noremap = true, silent = true })
 --ctrl + A select all
-vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG<CR>', options);
+--vim.api.nvim_set_keymap('n', '<C-a>', 'ggVG<CR>', options);
 
 -- alt + z and x to <>
 vim.api.nvim_set_keymap('i', '<A-z>', '<', { noremap = true, silent = true })

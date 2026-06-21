@@ -1,5 +1,8 @@
 local opt = vim.opt;
 
+-- search is slow when true
+opt.hlsearch = false
+
 opt.expandtab = true
 opt.shiftwidth = 2
 --opt.autocomplete = true

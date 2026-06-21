@@ -2,7 +2,7 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = false,
-    enabled = true,
+    enabled = false,
     priority = 1000,
     config = function()
       local tokyo = require("tokyonight")
@@ -110,7 +110,7 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
-    enabled = false,
+    enabled = true,
     config = function()
       local kanagawa = require("kanagawa");
       kanagawa.setup({
@@ -300,7 +300,6 @@ return {
       -- Lua initialization file
       vim.g.nightflyTransparent = true
       vim.cmd("colorscheme nightfly")
-      
     end
   },
   {
@@ -352,8 +351,7 @@ return {
     enabled = false,
     lazy = false,
     priority = 1000,
-    config = function ()
-
+    config = function()
       vim.cmd("colorscheme solarized-osaka")
     end
   },
@@ -468,7 +466,9 @@ return {
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
       -- load the colorscheme here
-      require("night-owl").setup()
+      require("night-owl").setup({
+        transparent_background = true
+      })
       vim.cmd.colorscheme("night-owl")
     end,
   },
@@ -485,6 +485,18 @@ return {
       vim.cmd.colorscheme "aurora"
       -- override defaults
       vim.api.nvim_set_hl(0, '@number', { fg = '#e933e3' })
+    end
+  },
+  {
+    'Everblush/nvim',
+    enabled = false,
+    name = 'everblush',
+    config = function()
+      local everblush = require("everblush")
+      everblush.setup({
+        transparent_background = true
+      })
+      vim.cmd.colorscheme("everblush")
     end
   }
 }

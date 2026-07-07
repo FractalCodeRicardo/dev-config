@@ -1,0 +1,85 @@
+# ~/.config/ghostty/config
+
+#######################
+# Shell
+#######################
+
+command = /bin/zsh
+
+#######################
+# Window
+#######################
+
+background-opacity = 0.8
+window-decoration = none
+confirm-close-surface = true
+
+#######################
+# Font
+#######################
+
+#font-family = "Iosevka Nerd Font Mono"
+font-size = 23
+
+# Uncomment if you want another font
+# font-family = "Maple Mono NF"
+#font-family = "JetBrains Mono"
+
+# font-family = "Departure Mono"
+#font-family = "Terminus"
+#font-family = "Cozette"
+# font-family = "scientifica"
+#font-family = "ProggyClean Nerd Font"
+#font-family = "0xProto Nerd Font"
+#font-family = "MartianMono Nerd Font"
+#font-family = "Monaspace Radon NF"
+# font-family = "VictorMono Nerd Font"
+font-family = "Misc Tamsyn"
+#######################
+# Cursor
+#######################
+
+cursor-style = block
+
+#######################
+# Theme
+#######################
+
+# theme = Adwaita Dark
+theme = "GitHub Dark High Contrast"
+#####################
+# Tabs
+#######################
+
+gtk-tabs-location = top
+
+#######################
+# Keybindings
+#######################
+
+# New tab
+keybind = ctrl+shift+t=new_tab
+
+# Close tab
+keybind = ctrl+shift+w=close_surface
+
+# Next / Previous tab
+keybind = ctrl+shift+l=next_tab
+keybind = ctrl+shift+h=previous_tab
+
+# New window
+keybind = ctrl+shift+n=new_window
+
+# Split panes (optional)
+keybind = ctrl+shift+v=new_split:right
+keybind = ctrl+shift+s=new_split:down
+
+#######################
+# Clipboard
+#######################
+
+copy-on-select = clipboard
+keybind = ctrl+shift+equal=increase_font_size:1
+keybind = ctrl+shift+m=increase_font_size:1
+keybind = ctrl+shift+n=decrease_font_size:1
+keybind = ctrl+zero=reset_font_size

@@ -19,7 +19,7 @@ vim.api.nvim_create_user_command("LoadMacro", function (params)
   local name = params.args
   local dir = vim.fn.expand("~/.config/nvim/macros/")
   local file = dir .. name .. ".macro"
-
+ 
   local content = vim.fn.readfile(file)
 
  vim.fn.setreg("q", content)

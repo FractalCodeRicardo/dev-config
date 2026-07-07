@@ -2,7 +2,6 @@ local opt = vim.opt;
 
 -- search is slow when true
 opt.hlsearch = false
-
 opt.expandtab = true
 opt.shiftwidth = 2
 --opt.autocomplete = true
@@ -31,11 +30,11 @@ vim.diagnostic.config({
   severity_sort = true,      -- Sort diagnostics by severity
 })
 
-vim.api.nvim_create_user_command("Dotnet", function()
-  vim.cmd("compiler dotnet")
-  vim.cmd("make")
-  vim.cmd("copen")
-end, {})
+-- vim.api.nvim_create_user_command("Dotnet", function()
+--   vim.cmd("compiler dotnet")
+--   vim.cmd("make")
+--   vim.cmd("copen")
+-- end, {})
 
 local utils = require("my.utils")
 
@@ -49,22 +48,9 @@ if utils.im_on_windows() then
 end
 
 vim.opt.shortmess:append { I = true, c = false, F = false }
--- I → skip the intro message
--- c → suppress completion messages
--- F → suppress file info messages
-
--- remove "Press enter to continue message"
-vim.opt.more = false
-vim.opt.showmode = false
-
--- No status line
--- vim.opt.laststatus = 0
--- vim.opt.cmdheight = 0
--- vim.opt.showmode = false
--- vim.opt.ruler = false
 vim.opt.shell = "/bin/zsh"
 
-local ui2 = require("vim._core.ui2")
-ui2.enable({
-  enable = true
-})
+-- local ui2 = require("vim._core.ui2")
+-- ui2.enable({
+--   enable = true
+-- })

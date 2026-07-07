@@ -2,7 +2,7 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = false,
-    enabled = false,
+    enabled = true,
     priority = 1000,
     config = function()
       local tokyo = require("tokyonight")
@@ -110,7 +110,7 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
-    enabled = true,
+    enabled = false,
     config = function()
       local kanagawa = require("kanagawa");
       kanagawa.setup({

@@ -91,13 +91,7 @@ return {
     maps.set('n', '<F5>',
 
       function()
-        if utils.get_debug_assembly() == nil then
-          utils.configure_debug_assembly(function()
-            dap.continue()
-          end)
-        else
           dap.continue()
-        end
       end
       , { desc = "Start/Continue Debugging" })
     maps.set('n', '<F6>', dap.step_over, { desc = "Step Over" })

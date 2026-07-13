@@ -1,7 +1,7 @@
 return {
   {
     "folke/tokyonight.nvim",
-    lazy = false,
+    lazy = true,
     enabled = true,
     priority = 1000,
     config = function()
@@ -68,7 +68,7 @@ return {
     config = function()
       require("cyberdream").setup({
         variant = "dark",
-        transparent = false
+        transparent = true
       });
 
       vim.cmd("colorscheme cyberdream")
@@ -154,6 +154,9 @@ return {
     lazy = true,     -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
+      local neo  = require("NeoSolarized")
+      neo.setup({
+      })
       vim.cmd("colorscheme NeoSolarized")
     end
   },
@@ -321,8 +324,9 @@ return {
     priority = 1000,
     config = function()
       require("everforest").setup({
+        transparent_background_level = 2,
       })
-      vim.o.background = "light";
+      vim.cmd("colorscheme everforest")
     end,
   },
   {
@@ -497,6 +501,15 @@ return {
         transparent_background = true
       })
       vim.cmd.colorscheme("everblush")
+    end
+  },
+  {
+    'shaunsingh/moonlight.nvim',
+    enabled = false,
+    config = function ()
+      local moon = require("moonlight")
+      vim.g.moonlight_disable_background = true
+      moon.set()
     end
   }
 }

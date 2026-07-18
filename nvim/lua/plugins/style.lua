@@ -1,8 +1,8 @@
 return {
   {
     "folke/tokyonight.nvim",
-    lazy = true,
-    enabled = true,
+    lazy = false,
+    enabled = false,
     priority = 1000,
     config = function()
       local tokyo = require("tokyonight")
@@ -37,26 +37,26 @@ return {
     config = function()
       local catpuccin = require("catppuccin")
       catpuccin.setup({
-        flavour = "mocha",
-        transparent_background = true
+        flavour = "frappe",
+        transparent_background = false
       })
 
-      vim.cmd("colorscheme catppuccin-mocha")
+      vim.cmd("colorscheme catppuccin-frappe")
     end
   },
   {
     "EdenEast/nightfox.nvim",
-    enabled = false,
+    enabled = true,
     lazy = false,
     config = function()
       local nightfox = require("nightfox");
       nightfox.setup({
         options = {
-          transparent = true
+          transparent = false
         }
       })
 
-      vim.cmd("colorscheme duskfox")
+      vim.cmd("colorscheme nightfox")
     end
   },
 
@@ -115,7 +115,7 @@ return {
       local kanagawa = require("kanagawa");
       kanagawa.setup({
         -- theme = "wave",
-        transparent = true
+        transparent = false
       })
 
       vim.o.background = "dark"
@@ -154,7 +154,7 @@ return {
     lazy = true,     -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
-      local neo  = require("NeoSolarized")
+      local neo = require("NeoSolarized")
       neo.setup({
       })
       vim.cmd("colorscheme NeoSolarized")
@@ -225,6 +225,7 @@ return {
     enabled = false,
     config = function()
       require("oldworld").setup({})
+      vim.cmd("colorscheme oldworld")
     end
   },
   {
@@ -381,6 +382,9 @@ return {
   {
     "savq/melange-nvim",
     enabled = false,
+    config = function()
+      vim.cmd("colorscheme melange")
+    end
   },
   -- Using lazy.nvim
   {
@@ -406,7 +410,8 @@ return {
         }
 
       }
-      vim.o.background = "light"
+      vim.o.background = "dark"
+      vim.cmd("colorscheme onenord")
     end
   },
   {
@@ -418,7 +423,9 @@ return {
     priority = 1000,
     config = function()
       vim.g.zenbones_darken_comments = 45
-      vim.o.background = "light"
+      vim.o.background = "dark"
+
+      vim.cmd("colorscheme tokyobones")
     end
   },
   {
@@ -506,10 +513,19 @@ return {
   {
     'shaunsingh/moonlight.nvim',
     enabled = false,
-    config = function ()
+    config = function()
       local moon = require("moonlight")
       vim.g.moonlight_disable_background = true
       moon.set()
     end
+  },
+  {
+    "rjshkhr/shadow.nvim",
+    enabled = false,
+    priority = 1000,
+    config = function()
+      vim.opt.termguicolors = true
+      vim.cmd.colorscheme("shadow")
+    end,
   }
 }

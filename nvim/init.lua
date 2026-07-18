@@ -26,5 +26,3 @@ vim.lsp.enable('glsl_analyzer')
 vim.fn.setenv("DAP_LOG_LEVEL", "TRACE")
 vim.fn.setenv("DAP_LOG_FILE", vim.fn.stdpath("cache") .. "/dap.log")
 
-      vim.cmd.colorscheme("tokyonight-storm")
-

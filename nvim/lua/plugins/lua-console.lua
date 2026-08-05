@@ -1,5 +1,6 @@
 return {
   "yarospace/lua-console.nvim",
+  enabled = false,
   lazy = true,
 keys = { { '<leader>ok', desc = 'lua-console: toggle' } },
     opts = {

@@ -2,7 +2,7 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = false,
-    enabled = false,
+    enabled = true,
     priority = 1000,
     config = function()
       local tokyo = require("tokyonight")
@@ -37,26 +37,26 @@ return {
     config = function()
       local catpuccin = require("catppuccin")
       catpuccin.setup({
-        flavour = "frappe",
-        transparent_background = false
+        flavour = "latte",
+        transparent_background = true
       })
 
-      vim.cmd("colorscheme catppuccin-frappe")
+      vim.cmd("colorscheme catppuccin-latte")
     end
   },
   {
     "EdenEast/nightfox.nvim",
-    enabled = true,
+    enabled = false,
     lazy = false,
     config = function()
       local nightfox = require("nightfox");
       nightfox.setup({
         options = {
-          transparent = false
+          transparent = true
         }
       })
 
-      vim.cmd("colorscheme nightfox")
+      vim.cmd("colorscheme duskfox")
     end
   },
 
@@ -106,6 +106,8 @@ return {
           transparency = true
         }
       })
+
+      vim.cmd("colorscheme rose-pine")
     end
   },
   {
@@ -114,8 +116,8 @@ return {
     config = function()
       local kanagawa = require("kanagawa");
       kanagawa.setup({
-        -- theme = "wave",
-        transparent = false
+        theme = "wave",
+        transparent = true
       })
 
       vim.o.background = "dark"
@@ -484,20 +486,6 @@ return {
     end,
   },
 
-  {
-    'ray-x/aurora',
-    enabled = false,
-    init = function()
-      vim.g.aurora_italic = 1
-      vim.g.aurora_transparent = 1
-      vim.g.aurora_bold = 1
-    end,
-    config = function()
-      vim.cmd.colorscheme "aurora"
-      -- override defaults
-      vim.api.nvim_set_hl(0, '@number', { fg = '#e933e3' })
-    end
-  },
   {
     'Everblush/nvim',
     enabled = false,

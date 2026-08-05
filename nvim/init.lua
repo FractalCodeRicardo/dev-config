@@ -22,6 +22,7 @@ vim.lsp.enable('lemminx')
 vim.lsp.enable('clangd')
 vim.lsp.enable('html-lsp')
 vim.lsp.enable('glsl_analyzer')
+vim.lsp.enable('tailwindcss')
 
 vim.fn.setenv("DAP_LOG_LEVEL", "TRACE")
 vim.fn.setenv("DAP_LOG_FILE", vim.fn.stdpath("cache") .. "/dap.log")

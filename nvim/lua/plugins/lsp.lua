@@ -47,6 +47,7 @@ return {
     vim.lsp.config("astro", {})
     vim.lsp.config("ts_ls", {})
     vim.lsp.config("glsl_analyzer", {})
+    vim.lsp.config("tailwindcss", {})
 
     vim.lsp.config("lemminx", {
       filetypes = { "xml", "axaml", "xsd", "xslt", "csproj" },

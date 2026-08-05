@@ -34,3 +34,4 @@ export PATH="$HOME/.dotnet:$PATH"
 alias rm=trash
 export PATH="/home/ricardo/.usagi/bin:$PATH"
 export DOTNET_ROOT="/home/ricardo/.dotnet/"
+export PATH="$PATH:/home/ricardo/.dotnet/tools"

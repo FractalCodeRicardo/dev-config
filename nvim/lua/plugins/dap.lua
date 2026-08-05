@@ -30,7 +30,6 @@ return {
       }
     }
 
-
     dap.configurations.rust = {
       {
         name = "Launch file",

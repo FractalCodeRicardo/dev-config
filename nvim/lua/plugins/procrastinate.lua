@@ -1,7 +1,7 @@
 return {
   {
     "eandrju/cellular-automaton.nvim",
-    enabled = false
+    enabled = true
   },
   {
     "NStefan002/donut.nvim",
@@ -21,7 +21,7 @@ return {
   },
   {
     "seandewar/killersheep.nvim",
-    enabled = false,
+    enabled = true,
     config = function()
       require("killersheep").setup {
         gore = true,         -- Enables/disables blood and gore.

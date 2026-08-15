@@ -2,7 +2,7 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = false,
-    enabled = true,
+    enabled = false,
     priority = 1000,
     config = function()
       local tokyo = require("tokyonight")
@@ -38,7 +38,7 @@ return {
       local catpuccin = require("catppuccin")
       catpuccin.setup({
         flavour = "latte",
-        transparent_background = true
+        -- transparent_background = true
       })
 
       vim.cmd("colorscheme catppuccin-latte")
@@ -152,7 +152,7 @@ return {
 
   {
     "Tsuzat/NeoSolarized.nvim",
-    enabled = false,
+    enabled = true,
     lazy = true,     -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
@@ -178,7 +178,7 @@ return {
   },
   {
     "bluz71/vim-moonfly-colors",
-    enabled = false,
+    enabled = true,
     name = "moonfly",
     lazy = false,
     priority = 1000,

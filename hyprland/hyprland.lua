@@ -23,8 +23,8 @@ hl.env("HYPRCURSOR_SIZE", "24")
 
 hl.config({
   general = {
-    gaps_in = 1,
-    gaps_out = 1,
+    gaps_in = 0,
+    gaps_out = 0,
 col = {
   active_border = {
     colors = {
@@ -202,6 +202,9 @@ hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + F", hl.dsp.window.alter_zorder({
+    mode = "top",
+}))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
@@ -317,7 +320,7 @@ hl.window_rule({
     match = { class = "kitty" },
     float = true,
     center = true,
-    size = { 1400, 800 },
+    size = { 1200, 600 },
 })
 
 -- Miniquad

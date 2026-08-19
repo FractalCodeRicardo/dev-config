@@ -4,4 +4,4 @@ return  {
       require('grug-far').setup({
       })
     end
-  }
+}

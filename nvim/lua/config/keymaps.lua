@@ -60,7 +60,7 @@ map.set('n', '<A-l>', ':BufferLineCycleNext<CR>', options)
 map.set('n', '<A-h>', ':BufferLineCyclePrev<CR>', options)
 map.set('n', '<C-w>', ':bdelete<CR>', options)
 map.set('n', '<A-w>', ':BufferLineCloseLeft<CR>:BufferLineCloseRight<CR>', options)
-map.set('n', 'E', vim.diagnostic.open_float, options)
+-- map.set('n', 'E', vim.diagnostic.open_float, options)
 map.set('n', 'ne', '<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })<CR>', options)
 map.set('n', 'nw', '<cmd>lua vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARNING})<CR>', options)
 

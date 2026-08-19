@@ -12,7 +12,7 @@ opt.relativenumber = true
 opt.termguicolors = true
 opt.ignorecase = true
 opt.smartcase = true
-vim.o.winborder = 'rounded'
+-- vim.o.winborder = 'rounded'
 -- opt.cursorline = true
 -- opt.colorcolumn=90
 
@@ -54,3 +54,5 @@ vim.opt.shell = "/bin/zsh"
 -- ui2.enable({
 --   enable = true
 -- })
+
+

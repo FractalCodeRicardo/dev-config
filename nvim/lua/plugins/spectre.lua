@@ -1,6 +1,9 @@
 return {
-  enabled = false,
+  enabled = true,
   "nvim-pack/nvim-spectre",
   lazy = true,
-  dependencies = { "nvim-lua/plenary.nvim" }
+  dependencies = { "nvim-lua/plenary.nvim" },
+  config = function()
+    require("spectre").setup({})
+  end
 }

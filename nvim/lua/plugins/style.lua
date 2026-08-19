@@ -130,19 +130,13 @@ return {
   },
   {
     'sainnhe/gruvbox-material',
-    enabled = false,
+    enabled = true,
     lazy = false,
     priority = 1000,
     config = function()
-      -- Optionally configure and load the colorscheme
-      -- directly inside the plugin declaration.
       vim.g.gruvbox_material_enable_italic = true
-
-      -- foreground option can be material, mix, or original
       vim.g.gruvbox_material_foreground = "material"
-
-      --background option can be hard, medium, soft
-      vim.g.gruvbox_material_background = "medium"
+      vim.g.gruvbox_material_background = "hard"
       vim.g.gruvbox_material_enable_italic = 1
       vim.g.gruvbox_material_better_performance = 1
       vim.o.background = "dark"
@@ -152,7 +146,7 @@ return {
 
   {
     "Tsuzat/NeoSolarized.nvim",
-    enabled = true,
+    enabled = false,
     lazy = true,     -- make sure we load this during startup if it is your main colorscheme
     priority = 1000, -- make sure to load this before all the other start plugins
     config = function()
@@ -178,7 +172,7 @@ return {
   },
   {
     "bluz71/vim-moonfly-colors",
-    enabled = true,
+    enabled = false,
     name = "moonfly",
     lazy = false,
     priority = 1000,

@@ -65,6 +65,6 @@ cursor_trail 1
 
 
 # BEGIN_KITTY_THEME
-# Gruvbox Material Dark Hard
+# Adventure Time
 include current-theme.conf
 # END_KITTY_THEME

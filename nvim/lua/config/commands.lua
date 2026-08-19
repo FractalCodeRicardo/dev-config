@@ -1,5 +1,4 @@
-
-vim.api.nvim_create_user_command("SaveMacro", function (params)
+vim.api.nvim_create_user_command("SaveMacro", function(params)
   local name = params.args
   local dir = vim.fn.expand("~/.config/nvim/macros/")
   local file = dir .. name .. ".macro"
@@ -8,27 +7,27 @@ vim.api.nvim_create_user_command("SaveMacro", function (params)
   vim.fn.mkdir(dir, "p")
 
   vim.fn.writefile(
-    {content},
+    { content },
     file,
     "a"
   )
-end, {nargs = 1})
+end, { nargs = 1 })
 
 
-vim.api.nvim_create_user_command("LoadMacro", function (params)
+vim.api.nvim_create_user_command("LoadMacro", function(params)
   local name = params.args
   local dir = vim.fn.expand("~/.config/nvim/macros/")
   local file = dir .. name .. ".macro"
- 
+
   local content = vim.fn.readfile(file)
 
- vim.fn.setreg("q", content)
-end, {nargs = 1})
+  vim.fn.setreg("q", content)
+end, { nargs = 1 })
 
-vim.api.nvim_create_user_command("Reload", function () 
+vim.api.nvim_create_user_command("Reload", function()
   vim.cmd(":source $MYVIMRC")
 end
-,{})
+, {})
 
 --autosave
 -- vim.api.nvim_create_autocmd("BufLeave", {
@@ -48,3 +47,9 @@ end
 --     vim.cmd("write")
 --   end
 -- })
+
+
+vim.api.nvim_create_user_command("Spelling", function()
+  vim.opt.spell = true
+  vim.opt.spelllang = { "en_us", "es" }
+end, {})

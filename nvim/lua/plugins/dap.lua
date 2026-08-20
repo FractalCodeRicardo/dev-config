@@ -3,6 +3,7 @@ return {
   dependencies = {
     "rcarriga/nvim-dap-ui",
     "nvim-neotest/nvim-nio",
+    "jbyuki/one-small-step-for-vimkind"
   },
   config = function()
     local dap = require("dap")
@@ -62,6 +63,22 @@ return {
       }
     }
 
+    dap.adapters.nlua = function(callback, config)
+      callback({
+        type = "server",
+        host = config.host or "127.0.0.1",
+        port = config.port or 8086,
+      })
+    end
+
+    dap.configurations.lua = {
+      {
+        type = "nlua",
+        request = "attach",
+        name = "Attach to Neovim",
+      },
+    }
+
     dapui.setup({
       -- layouts = { {
       --   elements = { {
@@ -90,13 +107,13 @@ return {
     maps.set('n', '<F5>',
 
       function()
-          dap.continue()
+        dap.continue()
       end
       , { desc = "Start/Continue Debugging" })
     maps.set('n', '<F6>', dap.step_over, { desc = "Step Over" })
     maps.set('n', '<F7>', dap.step_into, { desc = "Step Into" })
     maps.set('n', '<F8>', dap.step_out, { desc = "Step Out" })
-    maps.set('n', '<Leader>db', function ()
+    maps.set('n', '<Leader>db', function()
       print("Breakpoint")
       dap.toggle_breakpoint()
     end, { desc = "Toggle Breakpoint" })

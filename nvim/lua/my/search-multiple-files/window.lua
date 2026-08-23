@@ -10,6 +10,7 @@ local line_entries = 3
 local perform_replace = nil
 local perform_cursor_moved = nil
 local perform_buffer_change = nil
+local perform_close = nil
 
 function M.on_replace(perform)
   perform_replace = perform
@@ -21,6 +22,10 @@ end
 
 function M.on_buffer_change(perform)
   perform_buffer_change = perform
+end
+
+function M.on_perform_close(perform)
+  perform_close = perform
 end
 
 function M.get_buffer_value(line, tag)
@@ -43,11 +48,13 @@ function M.get_search_string()
 end
 
 function M.get_replace_string()
-  return M.get_buffer_value(line_replace, "Replace:")
+  return M.get_buffer_value(line_replace, "ReplaceMe:")
 end
 
 function M.create_buffer()
   local buffer = vim.api.nvim_create_buf(false, true)
+  vim.bo[buffer].filetype = "lua"
+  vim.bo[buffer].syntax = "lua"
   return buffer
 end
 
@@ -65,14 +72,14 @@ function M.create_window(buffer)
       width = width - 2,
       height = height - 2,
       style = "minimal",
-      title = "Search / Replace",
+      title = "Search / ReplaceMe",
       border = "rounded"
     }
   )
 
   vim.api.nvim_buf_set_lines(buffer, 0, -1, false, {
     "Search: ",
-    "Replace: ",
+    "ReplaceMe: ",
   })
 
   vim.keymap.set("n", "<leader>R", function()
@@ -101,7 +108,6 @@ function M.create_window(buffer)
       end
     end
   })
-  vim.api.nvim_set_option_value("winblend", 20, { win = win })
 
   return window
 end
@@ -112,6 +118,10 @@ function M.close()
   end
 
   vim.api.nvim_win_hide(win)
+
+  if perform_close ~= nil then
+    perform_close()
+  end
 end
 
 function M.is_close()
@@ -171,6 +181,18 @@ function M.get_cursor_line()
   local line = cursor[1]
 
   return line
+end
+
+function M.mark_replaced(current_lines)
+  if buf == nil then
+    return
+  end
+
+  local new_lines = {}
+  for _, line in pairs(current_lines) do
+    table.insert(new_lines, line .. " ✅")
+  end
+  vim.api.nvim_buf_set_lines(buf, line_entries - 1, -1, false, new_lines)
 end
 
 return M

@@ -23,23 +23,28 @@ hl.env("HYPRCURSOR_SIZE", "24")
 
 hl.config({
   general = {
-    gaps_in = 0,
-    gaps_out = 0,
+    gaps_in = 3,
+    gaps_out = 8,
+    border_size = 1,
     col = {
       active_border = {
         colors = {
-          "rgba(d79921ff)", -- Gruvbox yellow
-          "rgba(fe8019ff)", -- Gruvbox orange
+          -- "rgba(d79921ff)", -- Gruvbox yellow
+          -- "rgba(fe8019ff)", -- Gruvbox orange
+          "rgba(6b03fcff)",
+          "rgba(6b03fcee)",
         },
         angle = 135,
       },
-      inactive_border = "rgba(504945aa)",
+      inactive_border = "rgba(00000011)",
     },
   },
 
   decoration = {
-    rounding = 5,
-    rounding_power = 1,
+    rounding = 12,
+    rounding_power = 5,
+    active_opacity = 0.95,
+    inactive_opacity = 0.90,
 
     shadow = {
       enabled = true,
@@ -50,9 +55,11 @@ hl.config({
 
     blur = {
       enabled = true,
-      size = 3,
-      passes = 2,
+      size = 2,
+      passes = 1,
       vibrancy = 0.1696,
+      ignore_opacity = true,
+      xray = false
     },
   },
 })

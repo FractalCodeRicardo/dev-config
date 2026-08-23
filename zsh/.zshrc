@@ -18,10 +18,10 @@ setopt HIST_IGNORE_SPACE
 setopt SHARE_HISTORY
 
 # Prompt (simple)
-PROMPT='last-hope:%~ '
+# PROMPT='> '
 
 # Enable colors
-autoload -U colors && colors
+# autoload -U colors && colors
 eval "$(starship init zsh)"
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #. "$HOME/.cargo/env"

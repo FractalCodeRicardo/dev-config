@@ -2,7 +2,7 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = false,
-    enabled = false,
+    enabled = true,
     priority = 1000,
     config = function()
       local tokyo = require("tokyonight")
@@ -130,7 +130,7 @@ return {
   },
   {
     'sainnhe/gruvbox-material',
-    enabled = true,
+    enabled = false,
     lazy = false,
     priority = 1000,
     config = function()
@@ -508,6 +508,30 @@ return {
     config = function()
       vim.opt.termguicolors = true
       vim.cmd.colorscheme("shadow")
+    end,
+  },
+  {
+    enabled = false,
+    "tanmaymanojgandhi/circadia",
+    rtp = "ports/neovim",
+    opts = {}
+  },
+  {
+    "harshrajsachan/omni.nvim",
+    lazy = false,  -- load during startup if OmniTheme is your main colorscheme
+    priority = 1000, -- load before other start plugins
+
+    config = function()
+      -- Optional: access OmniTheme's Lua API
+      -- local omnitheme = require("omnitheme")
+
+      -- Optional: enable a transparent background.
+      -- Must be set before loading the colorscheme.
+      -- vim.g.omnitheme_transparent = true
+
+      -- Choose your flavour.
+      -- vim.cmd("colorscheme blackout")
+      vim.g.omnitheme_transparent = true
     end,
   }
 }

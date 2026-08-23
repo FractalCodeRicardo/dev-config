@@ -65,6 +65,6 @@ cursor_trail 1
 
 
 # BEGIN_KITTY_THEME
-# Adventure Time
+# Night Owl
 include current-theme.conf
 # END_KITTY_THEME

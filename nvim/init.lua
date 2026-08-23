@@ -9,6 +9,7 @@ require("my.surround")
 -- require("my.pairs")
 require("my.terminal")
 require("my.compilers")
+require("my.disable-transparency")
 -- require("my.autocomplete")
 --require("my.evalbuffer")
 

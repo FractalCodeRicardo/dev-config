@@ -41,8 +41,9 @@ local function replace_current_entries()
   for name, value in pairs(files) do
     replace_file(old, new, name)
   end
-end
 
+  window.mark_replaced(current_entries)
+end
 
 local function get_rg_entries(search)
   local command = string
@@ -95,3 +96,6 @@ end, {})
 window.on_replace(replace_current_entries)
 window.on_cursor_moved(show_preview)
 window.on_buffer_change(on_buffer_change)
+window.on_perform_close(function()
+  preview.close()
+end)

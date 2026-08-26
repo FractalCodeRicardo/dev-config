@@ -1,3 +1,4 @@
+
 local api = vim.api
 local buf = api.nvim_create_buf(false, true)
 local win = api.nvim_open_win(buf, true, {

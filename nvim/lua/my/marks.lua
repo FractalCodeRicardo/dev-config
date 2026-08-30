@@ -24,5 +24,6 @@ local function select_mark()
   end)
 end
 
+
 vim.keymap.set("n", "gm",select_mark, {})
 

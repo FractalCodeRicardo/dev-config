@@ -1,15 +1,4 @@
 local api = vim.api
-local buf = api.nvim_create_buf(false, true)
-local win = api.nvim_open_win(buf, true, {
-  relative = "editor",
-  col = 50, row = 0,
-  width = 35, height = 20,
-  border = "rounded",
-  style = "minimal"
-})
-
-vim.bo[buf].filetype = "lua"
-
 api.nvim_create_autocmd("CursorMoved", {
   callback = function()
     local c_win = api.nvim_get_current_win()
@@ -21,8 +10,13 @@ api.nvim_create_autocmd("CursorMoved", {
     local file = vim.split(line, " ")[4]
 
     if vim.fn.filereadable(file) == 1 then
-      local content = vim.fn.readfile(file)
-      api.nvim_buf_set_lines(buf, 0, -1, false, content)
+      local content = vim.fn.readblob(file)
+      vim.ui.img.set(content, {
+        height = 15,
+        width = 30,
+        col = 25,
+        row = 1
+      })
     end
   end
 })

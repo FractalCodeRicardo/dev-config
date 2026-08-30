@@ -10,7 +10,6 @@ end
 
 vim.keymap.set("n", "Q", add_cursor, {})
 
-
 -- 2. Keymap to start/stop edition over the positions
 
 local start_edition = false
@@ -59,6 +58,7 @@ local function add_character(character)
     end
   end
 end
+
 
 -- 3. Autocommand to get the characters typed while editing
 vim.api.nvim_create_autocmd('InsertCharPre', {

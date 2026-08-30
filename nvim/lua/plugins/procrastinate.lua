@@ -5,7 +5,7 @@ return {
   },
   {
     "NStefan002/donut.nvim",
-    enabled = false,
+    enabled = true,
     version = "*",
     lazy = false,
   },

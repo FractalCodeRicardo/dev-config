@@ -2,7 +2,7 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = false,
-    enabled = true,
+    enabled = false,
     priority = 1000,
     config = function()
       local tokyo = require("tokyonight")
@@ -30,18 +30,18 @@ return {
   },
   {
     "catppuccin/nvim",
-    enabled = false,
+    enabled = true,
     lazy = false,
     name = "catppuccin",
     priority = 1000,
     config = function()
       local catpuccin = require("catppuccin")
       catpuccin.setup({
-        flavour = "latte",
-        -- transparent_background = true
+        flavour = "mocha",
+        transparent_background = true
       })
 
-      vim.cmd("colorscheme catppuccin-latte")
+      vim.cmd("colorscheme catppuccin-mocha")
     end
   },
   {
@@ -121,6 +121,7 @@ return {
       })
 
       vim.o.background = "dark"
+      -- vim.o.background = "light"
       vim.cmd("colorscheme kanagawa")
     end
   },
@@ -139,7 +140,7 @@ return {
       vim.g.gruvbox_material_background = "hard"
       vim.g.gruvbox_material_enable_italic = 1
       vim.g.gruvbox_material_better_performance = 1
-      vim.o.background = "dark"
+      vim.o.background = "light"
       vim.cmd.colorscheme('gruvbox-material')
     end
   },
@@ -152,6 +153,9 @@ return {
     config = function()
       local neo = require("NeoSolarized")
       neo.setup({
+        style = "dark",
+        transparent = true
+
       })
       vim.cmd("colorscheme NeoSolarized")
     end
@@ -390,7 +394,8 @@ return {
     priority = 1000,
     config = function()
       require('bamboo').setup {
-        transparent = true
+        transparent = true,
+        style = "light"
       }
       require('bamboo').load()
     end,
@@ -518,7 +523,7 @@ return {
   },
   {
     "harshrajsachan/omni.nvim",
-    lazy = false,  -- load during startup if OmniTheme is your main colorscheme
+    lazy = false,    -- load during startup if OmniTheme is your main colorscheme
     priority = 1000, -- load before other start plugins
 
     config = function()

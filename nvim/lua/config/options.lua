@@ -1,5 +1,5 @@
 local opt = vim.opt;
-
+-- vim.opt.background = "light"
 -- search is slow when true
 opt.hlsearch = false
 opt.expandtab = true

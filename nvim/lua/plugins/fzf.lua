@@ -1,6 +1,6 @@
 return {
     "ibhagwan/fzf-lua",
-    enabled = true,
+    enabled = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
         local map = vim.keymap;

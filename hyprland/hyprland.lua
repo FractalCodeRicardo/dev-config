@@ -1,5 +1,5 @@
 hl.on("hyprland.start", function()
-  hl.exec_cmd("noctalia")
+  -- hl.exec_cmd("noctalia")
   hl.exec_cmd("waybar")
   hl.exec_cmd("hyprpaper")
 end)
@@ -55,8 +55,8 @@ hl.config({
 
     blur = {
       enabled = true,
-      size = 2,
-      passes = 1,
+      size = 3,
+      passes = 3,
       vibrancy = 0.1696,
       ignore_opacity = true,
       xray = false

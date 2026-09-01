@@ -30,7 +30,7 @@ return {
   },
   {
     "catppuccin/nvim",
-    enabled = true,
+    enabled = false,
     lazy = false,
     name = "catppuccin",
     priority = 1000,
@@ -101,7 +101,6 @@ return {
     config = function()
       local rose = require("rose-pine")
       rose.setup({
-        variant = "dawn",
         styles = {
           transparency = true
         }
@@ -176,7 +175,7 @@ return {
   },
   {
     "bluz71/vim-moonfly-colors",
-    enabled = false,
+    enabled = true,
     name = "moonfly",
     lazy = false,
     priority = 1000,

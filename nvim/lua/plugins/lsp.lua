@@ -22,6 +22,8 @@ return {
             globals = { 'vim' }, -- Recognize `vim` as a global
             disable = {
               "unused-local",
+              "param-type-mismatch",
+              "missing-return",
             },
           },
           workspace = {

@@ -207,6 +207,10 @@ hl.bind("F2", hl.dsp.pass({ window = obs }))
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only"))
+hl.bind(
+  mainMod .. " + SHIFT + D",
+  hl.dsp.exec_cmd("hyprshot -m region -o ~/Pictures/Screenshots")
+)
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))

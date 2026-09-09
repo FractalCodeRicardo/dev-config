@@ -4,7 +4,7 @@ vim.g.maplocalleader = " " -- Set space as local leader
 require("config.lazy")
 require("config.keymaps")
 require("config.options")
--- require("config.commands")
+require("config.commands")
 -- require("my.surround")
 -- require("my.pairs")
 require("my.terminal")

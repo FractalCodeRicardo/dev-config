@@ -85,4 +85,4 @@ vim.keymap.set('n', '<Leader>z', '<C-z>', { noremap = true, silent = true })
 
 --terminal insert to normal mode
 vim.keymap.set("t", "<esc><esc>", "<C-\\><C-n>", { silent = true })
-
+vim.keymap.set("n", "<Leader>cm","<C-l>", {})

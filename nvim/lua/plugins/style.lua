@@ -30,7 +30,7 @@ return {
   },
   {
     "catppuccin/nvim",
-    enabled = false,
+    enabled = true,
     lazy = false,
     name = "catppuccin",
     priority = 1000,
@@ -175,7 +175,7 @@ return {
   },
   {
     "bluz71/vim-moonfly-colors",
-    enabled = true,
+    enabled = false,
     name = "moonfly",
     lazy = false,
     priority = 1000,

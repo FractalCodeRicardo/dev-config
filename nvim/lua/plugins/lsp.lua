@@ -24,6 +24,8 @@ return {
               "unused-local",
               "param-type-mismatch",
               "missing-return",
+              "white-space",
+              "trailing-space"
             },
           },
           workspace = {

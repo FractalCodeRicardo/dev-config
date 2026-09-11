@@ -31,10 +31,12 @@ hl.config({
         colors = {
           -- "rgba(d79921ff)", -- Gruvbox yellow
           -- "rgba(fe8019ff)", -- Gruvbox orange
-          "rgba(6b03fcff)",
-          "rgba(6b03fcee)",
+          -- "rgba(6b03fcff)",
+          -- "rgba(6b03fcee)",
+          "rgba(348c04ff)",  -- Lemon green
+          "rgba(348c04ee)",  -- Slight transparency
         },
-        angle = 135,
+        angle = 1,
       },
       inactive_border = "rgba(00000011)",
     },
@@ -55,10 +57,10 @@ hl.config({
 
     blur = {
       enabled = true,
-      size = 3,
-      passes = 3,
+      size = 1,
+      passes = 1,
       vibrancy = 0.1696,
-      ignore_opacity = true,
+      ignore_opacity = false,
       xray = false
     },
   },

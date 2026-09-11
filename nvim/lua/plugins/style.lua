@@ -30,7 +30,7 @@ return {
   },
   {
     "catppuccin/nvim",
-    enabled = true,
+    enabled = false,
     lazy = false,
     name = "catppuccin",
     priority = 1000,
@@ -324,7 +324,8 @@ return {
     priority = 1000,
     config = function()
       require("everforest").setup({
-        transparent_background_level = 2,
+      transparent_background_level = 0,
+        background = "hard"
       })
       vim.cmd("colorscheme everforest")
     end,
@@ -352,7 +353,7 @@ return {
   },
   {
     "craftzdog/solarized-osaka.nvim",
-    enabled = false,
+    enabled = true,
     lazy = false,
     priority = 1000,
     config = function()

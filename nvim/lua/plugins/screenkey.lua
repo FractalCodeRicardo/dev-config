@@ -6,9 +6,21 @@ return {
     local screenkey = require("screenkey")
     screenkey.setup({
       win_opts = {
---        row = 6
-        row = 20
+        col = 120,
+        row = 35   
       }
     })
   end
-}
+  }
+
+
+
+
+
+
+
+
+
+
+
+

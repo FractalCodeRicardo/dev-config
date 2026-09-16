@@ -40,7 +40,7 @@ map.set({ "n", "v", "i" }, "<C-S>", "<C-c>:wa<cr>", { silent = true, desc = "Sav
 --map.set("n", "q", ":cclose<cr>", options)
 -- LSP
 map.set("n", "rn", vim.lsp.buf.rename, options)
-
+map.set("n", "gr", vim.lsp.buf.references, options)
 map.set('n', 'gd', vim.lsp.buf.definition, {})
 map.set('n', 'gi', vim.lsp.buf.implementation, {})
 map.set("n", "<C-q>", vim.lsp.buf.code_action, options)

@@ -31,10 +31,10 @@ hl.config({
         colors = {
           -- "rgba(d79921ff)", -- Gruvbox yellow
           -- "rgba(fe8019ff)", -- Gruvbox orange
-          -- "rgba(6b03fcff)",
-          -- "rgba(6b03fcee)",
-          "rgba(348c04ff)",  -- Lemon green
-          "rgba(348c04ee)",  -- Slight transparency
+          "rgba(6b03fcff)",
+          "rgba(6b03fcee)",
+          -- "rgba(348c04ff)",  -- Lemon green
+          -- "rgba(348c04ee)",  -- Slight transparency
         },
         angle = 1,
       },
@@ -45,7 +45,7 @@ hl.config({
   decoration = {
     rounding = 12,
     rounding_power = 5,
-    active_opacity = 0.95,
+    active_opacity = 1,
     inactive_opacity = 0.90,
 
     shadow = {

@@ -1,0 +1,19 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  caps h j k l
+)
+
+(defalias
+  caps (tap-hold 200 200 esc (layer-while-held arrows))
+)
+
+(deflayer main
+  @caps h j k l
+)
+
+(deflayer arrows
+  _ left down up right
+)

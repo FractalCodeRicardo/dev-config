@@ -45,22 +45,22 @@ fi
 
 if [ "$1" = "config" ]; then
     replace_folder "$nvim_repo" "$nvim_config"
-    replace_folder "$wezterm_repo" "$wezterm_config"
-    replace_folder "$i3_repo" "$i3_config"
+    # replace_folder "$wezterm_repo" "$wezterm_config"
+    # replace_folder "$i3_repo" "$i3_config"
     replace_folder "$hypr_repo" "$hypr_config"
-    replace_folder "$wofi_repo" "$wofi_config"
-    replace_folder "$waybar_repo" "$waybar_config"
+    # replace_folder "$wofi_repo" "$wofi_config"
+    # replace_folder "$waybar_repo" "$waybar_config"
     replace_folder "$kitty_repo" "$kitty_config"
     cp "$zsh_file_repo" "$zsh_file_config"
 fi
 
 if [ "$1" = "repo" ]; then
     replace_folder "$nvim_config" "$nvim_repo"
-    replace_folder "$wezterm_config" "$wezterm_repo"
-    replace_folder "$i3_config" "$i3_repo"
+    # replace_folder "$wezterm_config" "$wezterm_repo"
+    # replace_folder "$i3_config" "$i3_repo"
     replace_folder "$hypr_config" "$hypr_repo"
-    replace_folder "$wofi_config" "$wofi_repo"
-    replace_folder "$waybar_config" "$waybar_repo"
+    # replace_folder "$wofi_config" "$wofi_repo"
+    # replace_folder "$waybar_config" "$waybar_repo"
     replace_folder "$kitty_config" "$kitty_repo"
     cp "$zsh_file_config" "$zsh_file_repo"
 fi

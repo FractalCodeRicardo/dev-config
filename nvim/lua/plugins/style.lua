@@ -2,7 +2,7 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = false,
-    enabled = true,
+    enabled = false,
     priority = 1000,
     config = function()
       local tokyo = require("tokyonight")
@@ -30,7 +30,7 @@ return {
   },
   {
     "catppuccin/nvim",
-    enabled = false,
+    enabled = true,
     lazy = false,
     name = "catppuccin",
     priority = 1000,

@@ -37,7 +37,10 @@ hl.device({
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
-
+local function set_zoom(z)
+    zoom = math.max(1.0, z)
+    hl.config({ ["cursor.zoom_factor"] = zoom })
+end
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
@@ -68,6 +71,8 @@ hl.bind(mainMod .. " + F", hl.dsp.window.alter_zorder({
   mode = "top",
 }))
 
+hl.bind("SUPER + SHIFT + plus", function() set_zoom(1.5) end, { repeating = true })
+hl.bind("SUPER + SHIFT + minus", function() set_zoom(1.0) end, { repeating = true })
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 10 do

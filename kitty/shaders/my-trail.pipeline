@@ -1,0 +1,8 @@
+startgroup
+    animation_start cursor-trail-move
+    animation_stop cursor-trail-stop
+    var float DURATION 0.15
+    var float4 TRAIL_COLOR float4(0.045, 0.021, 0.127, 0.5)
+    var float4 TRAIL_COLOR_ACCENT float4(0.045, 0.021, 0.127, 0.5)
+    shaders cursor-trail-blaze
+endgroup

@@ -1,0 +1,5 @@
+
+startgroup
+    animation_step 0
+    shaders line-highlight
+endgroup

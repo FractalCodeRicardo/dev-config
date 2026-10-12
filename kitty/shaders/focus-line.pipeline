@@ -1,0 +1,5 @@
+startgroup
+    animation_start cursor-trail-move
+    animation_stop 1000
+    shaders focus-line
+endgroup

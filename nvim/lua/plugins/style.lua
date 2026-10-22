@@ -30,7 +30,7 @@ return {
   },
   {
     "catppuccin/nvim",
-    enabled = true,
+    enabled = false,
     lazy = false,
     name = "catppuccin",
     priority = 1000,
@@ -130,7 +130,7 @@ return {
   },
   {
     'sainnhe/gruvbox-material',
-    enabled = false,
+    enabled = true,
     lazy = false,
     priority = 1000,
     config = function()
@@ -139,7 +139,7 @@ return {
       vim.g.gruvbox_material_background = "hard"
       vim.g.gruvbox_material_enable_italic = 1
       vim.g.gruvbox_material_better_performance = 1
-      vim.o.background = "light"
+      vim.o.background = "dark"
       vim.cmd.colorscheme('gruvbox-material')
     end
   },

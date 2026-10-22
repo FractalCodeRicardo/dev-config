@@ -4,3 +4,10 @@ startgroup
     animation_curve linear
     shaders find-cursor
 endgroup
+
+startgroup
+var float HEIGHT = 0.05;
+    animation_start cursor-trail-move
+    animation_stop 1000
+    shaders focus-line
+endgroup

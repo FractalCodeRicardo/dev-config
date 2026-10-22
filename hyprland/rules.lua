@@ -58,4 +58,13 @@ hl.window_rule({
   size = { 1400, 800 },
 })
 
+-- Usagi widnows
+hl.window_rule({
+  match = { class = "Game" },
+  float = true,
+  center = false,
+  size = "400 300",
+  move = { "monitor_w-window_w-10", "10" },
+})
+
 

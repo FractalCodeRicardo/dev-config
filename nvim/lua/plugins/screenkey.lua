@@ -7,7 +7,7 @@ return {
     screenkey.setup({
       win_opts = {
         col = 120,
-        row = 25   
+        row = 1   
       }
     })
   end

@@ -25,11 +25,11 @@ hl.config({
     col = {
       active_border = {
         colors = {
-          "rgba(d79921ff)", -- Gruvbox yellow
-          "rgba(fe8019ff)", -- Gruvbox orange
+          -- "rgba(d79921ff)", -- Gruvbox yellow
+          -- "rgba(fe8019ff)", -- Gruvbox orange
           --
-          -- "rgba(6b03fcff)", -- Tokyo night
-          -- "rgba(6b03fcee)",
+          "rgba(6b03fcff)", -- Tokyo night
+          "rgba(6b03fcee)",
           --
           -- "rgba(348c04ff)",  -- Lemon green
           -- "rgba(348c04ee)",  -- Slight transparency

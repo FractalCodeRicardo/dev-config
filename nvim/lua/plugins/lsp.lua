@@ -29,7 +29,10 @@ return {
             },
           },
           workspace = {
-            library = vim.api.nvim_get_runtime_file("", true), -- Make LSP aware of Neovim runtime
+            -- library = vim.api.nvim_get_runtime_file("", true), -- Make LSP aware of Neovim runtime
+            library = {
+              vim.env.VIMRUNTIME
+            },
             checkThirdParty = false,                           -- Disable third-party library warnings
           },
           telemetry = {
@@ -44,6 +47,7 @@ return {
     })
 
     vim.lsp.config("clangd", {})
+    vim.lsp.config("jsonls", {})
     vim.lsp.config("kotlin_lsp", {})
     vim.lsp.config("rust_analyzer", {})
     vim.lsp.config("jsonls", {})

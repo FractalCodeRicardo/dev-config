@@ -1,5 +1,5 @@
 startgroup
-  animation_start cursor-trail-stop
+  animation_start cursor-trail-stop 
   animation_stop cursor-trail-move | 3600000
   animation_curve linear
   shaders mandelbulb

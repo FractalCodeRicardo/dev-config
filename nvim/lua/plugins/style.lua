@@ -30,7 +30,7 @@ return {
   },
   {
     "catppuccin/nvim",
-    enabled = true,
+    enabled = false,
     lazy = false,
     name = "catppuccin",
     priority = 1000,
@@ -52,7 +52,7 @@ return {
       local nightfox = require("nightfox");
       nightfox.setup({
         options = {
-          transparent = true
+          transparent = false
         }
       })
 
@@ -111,7 +111,7 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
-    enabled = false,
+    enabled = true,
     config = function()
       local kanagawa = require("kanagawa");
       kanagawa.setup({
@@ -523,20 +523,23 @@ return {
   },
   {
     "harshrajsachan/omni.nvim",
+    enabled = false,
     lazy = false,    -- load during startup if OmniTheme is your main colorscheme
     priority = 1000, -- load before other start plugins
 
     config = function()
-      -- Optional: access OmniTheme's Lua API
-      -- local omnitheme = require("omnitheme")
-
-      -- Optional: enable a transparent background.
-      -- Must be set before loading the colorscheme.
-      -- vim.g.omnitheme_transparent = true
-
-      -- Choose your flavour.
-      -- vim.cmd("colorscheme blackout")
       vim.g.omnitheme_transparent = true
     end,
-  }
+  },
+  { 
+    'datsfilipe/vesper.nvim',
+    enabled = false,
+    config = function()
+      local vesper = require("vesper")
+      vesper.setup({
+        transparent = true
+      })
+      vim.cmd("colorscheme vesper")
+    end
+  },
 }

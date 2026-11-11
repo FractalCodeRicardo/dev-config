@@ -14,7 +14,8 @@ return {
           "html",
           "css",
           "c_sharp",
-          "rust"
+          "rust",
+          "c"
       }
 
     end,

@@ -1,7 +1,7 @@
 #language slang 2026
 
 import kitty_custom_shader_types;
- 
+
 static const float FACTOR = 2;
 
 float3 rotateY(float3 p, float angle) {

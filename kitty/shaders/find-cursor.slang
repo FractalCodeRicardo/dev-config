@@ -1,4 +1,4 @@
-#language slang 2026
+2language slang 2026
 
 import kitty_custom_shader_types;
 

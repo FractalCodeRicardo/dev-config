@@ -7,6 +7,7 @@ require("config.options")
 require("config.commands")
 require("my.terminal")
 require("my.file-explorer")
+require("my.status-line")
 
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("astro")

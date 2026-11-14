@@ -50,10 +50,17 @@ end
 vim.opt.shortmess:append { I = true, c = false, F = false }
 vim.opt.shell = "/bin/zsh"
 
--- local ui2 = require("vim._core.ui2")
--- ui2.enable({
---   enable = true
--- })
+
+local ui = require("vim._core.ui2")
+ui.enable({
+  enable = true,
+  msg = {
+    targets = {
+      progress = "msg"
+    }
+  }
+})
+
 
 
 vim.api.nvim_set_hl(0, "DiagnosticUnnecessary", {})

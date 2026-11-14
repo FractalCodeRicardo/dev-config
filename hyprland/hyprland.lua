@@ -1,4 +1,4 @@
-terminal    = "kitty"
+terminal    = "kitty" 
 fileManager = "thunar"
 menu        = "wofi --show run"
 mainMod = "SUPER" 

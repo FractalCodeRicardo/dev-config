@@ -12,7 +12,7 @@ hl.config({
 
     follow_mouse = 1,
     accel_profile = "adaptive",
-    sensitivity  = 1, 
+    sensitivity  = 0.5, 
 
     touchpad     = {
       natural_scroll = false,

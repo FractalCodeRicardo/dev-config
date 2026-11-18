@@ -1,0 +1,5 @@
+startgroup
+  var float RESOLUTION = 10.0;
+  var float STRENGTH = 0.15;
+  shaders tft
+endgroup

@@ -20,6 +20,7 @@ opt.fillchars = { fold = " " }
 opt.foldmethod = "indent"
 opt.foldenable = false
 opt.foldlevel = 99
+opt.signcolumn = "yes:1"
 
 -- Enable diagnostics
 vim.diagnostic.config({
@@ -30,11 +31,6 @@ vim.diagnostic.config({
   severity_sort = true,      -- Sort diagnostics by severity
 })
 
--- vim.api.nvim_create_user_command("Dotnet", function()
---   vim.cmd("compiler dotnet")
---   vim.cmd("make")
---   vim.cmd("copen")
--- end, {})
 
 local utils = require("my.utils")
 
